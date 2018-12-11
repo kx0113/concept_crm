@@ -55,7 +55,7 @@
 <input type="hidden" id="stock_info_ajax_data" />
 <script>
     $(".js-example-basic-single2").select2({
-        placeholder: "Select a State",
+        placeholder: "- 请选择 -",
         allowClear: true,
         closeOnSelect:true
     });

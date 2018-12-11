@@ -12,6 +12,7 @@ use Yii;
  * @property integer $total_number
  * @property integer $current_number
  * @property integer $customer_id
+ * @property integer $before_number
  * @property integer $purpose_id
  * @property string $operation_time
  * @property integer $status
@@ -37,7 +38,7 @@ class StockLogs extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['token','stock_id', 'total_number', 'current_number', 'customer_id', 'purpose_id', 'status', 'add_user'], 'integer'],
+            [['token','stock_id', 'before_number','total_number', 'current_number', 'customer_id', 'purpose_id', 'status', 'add_user'], 'integer'],
             [['operation_time', 'update_at', 'create_at'], 'safe'],
             [['remark'], 'string', 'max' => 500],
         ];
@@ -54,6 +55,7 @@ class StockLogs extends \yii\db\ActiveRecord
             'total_number' => Yii::t('app', 'Total Number'),
             'current_number' => Yii::t('app', 'Current Number'),
             'customer_id' => Yii::t('app', 'Customer ID'),
+            'before_number' => Yii::t('app', 'before_number ID'),
             'purpose_id' => Yii::t('app', 'Purpose ID'),
             'operation_time' => Yii::t('app', 'Operation Time'),
             'status' => Yii::t('app', 'Status'),

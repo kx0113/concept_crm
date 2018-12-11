@@ -62727,3 +62727,2073 @@ $_SERVER = [
     ]
     'argc' => 1
 ]
+2018-12-11 19:31:09 [::1][1][-][error][yii\i18n\PhpMessageSource::loadFallbackMessages] The message file for category 'app' does not exist: /Applications/var/www/concept_crm/backend/messages/zh-CN/app.php Fallback file does not exist as well: /Applications/var/www/concept_crm/backend/messages/zh/app.php
+    in /Applications/var/www/concept_crm/backend/views/customer/index.php:10
+    in /Applications/var/www/concept_crm/backend/controllers/CustomerController.php:43
+2018-12-11 19:31:08 [::1][1][-][info][application] $_GET = [
+    'r' => 'customer/index'
+]
+
+$_COOKIE = [
+    'advanced-backend' => 'b3ad13080197a728a0f9ad889e3eff3d'
+    '_identity-backend' => 'e0583adc6700cc8ca373bb714594b6a5aa3b6d4f8c5bb6583611c428ce257d22a:2:{i:0;s:17:\"_identity-backend\";i:1;s:46:\"[1,\"mUhdHISkHPsvCkCPDVCeOp4hS2c3kEVS\",2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    'web_id' => '1'
+    '__returnUrl' => '/backend/web/'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'concept.xsk.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.98 Safari/537.36 QQBrowser/4.2.4763.400'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://concept.xsk.com/backend/web/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8'
+    'HTTP_COOKIE' => 'advanced-backend=b3ad13080197a728a0f9ad889e3eff3d; _identity-backend=e0583adc6700cc8ca373bb714594b6a5aa3b6d4f8c5bb6583611c428ce257d22a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22mUhdHISkHPsvCkCPDVCeOp4hS2c3kEVS%22%2C2592000%5D%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'concept.xsk.com'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Applications/var/www/concept_crm'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Applications/var/www/concept_crm/backend/web/index.php'
+    'REMOTE_PORT' => '64985'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=customer%2Findex'
+    'REQUEST_URI' => '/backend/web/index.php?r=customer%2Findex'
+    'SCRIPT_NAME' => '/backend/web/index.php'
+    'PHP_SELF' => '/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544527868.92
+    'REQUEST_TIME' => 1544527868
+    'argv' => [
+        0 => 'r=customer%2Findex'
+    ]
+    'argc' => 1
+]
+2018-12-11 19:34:48 [::1][1][-][error][yii\i18n\PhpMessageSource::loadFallbackMessages] The message file for category 'app' does not exist: /Applications/var/www/concept_crm/backend/messages/zh-CN/app.php Fallback file does not exist as well: /Applications/var/www/concept_crm/backend/messages/zh/app.php
+    in /Applications/var/www/concept_crm/backend/views/stock-logs/inputs.php:14
+    in /Applications/var/www/concept_crm/backend/controllers/StockLogsController.php:22
+2018-12-11 19:34:47 [::1][1][-][info][application] $_GET = [
+    'r' => 'stock-logs/inputs'
+]
+
+$_COOKIE = [
+    'advanced-backend' => 'b3ad13080197a728a0f9ad889e3eff3d'
+    '_identity-backend' => 'e0583adc6700cc8ca373bb714594b6a5aa3b6d4f8c5bb6583611c428ce257d22a:2:{i:0;s:17:\"_identity-backend\";i:1;s:46:\"[1,\"mUhdHISkHPsvCkCPDVCeOp4hS2c3kEVS\",2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    'web_id' => '1'
+    '__returnUrl' => '/backend/web/'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'concept.xsk.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.98 Safari/537.36 QQBrowser/4.2.4763.400'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://concept.xsk.com/backend/web/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8'
+    'HTTP_COOKIE' => 'advanced-backend=b3ad13080197a728a0f9ad889e3eff3d; _identity-backend=e0583adc6700cc8ca373bb714594b6a5aa3b6d4f8c5bb6583611c428ce257d22a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22mUhdHISkHPsvCkCPDVCeOp4hS2c3kEVS%22%2C2592000%5D%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'concept.xsk.com'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Applications/var/www/concept_crm'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Applications/var/www/concept_crm/backend/web/index.php'
+    'REMOTE_PORT' => '65068'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=stock-logs%2Finputs'
+    'REQUEST_URI' => '/backend/web/index.php?r=stock-logs%2Finputs'
+    'SCRIPT_NAME' => '/backend/web/index.php'
+    'PHP_SELF' => '/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544528087.61
+    'REQUEST_TIME' => 1544528087
+    'argv' => [
+        0 => 'r=stock-logs%2Finputs'
+    ]
+    'argc' => 1
+]
+2018-12-11 19:34:58 [::1][1][-][error][yii\i18n\PhpMessageSource::loadFallbackMessages] The message file for category 'app' does not exist: /Applications/var/www/concept_crm/backend/messages/zh-CN/app.php Fallback file does not exist as well: /Applications/var/www/concept_crm/backend/messages/zh/app.php
+    in /Applications/var/www/concept_crm/backend/views/stock-logs/inputs.php:14
+    in /Applications/var/www/concept_crm/backend/controllers/StockLogsController.php:22
+2018-12-11 19:34:57 [::1][1][-][info][application] $_GET = [
+    'r' => 'stock-logs/inputs'
+]
+
+$_COOKIE = [
+    'advanced-backend' => 'b3ad13080197a728a0f9ad889e3eff3d'
+    '_identity-backend' => 'e0583adc6700cc8ca373bb714594b6a5aa3b6d4f8c5bb6583611c428ce257d22a:2:{i:0;s:17:\"_identity-backend\";i:1;s:46:\"[1,\"mUhdHISkHPsvCkCPDVCeOp4hS2c3kEVS\",2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    'web_id' => '1'
+    '__returnUrl' => '/backend/web/'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'concept.xsk.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.98 Safari/537.36 QQBrowser/4.2.4763.400'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://concept.xsk.com/backend/web/index.php?r=stock-logs%2Finputs'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8'
+    'HTTP_COOKIE' => 'advanced-backend=b3ad13080197a728a0f9ad889e3eff3d; _identity-backend=e0583adc6700cc8ca373bb714594b6a5aa3b6d4f8c5bb6583611c428ce257d22a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22mUhdHISkHPsvCkCPDVCeOp4hS2c3kEVS%22%2C2592000%5D%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'concept.xsk.com'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Applications/var/www/concept_crm'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Applications/var/www/concept_crm/backend/web/index.php'
+    'REMOTE_PORT' => '65076'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=stock-logs%2Finputs'
+    'REQUEST_URI' => '/backend/web/index.php?r=stock-logs%2Finputs'
+    'SCRIPT_NAME' => '/backend/web/index.php'
+    'PHP_SELF' => '/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544528097.84
+    'REQUEST_TIME' => 1544528097
+    'argv' => [
+        0 => 'r=stock-logs%2Finputs'
+    ]
+    'argc' => 1
+]
+2018-12-11 19:35:00 [::1][1][-][error][yii\i18n\PhpMessageSource::loadFallbackMessages] The message file for category 'app' does not exist: /Applications/var/www/concept_crm/backend/messages/zh-CN/app.php Fallback file does not exist as well: /Applications/var/www/concept_crm/backend/messages/zh/app.php
+    in /Applications/var/www/concept_crm/backend/views/stock-logs/outs.php:14
+    in /Applications/var/www/concept_crm/backend/controllers/StockLogsController.php:26
+2018-12-11 19:34:59 [::1][1][-][info][application] $_GET = [
+    'r' => 'stock-logs/outs'
+]
+
+$_COOKIE = [
+    'advanced-backend' => 'b3ad13080197a728a0f9ad889e3eff3d'
+    '_identity-backend' => 'e0583adc6700cc8ca373bb714594b6a5aa3b6d4f8c5bb6583611c428ce257d22a:2:{i:0;s:17:\"_identity-backend\";i:1;s:46:\"[1,\"mUhdHISkHPsvCkCPDVCeOp4hS2c3kEVS\",2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    'web_id' => '1'
+    '__returnUrl' => '/backend/web/'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'concept.xsk.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.98 Safari/537.36 QQBrowser/4.2.4763.400'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://concept.xsk.com/backend/web/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8'
+    'HTTP_COOKIE' => 'advanced-backend=b3ad13080197a728a0f9ad889e3eff3d; _identity-backend=e0583adc6700cc8ca373bb714594b6a5aa3b6d4f8c5bb6583611c428ce257d22a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22mUhdHISkHPsvCkCPDVCeOp4hS2c3kEVS%22%2C2592000%5D%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'concept.xsk.com'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Applications/var/www/concept_crm'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Applications/var/www/concept_crm/backend/web/index.php'
+    'REMOTE_PORT' => '65076'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=stock-logs%2Fouts'
+    'REQUEST_URI' => '/backend/web/index.php?r=stock-logs%2Fouts'
+    'SCRIPT_NAME' => '/backend/web/index.php'
+    'PHP_SELF' => '/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544528099.24
+    'REQUEST_TIME' => 1544528099
+    'argv' => [
+        0 => 'r=stock-logs%2Fouts'
+    ]
+    'argc' => 1
+]
+2018-12-11 19:35:02 [::1][1][-][error][yii\i18n\PhpMessageSource::loadFallbackMessages] The message file for category 'app' does not exist: /Applications/var/www/concept_crm/backend/messages/zh-CN/app.php Fallback file does not exist as well: /Applications/var/www/concept_crm/backend/messages/zh/app.php
+    in /Applications/var/www/concept_crm/backend/views/stock-logs/returns.php:14
+    in /Applications/var/www/concept_crm/backend/controllers/StockLogsController.php:85
+2018-12-11 19:35:01 [::1][1][-][info][application] $_GET = [
+    'r' => 'stock-logs/returns'
+]
+
+$_COOKIE = [
+    'advanced-backend' => 'b3ad13080197a728a0f9ad889e3eff3d'
+    '_identity-backend' => 'e0583adc6700cc8ca373bb714594b6a5aa3b6d4f8c5bb6583611c428ce257d22a:2:{i:0;s:17:\"_identity-backend\";i:1;s:46:\"[1,\"mUhdHISkHPsvCkCPDVCeOp4hS2c3kEVS\",2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    'web_id' => '1'
+    '__returnUrl' => '/backend/web/'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'concept.xsk.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.98 Safari/537.36 QQBrowser/4.2.4763.400'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://concept.xsk.com/backend/web/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8'
+    'HTTP_COOKIE' => 'advanced-backend=b3ad13080197a728a0f9ad889e3eff3d; _identity-backend=e0583adc6700cc8ca373bb714594b6a5aa3b6d4f8c5bb6583611c428ce257d22a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22mUhdHISkHPsvCkCPDVCeOp4hS2c3kEVS%22%2C2592000%5D%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'concept.xsk.com'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Applications/var/www/concept_crm'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Applications/var/www/concept_crm/backend/web/index.php'
+    'REMOTE_PORT' => '65083'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=stock-logs%2Freturns'
+    'REQUEST_URI' => '/backend/web/index.php?r=stock-logs%2Freturns'
+    'SCRIPT_NAME' => '/backend/web/index.php'
+    'PHP_SELF' => '/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544528101.25
+    'REQUEST_TIME' => 1544528101
+    'argv' => [
+        0 => 'r=stock-logs%2Freturns'
+    ]
+    'argc' => 1
+]
+2018-12-11 19:42:38 [::1][1][-][error][yii\i18n\PhpMessageSource::loadFallbackMessages] The message file for category 'app' does not exist: /Applications/var/www/concept_crm/backend/messages/zh-CN/app.php Fallback file does not exist as well: /Applications/var/www/concept_crm/backend/messages/zh/app.php
+    in /Applications/var/www/concept_crm/backend/views/stock-logs/outs.php:14
+    in /Applications/var/www/concept_crm/backend/controllers/StockLogsController.php:26
+2018-12-11 19:42:37 [::1][1][-][info][application] $_GET = [
+    'r' => 'stock-logs/outs'
+]
+
+$_COOKIE = [
+    'advanced-backend' => 'b3ad13080197a728a0f9ad889e3eff3d'
+    '_identity-backend' => 'e0583adc6700cc8ca373bb714594b6a5aa3b6d4f8c5bb6583611c428ce257d22a:2:{i:0;s:17:\"_identity-backend\";i:1;s:46:\"[1,\"mUhdHISkHPsvCkCPDVCeOp4hS2c3kEVS\",2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    'web_id' => '1'
+    '__returnUrl' => '/backend/web/'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'concept.xsk.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.98 Safari/537.36 QQBrowser/4.2.4763.400'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://concept.xsk.com/backend/web/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8'
+    'HTTP_COOKIE' => 'advanced-backend=b3ad13080197a728a0f9ad889e3eff3d; _identity-backend=e0583adc6700cc8ca373bb714594b6a5aa3b6d4f8c5bb6583611c428ce257d22a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22mUhdHISkHPsvCkCPDVCeOp4hS2c3kEVS%22%2C2592000%5D%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'concept.xsk.com'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Applications/var/www/concept_crm'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Applications/var/www/concept_crm/backend/web/index.php'
+    'REMOTE_PORT' => '65219'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=stock-logs%2Fouts'
+    'REQUEST_URI' => '/backend/web/index.php?r=stock-logs%2Fouts'
+    'SCRIPT_NAME' => '/backend/web/index.php'
+    'PHP_SELF' => '/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544528557.84
+    'REQUEST_TIME' => 1544528557
+    'argv' => [
+        0 => 'r=stock-logs%2Fouts'
+    ]
+    'argc' => 1
+]
+2018-12-11 19:43:05 [::1][1][-][error][yii\i18n\PhpMessageSource::loadFallbackMessages] The message file for category 'app' does not exist: /Applications/var/www/concept_crm/backend/messages/zh-CN/app.php Fallback file does not exist as well: /Applications/var/www/concept_crm/backend/messages/zh/app.php
+    in /Applications/var/www/concept_crm/backend/views/stock-logs/inputs.php:14
+    in /Applications/var/www/concept_crm/backend/controllers/StockLogsController.php:22
+2018-12-11 19:43:05 [::1][1][-][info][application] $_GET = [
+    'r' => 'stock-logs/inputs'
+]
+
+$_COOKIE = [
+    'advanced-backend' => 'b3ad13080197a728a0f9ad889e3eff3d'
+    '_identity-backend' => 'e0583adc6700cc8ca373bb714594b6a5aa3b6d4f8c5bb6583611c428ce257d22a:2:{i:0;s:17:\"_identity-backend\";i:1;s:46:\"[1,\"mUhdHISkHPsvCkCPDVCeOp4hS2c3kEVS\",2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    'web_id' => '1'
+    '__returnUrl' => '/backend/web/'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'concept.xsk.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.98 Safari/537.36 QQBrowser/4.2.4763.400'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://concept.xsk.com/backend/web/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8'
+    'HTTP_COOKIE' => 'advanced-backend=b3ad13080197a728a0f9ad889e3eff3d; _identity-backend=e0583adc6700cc8ca373bb714594b6a5aa3b6d4f8c5bb6583611c428ce257d22a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22mUhdHISkHPsvCkCPDVCeOp4hS2c3kEVS%22%2C2592000%5D%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'concept.xsk.com'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Applications/var/www/concept_crm'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Applications/var/www/concept_crm/backend/web/index.php'
+    'REMOTE_PORT' => '65238'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=stock-logs%2Finputs'
+    'REQUEST_URI' => '/backend/web/index.php?r=stock-logs%2Finputs'
+    'SCRIPT_NAME' => '/backend/web/index.php'
+    'PHP_SELF' => '/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544528585.46
+    'REQUEST_TIME' => 1544528585
+    'argv' => [
+        0 => 'r=stock-logs%2Finputs'
+    ]
+    'argc' => 1
+]
+2018-12-11 19:43:17 [::1][1][-][error][yii\i18n\PhpMessageSource::loadFallbackMessages] The message file for category 'app' does not exist: /Applications/var/www/concept_crm/backend/messages/zh-CN/app.php Fallback file does not exist as well: /Applications/var/www/concept_crm/backend/messages/zh/app.php
+    in /Applications/var/www/concept_crm/backend/views/stock-logs/inputs.php:14
+    in /Applications/var/www/concept_crm/backend/controllers/StockLogsController.php:22
+2018-12-11 19:43:16 [::1][1][-][info][application] $_GET = [
+    'r' => 'stock-logs/inputs'
+]
+
+$_COOKIE = [
+    'advanced-backend' => 'b3ad13080197a728a0f9ad889e3eff3d'
+    '_identity-backend' => 'e0583adc6700cc8ca373bb714594b6a5aa3b6d4f8c5bb6583611c428ce257d22a:2:{i:0;s:17:\"_identity-backend\";i:1;s:46:\"[1,\"mUhdHISkHPsvCkCPDVCeOp4hS2c3kEVS\",2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    'web_id' => '1'
+    '__returnUrl' => '/backend/web/'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'concept.xsk.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.98 Safari/537.36 QQBrowser/4.2.4763.400'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://concept.xsk.com/backend/web/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8'
+    'HTTP_COOKIE' => 'advanced-backend=b3ad13080197a728a0f9ad889e3eff3d; _identity-backend=e0583adc6700cc8ca373bb714594b6a5aa3b6d4f8c5bb6583611c428ce257d22a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22mUhdHISkHPsvCkCPDVCeOp4hS2c3kEVS%22%2C2592000%5D%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'concept.xsk.com'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Applications/var/www/concept_crm'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Applications/var/www/concept_crm/backend/web/index.php'
+    'REMOTE_PORT' => '65256'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=stock-logs%2Finputs'
+    'REQUEST_URI' => '/backend/web/index.php?r=stock-logs%2Finputs'
+    'SCRIPT_NAME' => '/backend/web/index.php'
+    'PHP_SELF' => '/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544528596.79
+    'REQUEST_TIME' => 1544528596
+    'argv' => [
+        0 => 'r=stock-logs%2Finputs'
+    ]
+    'argc' => 1
+]
+2018-12-11 20:04:00 [::1][1][-][error][yii\i18n\PhpMessageSource::loadFallbackMessages] The message file for category 'app' does not exist: /Applications/var/www/concept_crm/backend/messages/zh-CN/app.php Fallback file does not exist as well: /Applications/var/www/concept_crm/backend/messages/zh/app.php
+    in /Applications/var/www/concept_crm/backend/views/stock-logs/returns.php:14
+    in /Applications/var/www/concept_crm/backend/controllers/StockLogsController.php:86
+2018-12-11 20:03:59 [::1][1][-][info][application] $_GET = [
+    'r' => 'stock-logs/returns'
+]
+
+$_COOKIE = [
+    'advanced-backend' => 'b3ad13080197a728a0f9ad889e3eff3d'
+    '_identity-backend' => 'e0583adc6700cc8ca373bb714594b6a5aa3b6d4f8c5bb6583611c428ce257d22a:2:{i:0;s:17:\"_identity-backend\";i:1;s:46:\"[1,\"mUhdHISkHPsvCkCPDVCeOp4hS2c3kEVS\",2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    'web_id' => '1'
+    '__returnUrl' => '/backend/web/'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'concept.xsk.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.98 Safari/537.36 QQBrowser/4.2.4763.400'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://concept.xsk.com/backend/web/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8'
+    'HTTP_COOKIE' => 'advanced-backend=b3ad13080197a728a0f9ad889e3eff3d; _identity-backend=e0583adc6700cc8ca373bb714594b6a5aa3b6d4f8c5bb6583611c428ce257d22a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22mUhdHISkHPsvCkCPDVCeOp4hS2c3kEVS%22%2C2592000%5D%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'concept.xsk.com'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Applications/var/www/concept_crm'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Applications/var/www/concept_crm/backend/web/index.php'
+    'REMOTE_PORT' => '49597'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=stock-logs%2Freturns'
+    'REQUEST_URI' => '/backend/web/index.php?r=stock-logs%2Freturns'
+    'SCRIPT_NAME' => '/backend/web/index.php'
+    'PHP_SELF' => '/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544529839.6
+    'REQUEST_TIME' => 1544529839
+    'argv' => [
+        0 => 'r=stock-logs%2Freturns'
+    ]
+    'argc' => 1
+]
+2018-12-11 20:07:37 [::1][1][-][error][yii\i18n\PhpMessageSource::loadFallbackMessages] The message file for category 'app' does not exist: /Applications/var/www/concept_crm/backend/messages/zh-CN/app.php Fallback file does not exist as well: /Applications/var/www/concept_crm/backend/messages/zh/app.php
+    in /Applications/var/www/concept_crm/backend/views/stock-logs/outs.php:14
+    in /Applications/var/www/concept_crm/backend/controllers/StockLogsController.php:26
+2018-12-11 20:07:36 [::1][1][-][info][application] $_GET = [
+    'r' => 'stock-logs/outs'
+]
+
+$_COOKIE = [
+    'advanced-backend' => 'b3ad13080197a728a0f9ad889e3eff3d'
+    '_identity-backend' => 'e0583adc6700cc8ca373bb714594b6a5aa3b6d4f8c5bb6583611c428ce257d22a:2:{i:0;s:17:\"_identity-backend\";i:1;s:46:\"[1,\"mUhdHISkHPsvCkCPDVCeOp4hS2c3kEVS\",2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    'web_id' => '1'
+    '__returnUrl' => '/backend/web/'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'concept.xsk.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.98 Safari/537.36 QQBrowser/4.2.4763.400'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://concept.xsk.com/backend/web/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8'
+    'HTTP_COOKIE' => 'advanced-backend=b3ad13080197a728a0f9ad889e3eff3d; _identity-backend=e0583adc6700cc8ca373bb714594b6a5aa3b6d4f8c5bb6583611c428ce257d22a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22mUhdHISkHPsvCkCPDVCeOp4hS2c3kEVS%22%2C2592000%5D%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'concept.xsk.com'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Applications/var/www/concept_crm'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Applications/var/www/concept_crm/backend/web/index.php'
+    'REMOTE_PORT' => '49681'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=stock-logs%2Fouts'
+    'REQUEST_URI' => '/backend/web/index.php?r=stock-logs%2Fouts'
+    'SCRIPT_NAME' => '/backend/web/index.php'
+    'PHP_SELF' => '/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544530056.67
+    'REQUEST_TIME' => 1544530056
+    'argv' => [
+        0 => 'r=stock-logs%2Fouts'
+    ]
+    'argc' => 1
+]
+2018-12-11 20:10:49 [::1][1][-][error][yii\i18n\PhpMessageSource::loadFallbackMessages] The message file for category 'app' does not exist: /Applications/var/www/concept_crm/backend/messages/zh-CN/app.php Fallback file does not exist as well: /Applications/var/www/concept_crm/backend/messages/zh/app.php
+    in /Applications/var/www/concept_crm/backend/views/stock-logs/inputs.php:14
+    in /Applications/var/www/concept_crm/backend/controllers/StockLogsController.php:22
+2018-12-11 20:10:48 [::1][1][-][info][application] $_GET = [
+    'r' => 'stock-logs/inputs'
+]
+
+$_COOKIE = [
+    'advanced-backend' => 'b3ad13080197a728a0f9ad889e3eff3d'
+    '_identity-backend' => 'e0583adc6700cc8ca373bb714594b6a5aa3b6d4f8c5bb6583611c428ce257d22a:2:{i:0;s:17:\"_identity-backend\";i:1;s:46:\"[1,\"mUhdHISkHPsvCkCPDVCeOp4hS2c3kEVS\",2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    'web_id' => '1'
+    '__returnUrl' => '/backend/web/'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'concept.xsk.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.98 Safari/537.36 QQBrowser/4.2.4763.400'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://concept.xsk.com/backend/web/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8'
+    'HTTP_COOKIE' => 'advanced-backend=b3ad13080197a728a0f9ad889e3eff3d; _identity-backend=e0583adc6700cc8ca373bb714594b6a5aa3b6d4f8c5bb6583611c428ce257d22a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22mUhdHISkHPsvCkCPDVCeOp4hS2c3kEVS%22%2C2592000%5D%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'concept.xsk.com'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Applications/var/www/concept_crm'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Applications/var/www/concept_crm/backend/web/index.php'
+    'REMOTE_PORT' => '49749'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=stock-logs%2Finputs'
+    'REQUEST_URI' => '/backend/web/index.php?r=stock-logs%2Finputs'
+    'SCRIPT_NAME' => '/backend/web/index.php'
+    'PHP_SELF' => '/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544530248.5
+    'REQUEST_TIME' => 1544530248
+    'argv' => [
+        0 => 'r=stock-logs%2Finputs'
+    ]
+    'argc' => 1
+]
+2018-12-11 20:11:30 [::1][1][-][error][yii\i18n\PhpMessageSource::loadFallbackMessages] The message file for category 'app' does not exist: /Applications/var/www/concept_crm/backend/messages/zh-CN/app.php Fallback file does not exist as well: /Applications/var/www/concept_crm/backend/messages/zh/app.php
+    in /Applications/var/www/concept_crm/backend/views/stock-logs/inputs.php:14
+    in /Applications/var/www/concept_crm/backend/controllers/StockLogsController.php:22
+2018-12-11 20:11:30 [::1][1][-][info][application] $_GET = [
+    'r' => 'stock-logs/inputs'
+]
+
+$_COOKIE = [
+    'advanced-backend' => 'b3ad13080197a728a0f9ad889e3eff3d'
+    '_identity-backend' => 'e0583adc6700cc8ca373bb714594b6a5aa3b6d4f8c5bb6583611c428ce257d22a:2:{i:0;s:17:\"_identity-backend\";i:1;s:46:\"[1,\"mUhdHISkHPsvCkCPDVCeOp4hS2c3kEVS\",2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    'web_id' => '1'
+    '__returnUrl' => '/backend/web/'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'concept.xsk.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.98 Safari/537.36 QQBrowser/4.2.4763.400'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://concept.xsk.com/backend/web/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8'
+    'HTTP_COOKIE' => 'advanced-backend=b3ad13080197a728a0f9ad889e3eff3d; _identity-backend=e0583adc6700cc8ca373bb714594b6a5aa3b6d4f8c5bb6583611c428ce257d22a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22mUhdHISkHPsvCkCPDVCeOp4hS2c3kEVS%22%2C2592000%5D%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'concept.xsk.com'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Applications/var/www/concept_crm'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Applications/var/www/concept_crm/backend/web/index.php'
+    'REMOTE_PORT' => '49770'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=stock-logs%2Finputs'
+    'REQUEST_URI' => '/backend/web/index.php?r=stock-logs%2Finputs'
+    'SCRIPT_NAME' => '/backend/web/index.php'
+    'PHP_SELF' => '/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544530290.39
+    'REQUEST_TIME' => 1544530290
+    'argv' => [
+        0 => 'r=stock-logs%2Finputs'
+    ]
+    'argc' => 1
+]
+2018-12-11 20:11:33 [::1][1][-][error][yii\i18n\PhpMessageSource::loadFallbackMessages] The message file for category 'app' does not exist: /Applications/var/www/concept_crm/backend/messages/zh-CN/app.php Fallback file does not exist as well: /Applications/var/www/concept_crm/backend/messages/zh/app.php
+    in /Applications/var/www/concept_crm/backend/views/stock-logs/outs.php:14
+    in /Applications/var/www/concept_crm/backend/controllers/StockLogsController.php:26
+2018-12-11 20:11:33 [::1][1][-][info][application] $_GET = [
+    'r' => 'stock-logs/outs'
+]
+
+$_COOKIE = [
+    'advanced-backend' => 'b3ad13080197a728a0f9ad889e3eff3d'
+    '_identity-backend' => 'e0583adc6700cc8ca373bb714594b6a5aa3b6d4f8c5bb6583611c428ce257d22a:2:{i:0;s:17:\"_identity-backend\";i:1;s:46:\"[1,\"mUhdHISkHPsvCkCPDVCeOp4hS2c3kEVS\",2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    'web_id' => '1'
+    '__returnUrl' => '/backend/web/'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'concept.xsk.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.98 Safari/537.36 QQBrowser/4.2.4763.400'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://concept.xsk.com/backend/web/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8'
+    'HTTP_COOKIE' => 'advanced-backend=b3ad13080197a728a0f9ad889e3eff3d; _identity-backend=e0583adc6700cc8ca373bb714594b6a5aa3b6d4f8c5bb6583611c428ce257d22a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22mUhdHISkHPsvCkCPDVCeOp4hS2c3kEVS%22%2C2592000%5D%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'concept.xsk.com'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Applications/var/www/concept_crm'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Applications/var/www/concept_crm/backend/web/index.php'
+    'REMOTE_PORT' => '49773'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=stock-logs%2Fouts'
+    'REQUEST_URI' => '/backend/web/index.php?r=stock-logs%2Fouts'
+    'SCRIPT_NAME' => '/backend/web/index.php'
+    'PHP_SELF' => '/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544530293.2
+    'REQUEST_TIME' => 1544530293
+    'argv' => [
+        0 => 'r=stock-logs%2Fouts'
+    ]
+    'argc' => 1
+]
+2018-12-11 20:11:36 [::1][1][-][error][yii\i18n\PhpMessageSource::loadFallbackMessages] The message file for category 'app' does not exist: /Applications/var/www/concept_crm/backend/messages/zh-CN/app.php Fallback file does not exist as well: /Applications/var/www/concept_crm/backend/messages/zh/app.php
+    in /Applications/var/www/concept_crm/backend/views/stock-logs/returns.php:14
+    in /Applications/var/www/concept_crm/backend/controllers/StockLogsController.php:93
+2018-12-11 20:11:36 [::1][1][-][info][application] $_GET = [
+    'r' => 'stock-logs/returns'
+]
+
+$_COOKIE = [
+    'advanced-backend' => 'b3ad13080197a728a0f9ad889e3eff3d'
+    '_identity-backend' => 'e0583adc6700cc8ca373bb714594b6a5aa3b6d4f8c5bb6583611c428ce257d22a:2:{i:0;s:17:\"_identity-backend\";i:1;s:46:\"[1,\"mUhdHISkHPsvCkCPDVCeOp4hS2c3kEVS\",2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    'web_id' => '1'
+    '__returnUrl' => '/backend/web/'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'concept.xsk.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.98 Safari/537.36 QQBrowser/4.2.4763.400'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://concept.xsk.com/backend/web/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8'
+    'HTTP_COOKIE' => 'advanced-backend=b3ad13080197a728a0f9ad889e3eff3d; _identity-backend=e0583adc6700cc8ca373bb714594b6a5aa3b6d4f8c5bb6583611c428ce257d22a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22mUhdHISkHPsvCkCPDVCeOp4hS2c3kEVS%22%2C2592000%5D%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'concept.xsk.com'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Applications/var/www/concept_crm'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Applications/var/www/concept_crm/backend/web/index.php'
+    'REMOTE_PORT' => '49770'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=stock-logs%2Freturns'
+    'REQUEST_URI' => '/backend/web/index.php?r=stock-logs%2Freturns'
+    'SCRIPT_NAME' => '/backend/web/index.php'
+    'PHP_SELF' => '/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544530296.43
+    'REQUEST_TIME' => 1544530296
+    'argv' => [
+        0 => 'r=stock-logs%2Freturns'
+    ]
+    'argc' => 1
+]
+2018-12-11 20:12:41 [::1][1][-][error][yii\i18n\PhpMessageSource::loadFallbackMessages] The message file for category 'app' does not exist: /Applications/var/www/concept_crm/backend/messages/zh-CN/app.php Fallback file does not exist as well: /Applications/var/www/concept_crm/backend/messages/zh/app.php
+    in /Applications/var/www/concept_crm/backend/views/stock-logs/outs.php:14
+    in /Applications/var/www/concept_crm/backend/controllers/StockLogsController.php:26
+2018-12-11 20:12:40 [::1][1][-][info][application] $_GET = [
+    'r' => 'stock-logs/outs'
+]
+
+$_COOKIE = [
+    'advanced-backend' => 'b3ad13080197a728a0f9ad889e3eff3d'
+    '_identity-backend' => 'e0583adc6700cc8ca373bb714594b6a5aa3b6d4f8c5bb6583611c428ce257d22a:2:{i:0;s:17:\"_identity-backend\";i:1;s:46:\"[1,\"mUhdHISkHPsvCkCPDVCeOp4hS2c3kEVS\",2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    'web_id' => '1'
+    '__returnUrl' => '/backend/web/'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'concept.xsk.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.98 Safari/537.36 QQBrowser/4.2.4763.400'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://concept.xsk.com/backend/web/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8'
+    'HTTP_COOKIE' => 'advanced-backend=b3ad13080197a728a0f9ad889e3eff3d; _identity-backend=e0583adc6700cc8ca373bb714594b6a5aa3b6d4f8c5bb6583611c428ce257d22a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22mUhdHISkHPsvCkCPDVCeOp4hS2c3kEVS%22%2C2592000%5D%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'concept.xsk.com'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Applications/var/www/concept_crm'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Applications/var/www/concept_crm/backend/web/index.php'
+    'REMOTE_PORT' => '49807'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=stock-logs%2Fouts'
+    'REQUEST_URI' => '/backend/web/index.php?r=stock-logs%2Fouts'
+    'SCRIPT_NAME' => '/backend/web/index.php'
+    'PHP_SELF' => '/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544530360.63
+    'REQUEST_TIME' => 1544530360
+    'argv' => [
+        0 => 'r=stock-logs%2Fouts'
+    ]
+    'argc' => 1
+]
+2018-12-11 20:29:22 [::1][1][-][error][yii\i18n\PhpMessageSource::loadFallbackMessages] The message file for category 'app' does not exist: /Applications/var/www/concept_crm/backend/messages/zh-CN/app.php Fallback file does not exist as well: /Applications/var/www/concept_crm/backend/messages/zh/app.php
+    in /Applications/var/www/concept_crm/backend/views/stock-logs/inputs.php:14
+    in /Applications/var/www/concept_crm/backend/controllers/StockLogsController.php:22
+2018-12-11 20:29:21 [::1][1][-][info][application] $_GET = [
+    'r' => 'stock-logs/inputs'
+]
+
+$_COOKIE = [
+    'advanced-backend' => 'b3ad13080197a728a0f9ad889e3eff3d'
+    '_identity-backend' => 'e0583adc6700cc8ca373bb714594b6a5aa3b6d4f8c5bb6583611c428ce257d22a:2:{i:0;s:17:\"_identity-backend\";i:1;s:46:\"[1,\"mUhdHISkHPsvCkCPDVCeOp4hS2c3kEVS\",2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    'web_id' => '1'
+    '__returnUrl' => '/backend/web/'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'concept.xsk.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.98 Safari/537.36 QQBrowser/4.2.4763.400'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://concept.xsk.com/backend/web/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8'
+    'HTTP_COOKIE' => 'advanced-backend=b3ad13080197a728a0f9ad889e3eff3d; _identity-backend=e0583adc6700cc8ca373bb714594b6a5aa3b6d4f8c5bb6583611c428ce257d22a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22mUhdHISkHPsvCkCPDVCeOp4hS2c3kEVS%22%2C2592000%5D%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'concept.xsk.com'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Applications/var/www/concept_crm'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Applications/var/www/concept_crm/backend/web/index.php'
+    'REMOTE_PORT' => '50152'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=stock-logs%2Finputs'
+    'REQUEST_URI' => '/backend/web/index.php?r=stock-logs%2Finputs'
+    'SCRIPT_NAME' => '/backend/web/index.php'
+    'PHP_SELF' => '/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544531361.92
+    'REQUEST_TIME' => 1544531361
+    'argv' => [
+        0 => 'r=stock-logs%2Finputs'
+    ]
+    'argc' => 1
+]
+2018-12-11 20:31:37 [::1][1][-][error][yii\i18n\PhpMessageSource::loadFallbackMessages] The message file for category 'app' does not exist: /Applications/var/www/concept_crm/backend/messages/zh-CN/app.php Fallback file does not exist as well: /Applications/var/www/concept_crm/backend/messages/zh/app.php
+    in /Applications/var/www/concept_crm/backend/views/stock-logs/inputs.php:14
+    in /Applications/var/www/concept_crm/backend/controllers/StockLogsController.php:22
+2018-12-11 20:31:37 [::1][1][-][info][application] $_GET = [
+    'r' => 'stock-logs/inputs'
+]
+
+$_COOKIE = [
+    'advanced-backend' => 'b3ad13080197a728a0f9ad889e3eff3d'
+    '_identity-backend' => 'e0583adc6700cc8ca373bb714594b6a5aa3b6d4f8c5bb6583611c428ce257d22a:2:{i:0;s:17:\"_identity-backend\";i:1;s:46:\"[1,\"mUhdHISkHPsvCkCPDVCeOp4hS2c3kEVS\",2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    'web_id' => '1'
+    '__returnUrl' => '/backend/web/'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'concept.xsk.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.98 Safari/537.36 QQBrowser/4.2.4763.400'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://concept.xsk.com/backend/web/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8'
+    'HTTP_COOKIE' => 'advanced-backend=b3ad13080197a728a0f9ad889e3eff3d; _identity-backend=e0583adc6700cc8ca373bb714594b6a5aa3b6d4f8c5bb6583611c428ce257d22a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22mUhdHISkHPsvCkCPDVCeOp4hS2c3kEVS%22%2C2592000%5D%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'concept.xsk.com'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Applications/var/www/concept_crm'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Applications/var/www/concept_crm/backend/web/index.php'
+    'REMOTE_PORT' => '50231'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=stock-logs%2Finputs'
+    'REQUEST_URI' => '/backend/web/index.php?r=stock-logs%2Finputs'
+    'SCRIPT_NAME' => '/backend/web/index.php'
+    'PHP_SELF' => '/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544531497.43
+    'REQUEST_TIME' => 1544531497
+    'argv' => [
+        0 => 'r=stock-logs%2Finputs'
+    ]
+    'argc' => 1
+]
+2018-12-11 20:33:35 [::1][1][-][error][yii\i18n\PhpMessageSource::loadFallbackMessages] The message file for category 'app' does not exist: /Applications/var/www/concept_crm/backend/messages/zh-CN/app.php Fallback file does not exist as well: /Applications/var/www/concept_crm/backend/messages/zh/app.php
+    in /Applications/var/www/concept_crm/backend/views/stock-logs/inputs.php:14
+    in /Applications/var/www/concept_crm/backend/controllers/StockLogsController.php:22
+2018-12-11 20:33:35 [::1][1][-][info][application] $_GET = [
+    'r' => 'stock-logs/inputs'
+]
+
+$_COOKIE = [
+    'advanced-backend' => 'b3ad13080197a728a0f9ad889e3eff3d'
+    '_identity-backend' => 'e0583adc6700cc8ca373bb714594b6a5aa3b6d4f8c5bb6583611c428ce257d22a:2:{i:0;s:17:\"_identity-backend\";i:1;s:46:\"[1,\"mUhdHISkHPsvCkCPDVCeOp4hS2c3kEVS\",2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    'web_id' => '1'
+    '__returnUrl' => '/backend/web/'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'concept.xsk.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.98 Safari/537.36 QQBrowser/4.2.4763.400'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://concept.xsk.com/backend/web/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8'
+    'HTTP_COOKIE' => 'advanced-backend=b3ad13080197a728a0f9ad889e3eff3d; _identity-backend=e0583adc6700cc8ca373bb714594b6a5aa3b6d4f8c5bb6583611c428ce257d22a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22mUhdHISkHPsvCkCPDVCeOp4hS2c3kEVS%22%2C2592000%5D%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'concept.xsk.com'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Applications/var/www/concept_crm'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Applications/var/www/concept_crm/backend/web/index.php'
+    'REMOTE_PORT' => '50281'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=stock-logs%2Finputs'
+    'REQUEST_URI' => '/backend/web/index.php?r=stock-logs%2Finputs'
+    'SCRIPT_NAME' => '/backend/web/index.php'
+    'PHP_SELF' => '/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544531615.27
+    'REQUEST_TIME' => 1544531615
+    'argv' => [
+        0 => 'r=stock-logs%2Finputs'
+    ]
+    'argc' => 1
+]
+2018-12-11 20:37:46 [::1][1][-][error][yii\i18n\PhpMessageSource::loadFallbackMessages] The message file for category 'app' does not exist: /Applications/var/www/concept_crm/backend/messages/zh-CN/app.php Fallback file does not exist as well: /Applications/var/www/concept_crm/backend/messages/zh/app.php
+    in /Applications/var/www/concept_crm/backend/views/stock-logs/inputs.php:14
+    in /Applications/var/www/concept_crm/backend/controllers/StockLogsController.php:22
+2018-12-11 20:37:45 [::1][1][-][info][application] $_GET = [
+    'r' => 'stock-logs/inputs'
+]
+
+$_COOKIE = [
+    'advanced-backend' => 'b3ad13080197a728a0f9ad889e3eff3d'
+    '_identity-backend' => 'e0583adc6700cc8ca373bb714594b6a5aa3b6d4f8c5bb6583611c428ce257d22a:2:{i:0;s:17:\"_identity-backend\";i:1;s:46:\"[1,\"mUhdHISkHPsvCkCPDVCeOp4hS2c3kEVS\",2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    'web_id' => '1'
+    '__returnUrl' => '/backend/web/'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'concept.xsk.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.98 Safari/537.36 QQBrowser/4.2.4763.400'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://concept.xsk.com/backend/web/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8'
+    'HTTP_COOKIE' => 'advanced-backend=b3ad13080197a728a0f9ad889e3eff3d; _identity-backend=e0583adc6700cc8ca373bb714594b6a5aa3b6d4f8c5bb6583611c428ce257d22a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22mUhdHISkHPsvCkCPDVCeOp4hS2c3kEVS%22%2C2592000%5D%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'concept.xsk.com'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Applications/var/www/concept_crm'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Applications/var/www/concept_crm/backend/web/index.php'
+    'REMOTE_PORT' => '50356'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=stock-logs%2Finputs'
+    'REQUEST_URI' => '/backend/web/index.php?r=stock-logs%2Finputs'
+    'SCRIPT_NAME' => '/backend/web/index.php'
+    'PHP_SELF' => '/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544531865.91
+    'REQUEST_TIME' => 1544531865
+    'argv' => [
+        0 => 'r=stock-logs%2Finputs'
+    ]
+    'argc' => 1
+]
+2018-12-11 20:38:05 [::1][1][-][error][yii\i18n\PhpMessageSource::loadFallbackMessages] The message file for category 'app' does not exist: /Applications/var/www/concept_crm/backend/messages/zh-CN/app.php Fallback file does not exist as well: /Applications/var/www/concept_crm/backend/messages/zh/app.php
+    in /Applications/var/www/concept_crm/backend/views/stock-logs/inputs.php:14
+    in /Applications/var/www/concept_crm/backend/controllers/StockLogsController.php:22
+2018-12-11 20:38:05 [::1][1][-][info][application] $_GET = [
+    'r' => 'stock-logs/inputs'
+]
+
+$_COOKIE = [
+    'advanced-backend' => 'b3ad13080197a728a0f9ad889e3eff3d'
+    '_identity-backend' => 'e0583adc6700cc8ca373bb714594b6a5aa3b6d4f8c5bb6583611c428ce257d22a:2:{i:0;s:17:\"_identity-backend\";i:1;s:46:\"[1,\"mUhdHISkHPsvCkCPDVCeOp4hS2c3kEVS\",2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    'web_id' => '1'
+    '__returnUrl' => '/backend/web/'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'concept.xsk.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.98 Safari/537.36 QQBrowser/4.2.4763.400'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://concept.xsk.com/backend/web/index.php?r=stock-logs%2Finputs'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8'
+    'HTTP_COOKIE' => 'advanced-backend=b3ad13080197a728a0f9ad889e3eff3d; _identity-backend=e0583adc6700cc8ca373bb714594b6a5aa3b6d4f8c5bb6583611c428ce257d22a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22mUhdHISkHPsvCkCPDVCeOp4hS2c3kEVS%22%2C2592000%5D%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'concept.xsk.com'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Applications/var/www/concept_crm'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Applications/var/www/concept_crm/backend/web/index.php'
+    'REMOTE_PORT' => '50370'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=stock-logs%2Finputs'
+    'REQUEST_URI' => '/backend/web/index.php?r=stock-logs%2Finputs'
+    'SCRIPT_NAME' => '/backend/web/index.php'
+    'PHP_SELF' => '/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544531885.15
+    'REQUEST_TIME' => 1544531885
+    'argv' => [
+        0 => 'r=stock-logs%2Finputs'
+    ]
+    'argc' => 1
+]
+2018-12-11 20:38:37 [::1][1][-][error][yii\i18n\PhpMessageSource::loadFallbackMessages] The message file for category 'app' does not exist: /Applications/var/www/concept_crm/backend/messages/zh-CN/app.php Fallback file does not exist as well: /Applications/var/www/concept_crm/backend/messages/zh/app.php
+    in /Applications/var/www/concept_crm/backend/views/stock-logs/inputs.php:14
+    in /Applications/var/www/concept_crm/backend/controllers/StockLogsController.php:22
+2018-12-11 20:38:36 [::1][1][-][info][application] $_GET = [
+    'r' => 'stock-logs/inputs'
+]
+
+$_COOKIE = [
+    'advanced-backend' => 'b3ad13080197a728a0f9ad889e3eff3d'
+    '_identity-backend' => 'e0583adc6700cc8ca373bb714594b6a5aa3b6d4f8c5bb6583611c428ce257d22a:2:{i:0;s:17:\"_identity-backend\";i:1;s:46:\"[1,\"mUhdHISkHPsvCkCPDVCeOp4hS2c3kEVS\",2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    'web_id' => '1'
+    '__returnUrl' => '/backend/web/'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'concept.xsk.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.98 Safari/537.36 QQBrowser/4.2.4763.400'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://concept.xsk.com/backend/web/index.php?r=stock-logs%2Finputs'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8'
+    'HTTP_COOKIE' => 'advanced-backend=b3ad13080197a728a0f9ad889e3eff3d; _identity-backend=e0583adc6700cc8ca373bb714594b6a5aa3b6d4f8c5bb6583611c428ce257d22a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22mUhdHISkHPsvCkCPDVCeOp4hS2c3kEVS%22%2C2592000%5D%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'concept.xsk.com'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Applications/var/www/concept_crm'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Applications/var/www/concept_crm/backend/web/index.php'
+    'REMOTE_PORT' => '50391'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=stock-logs%2Finputs'
+    'REQUEST_URI' => '/backend/web/index.php?r=stock-logs%2Finputs'
+    'SCRIPT_NAME' => '/backend/web/index.php'
+    'PHP_SELF' => '/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544531916.66
+    'REQUEST_TIME' => 1544531916
+    'argv' => [
+        0 => 'r=stock-logs%2Finputs'
+    ]
+    'argc' => 1
+]
+2018-12-11 20:38:59 [::1][1][-][error][yii\i18n\PhpMessageSource::loadFallbackMessages] The message file for category 'app' does not exist: /Applications/var/www/concept_crm/backend/messages/zh-CN/app.php Fallback file does not exist as well: /Applications/var/www/concept_crm/backend/messages/zh/app.php
+    in /Applications/var/www/concept_crm/backend/views/stock-logs/inputs.php:14
+    in /Applications/var/www/concept_crm/backend/controllers/StockLogsController.php:22
+2018-12-11 20:38:58 [::1][1][-][info][application] $_GET = [
+    'r' => 'stock-logs/inputs'
+]
+
+$_COOKIE = [
+    'advanced-backend' => 'b3ad13080197a728a0f9ad889e3eff3d'
+    '_identity-backend' => 'e0583adc6700cc8ca373bb714594b6a5aa3b6d4f8c5bb6583611c428ce257d22a:2:{i:0;s:17:\"_identity-backend\";i:1;s:46:\"[1,\"mUhdHISkHPsvCkCPDVCeOp4hS2c3kEVS\",2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    'web_id' => '1'
+    '__returnUrl' => '/backend/web/'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'concept.xsk.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.98 Safari/537.36 QQBrowser/4.2.4763.400'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://concept.xsk.com/backend/web/index.php?r=stock-logs%2Finputs'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8'
+    'HTTP_COOKIE' => 'advanced-backend=b3ad13080197a728a0f9ad889e3eff3d; _identity-backend=e0583adc6700cc8ca373bb714594b6a5aa3b6d4f8c5bb6583611c428ce257d22a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22mUhdHISkHPsvCkCPDVCeOp4hS2c3kEVS%22%2C2592000%5D%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'concept.xsk.com'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Applications/var/www/concept_crm'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Applications/var/www/concept_crm/backend/web/index.php'
+    'REMOTE_PORT' => '50412'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=stock-logs%2Finputs'
+    'REQUEST_URI' => '/backend/web/index.php?r=stock-logs%2Finputs'
+    'SCRIPT_NAME' => '/backend/web/index.php'
+    'PHP_SELF' => '/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544531938.56
+    'REQUEST_TIME' => 1544531938
+    'argv' => [
+        0 => 'r=stock-logs%2Finputs'
+    ]
+    'argc' => 1
+]
+2018-12-11 20:39:07 [::1][1][-][error][yii\i18n\PhpMessageSource::loadFallbackMessages] The message file for category 'app' does not exist: /Applications/var/www/concept_crm/backend/messages/zh-CN/app.php Fallback file does not exist as well: /Applications/var/www/concept_crm/backend/messages/zh/app.php
+    in /Applications/var/www/concept_crm/backend/views/stock-logs/inputs.php:14
+    in /Applications/var/www/concept_crm/backend/controllers/StockLogsController.php:22
+2018-12-11 20:39:06 [::1][1][-][info][application] $_GET = [
+    'r' => 'stock-logs/inputs'
+]
+
+$_COOKIE = [
+    'advanced-backend' => 'b3ad13080197a728a0f9ad889e3eff3d'
+    '_identity-backend' => 'e0583adc6700cc8ca373bb714594b6a5aa3b6d4f8c5bb6583611c428ce257d22a:2:{i:0;s:17:\"_identity-backend\";i:1;s:46:\"[1,\"mUhdHISkHPsvCkCPDVCeOp4hS2c3kEVS\",2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    'web_id' => '1'
+    '__returnUrl' => '/backend/web/'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'concept.xsk.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.98 Safari/537.36 QQBrowser/4.2.4763.400'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://concept.xsk.com/backend/web/index.php?r=stock-logs%2Finputs'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8'
+    'HTTP_COOKIE' => 'advanced-backend=b3ad13080197a728a0f9ad889e3eff3d; _identity-backend=e0583adc6700cc8ca373bb714594b6a5aa3b6d4f8c5bb6583611c428ce257d22a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22mUhdHISkHPsvCkCPDVCeOp4hS2c3kEVS%22%2C2592000%5D%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'concept.xsk.com'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Applications/var/www/concept_crm'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Applications/var/www/concept_crm/backend/web/index.php'
+    'REMOTE_PORT' => '50416'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=stock-logs%2Finputs'
+    'REQUEST_URI' => '/backend/web/index.php?r=stock-logs%2Finputs'
+    'SCRIPT_NAME' => '/backend/web/index.php'
+    'PHP_SELF' => '/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544531946.54
+    'REQUEST_TIME' => 1544531946
+    'argv' => [
+        0 => 'r=stock-logs%2Finputs'
+    ]
+    'argc' => 1
+]
+2018-12-11 20:39:31 [::1][1][-][error][yii\i18n\PhpMessageSource::loadFallbackMessages] The message file for category 'app' does not exist: /Applications/var/www/concept_crm/backend/messages/zh-CN/app.php Fallback file does not exist as well: /Applications/var/www/concept_crm/backend/messages/zh/app.php
+    in /Applications/var/www/concept_crm/backend/views/stock-logs/inputs.php:14
+    in /Applications/var/www/concept_crm/backend/controllers/StockLogsController.php:22
+2018-12-11 20:39:30 [::1][1][-][info][application] $_GET = [
+    'r' => 'stock-logs/inputs'
+]
+
+$_COOKIE = [
+    'advanced-backend' => 'b3ad13080197a728a0f9ad889e3eff3d'
+    '_identity-backend' => 'e0583adc6700cc8ca373bb714594b6a5aa3b6d4f8c5bb6583611c428ce257d22a:2:{i:0;s:17:\"_identity-backend\";i:1;s:46:\"[1,\"mUhdHISkHPsvCkCPDVCeOp4hS2c3kEVS\",2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    'web_id' => '1'
+    '__returnUrl' => '/backend/web/'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'concept.xsk.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.98 Safari/537.36 QQBrowser/4.2.4763.400'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://concept.xsk.com/backend/web/index.php?r=stock-logs%2Finputs'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8'
+    'HTTP_COOKIE' => 'advanced-backend=b3ad13080197a728a0f9ad889e3eff3d; _identity-backend=e0583adc6700cc8ca373bb714594b6a5aa3b6d4f8c5bb6583611c428ce257d22a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22mUhdHISkHPsvCkCPDVCeOp4hS2c3kEVS%22%2C2592000%5D%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'concept.xsk.com'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Applications/var/www/concept_crm'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Applications/var/www/concept_crm/backend/web/index.php'
+    'REMOTE_PORT' => '50440'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=stock-logs%2Finputs'
+    'REQUEST_URI' => '/backend/web/index.php?r=stock-logs%2Finputs'
+    'SCRIPT_NAME' => '/backend/web/index.php'
+    'PHP_SELF' => '/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544531970.54
+    'REQUEST_TIME' => 1544531970
+    'argv' => [
+        0 => 'r=stock-logs%2Finputs'
+    ]
+    'argc' => 1
+]
+2018-12-11 20:39:48 [::1][1][-][error][yii\i18n\PhpMessageSource::loadFallbackMessages] The message file for category 'app' does not exist: /Applications/var/www/concept_crm/backend/messages/zh-CN/app.php Fallback file does not exist as well: /Applications/var/www/concept_crm/backend/messages/zh/app.php
+    in /Applications/var/www/concept_crm/backend/views/stock-logs/outs.php:14
+    in /Applications/var/www/concept_crm/backend/controllers/StockLogsController.php:26
+2018-12-11 20:39:47 [::1][1][-][info][application] $_GET = [
+    'r' => 'stock-logs/outs'
+]
+
+$_COOKIE = [
+    'advanced-backend' => 'b3ad13080197a728a0f9ad889e3eff3d'
+    '_identity-backend' => 'e0583adc6700cc8ca373bb714594b6a5aa3b6d4f8c5bb6583611c428ce257d22a:2:{i:0;s:17:\"_identity-backend\";i:1;s:46:\"[1,\"mUhdHISkHPsvCkCPDVCeOp4hS2c3kEVS\",2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    'web_id' => '1'
+    '__returnUrl' => '/backend/web/'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'concept.xsk.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.98 Safari/537.36 QQBrowser/4.2.4763.400'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://concept.xsk.com/backend/web/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8'
+    'HTTP_COOKIE' => 'advanced-backend=b3ad13080197a728a0f9ad889e3eff3d; _identity-backend=e0583adc6700cc8ca373bb714594b6a5aa3b6d4f8c5bb6583611c428ce257d22a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22mUhdHISkHPsvCkCPDVCeOp4hS2c3kEVS%22%2C2592000%5D%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'concept.xsk.com'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Applications/var/www/concept_crm'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Applications/var/www/concept_crm/backend/web/index.php'
+    'REMOTE_PORT' => '50459'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=stock-logs%2Fouts'
+    'REQUEST_URI' => '/backend/web/index.php?r=stock-logs%2Fouts'
+    'SCRIPT_NAME' => '/backend/web/index.php'
+    'PHP_SELF' => '/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544531987.81
+    'REQUEST_TIME' => 1544531987
+    'argv' => [
+        0 => 'r=stock-logs%2Fouts'
+    ]
+    'argc' => 1
+]
+2018-12-11 20:40:35 [::1][1][-][error][yii\i18n\PhpMessageSource::loadFallbackMessages] The message file for category 'app' does not exist: /Applications/var/www/concept_crm/backend/messages/zh-CN/app.php Fallback file does not exist as well: /Applications/var/www/concept_crm/backend/messages/zh/app.php
+    in /Applications/var/www/concept_crm/backend/views/stock-logs/outs.php:14
+    in /Applications/var/www/concept_crm/backend/controllers/StockLogsController.php:26
+2018-12-11 20:40:34 [::1][1][-][info][application] $_GET = [
+    'r' => 'stock-logs/outs'
+]
+
+$_COOKIE = [
+    'advanced-backend' => 'b3ad13080197a728a0f9ad889e3eff3d'
+    '_identity-backend' => 'e0583adc6700cc8ca373bb714594b6a5aa3b6d4f8c5bb6583611c428ce257d22a:2:{i:0;s:17:\"_identity-backend\";i:1;s:46:\"[1,\"mUhdHISkHPsvCkCPDVCeOp4hS2c3kEVS\",2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    'web_id' => '1'
+    '__returnUrl' => '/backend/web/'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'concept.xsk.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.98 Safari/537.36 QQBrowser/4.2.4763.400'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://concept.xsk.com/backend/web/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8'
+    'HTTP_COOKIE' => 'advanced-backend=b3ad13080197a728a0f9ad889e3eff3d; _identity-backend=e0583adc6700cc8ca373bb714594b6a5aa3b6d4f8c5bb6583611c428ce257d22a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22mUhdHISkHPsvCkCPDVCeOp4hS2c3kEVS%22%2C2592000%5D%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'concept.xsk.com'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Applications/var/www/concept_crm'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Applications/var/www/concept_crm/backend/web/index.php'
+    'REMOTE_PORT' => '50475'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=stock-logs%2Fouts'
+    'REQUEST_URI' => '/backend/web/index.php?r=stock-logs%2Fouts'
+    'SCRIPT_NAME' => '/backend/web/index.php'
+    'PHP_SELF' => '/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544532034.41
+    'REQUEST_TIME' => 1544532034
+    'argv' => [
+        0 => 'r=stock-logs%2Fouts'
+    ]
+    'argc' => 1
+]
+2018-12-11 20:42:23 [::1][1][-][error][yii\i18n\PhpMessageSource::loadFallbackMessages] The message file for category 'app' does not exist: /Applications/var/www/concept_crm/backend/messages/zh-CN/app.php Fallback file does not exist as well: /Applications/var/www/concept_crm/backend/messages/zh/app.php
+    in /Applications/var/www/concept_crm/backend/views/stock-logs/inputs.php:14
+    in /Applications/var/www/concept_crm/backend/controllers/StockLogsController.php:22
+2018-12-11 20:42:22 [::1][1][-][info][application] $_GET = [
+    'r' => 'stock-logs/inputs'
+]
+
+$_COOKIE = [
+    'advanced-backend' => 'b3ad13080197a728a0f9ad889e3eff3d'
+    '_identity-backend' => 'e0583adc6700cc8ca373bb714594b6a5aa3b6d4f8c5bb6583611c428ce257d22a:2:{i:0;s:17:\"_identity-backend\";i:1;s:46:\"[1,\"mUhdHISkHPsvCkCPDVCeOp4hS2c3kEVS\",2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    'web_id' => '1'
+    '__returnUrl' => '/backend/web/'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'concept.xsk.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.98 Safari/537.36 QQBrowser/4.2.4763.400'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://concept.xsk.com/backend/web/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8'
+    'HTTP_COOKIE' => 'advanced-backend=b3ad13080197a728a0f9ad889e3eff3d; _identity-backend=e0583adc6700cc8ca373bb714594b6a5aa3b6d4f8c5bb6583611c428ce257d22a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22mUhdHISkHPsvCkCPDVCeOp4hS2c3kEVS%22%2C2592000%5D%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'concept.xsk.com'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Applications/var/www/concept_crm'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Applications/var/www/concept_crm/backend/web/index.php'
+    'REMOTE_PORT' => '50511'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=stock-logs%2Finputs'
+    'REQUEST_URI' => '/backend/web/index.php?r=stock-logs%2Finputs'
+    'SCRIPT_NAME' => '/backend/web/index.php'
+    'PHP_SELF' => '/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544532142.45
+    'REQUEST_TIME' => 1544532142
+    'argv' => [
+        0 => 'r=stock-logs%2Finputs'
+    ]
+    'argc' => 1
+]
+2018-12-11 20:43:11 [::1][1][-][error][yii\i18n\PhpMessageSource::loadFallbackMessages] The message file for category 'app' does not exist: /Applications/var/www/concept_crm/backend/messages/zh-CN/app.php Fallback file does not exist as well: /Applications/var/www/concept_crm/backend/messages/zh/app.php
+    in /Applications/var/www/concept_crm/backend/views/stock-logs/inputs.php:14
+    in /Applications/var/www/concept_crm/backend/controllers/StockLogsController.php:22
+2018-12-11 20:43:10 [::1][1][-][info][application] $_GET = [
+    'r' => 'stock-logs/inputs'
+]
+
+$_COOKIE = [
+    'advanced-backend' => 'b3ad13080197a728a0f9ad889e3eff3d'
+    '_identity-backend' => 'e0583adc6700cc8ca373bb714594b6a5aa3b6d4f8c5bb6583611c428ce257d22a:2:{i:0;s:17:\"_identity-backend\";i:1;s:46:\"[1,\"mUhdHISkHPsvCkCPDVCeOp4hS2c3kEVS\",2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    'web_id' => '1'
+    '__returnUrl' => '/backend/web/'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'concept.xsk.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.98 Safari/537.36 QQBrowser/4.2.4763.400'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://concept.xsk.com/backend/web/index.php?r=stock-logs%2Finputs'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8'
+    'HTTP_COOKIE' => 'advanced-backend=b3ad13080197a728a0f9ad889e3eff3d; _identity-backend=e0583adc6700cc8ca373bb714594b6a5aa3b6d4f8c5bb6583611c428ce257d22a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22mUhdHISkHPsvCkCPDVCeOp4hS2c3kEVS%22%2C2592000%5D%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'concept.xsk.com'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Applications/var/www/concept_crm'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Applications/var/www/concept_crm/backend/web/index.php'
+    'REMOTE_PORT' => '50528'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=stock-logs%2Finputs'
+    'REQUEST_URI' => '/backend/web/index.php?r=stock-logs%2Finputs'
+    'SCRIPT_NAME' => '/backend/web/index.php'
+    'PHP_SELF' => '/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544532190.81
+    'REQUEST_TIME' => 1544532190
+    'argv' => [
+        0 => 'r=stock-logs%2Finputs'
+    ]
+    'argc' => 1
+]
+2018-12-11 20:43:13 [::1][1][-][error][yii\i18n\PhpMessageSource::loadFallbackMessages] The message file for category 'app' does not exist: /Applications/var/www/concept_crm/backend/messages/zh-CN/app.php Fallback file does not exist as well: /Applications/var/www/concept_crm/backend/messages/zh/app.php
+    in /Applications/var/www/concept_crm/backend/views/stock-logs/outs.php:14
+    in /Applications/var/www/concept_crm/backend/controllers/StockLogsController.php:26
+2018-12-11 20:43:11 [::1][1][-][info][application] $_GET = [
+    'r' => 'stock-logs/outs'
+]
+
+$_COOKIE = [
+    'advanced-backend' => 'b3ad13080197a728a0f9ad889e3eff3d'
+    '_identity-backend' => 'e0583adc6700cc8ca373bb714594b6a5aa3b6d4f8c5bb6583611c428ce257d22a:2:{i:0;s:17:\"_identity-backend\";i:1;s:46:\"[1,\"mUhdHISkHPsvCkCPDVCeOp4hS2c3kEVS\",2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    'web_id' => '1'
+    '__returnUrl' => '/backend/web/'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'concept.xsk.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.98 Safari/537.36 QQBrowser/4.2.4763.400'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://concept.xsk.com/backend/web/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8'
+    'HTTP_COOKIE' => 'advanced-backend=b3ad13080197a728a0f9ad889e3eff3d; _identity-backend=e0583adc6700cc8ca373bb714594b6a5aa3b6d4f8c5bb6583611c428ce257d22a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22mUhdHISkHPsvCkCPDVCeOp4hS2c3kEVS%22%2C2592000%5D%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'concept.xsk.com'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Applications/var/www/concept_crm'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Applications/var/www/concept_crm/backend/web/index.php'
+    'REMOTE_PORT' => '50531'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=stock-logs%2Fouts'
+    'REQUEST_URI' => '/backend/web/index.php?r=stock-logs%2Fouts'
+    'SCRIPT_NAME' => '/backend/web/index.php'
+    'PHP_SELF' => '/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544532191.88
+    'REQUEST_TIME' => 1544532191
+    'argv' => [
+        0 => 'r=stock-logs%2Fouts'
+    ]
+    'argc' => 1
+]
+2018-12-11 20:47:44 [::1][1][-][error][yii\i18n\PhpMessageSource::loadFallbackMessages] The message file for category 'app' does not exist: /Applications/var/www/concept_crm/backend/messages/zh-CN/app.php Fallback file does not exist as well: /Applications/var/www/concept_crm/backend/messages/zh/app.php
+    in /Applications/var/www/concept_crm/backend/views/stock-logs/inputs.php:14
+    in /Applications/var/www/concept_crm/backend/controllers/StockLogsController.php:22
+2018-12-11 20:47:43 [::1][1][-][info][application] $_GET = [
+    'r' => 'stock-logs/inputs'
+]
+
+$_COOKIE = [
+    'advanced-backend' => 'b3ad13080197a728a0f9ad889e3eff3d'
+    '_identity-backend' => 'e0583adc6700cc8ca373bb714594b6a5aa3b6d4f8c5bb6583611c428ce257d22a:2:{i:0;s:17:\"_identity-backend\";i:1;s:46:\"[1,\"mUhdHISkHPsvCkCPDVCeOp4hS2c3kEVS\",2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    'web_id' => '1'
+    '__returnUrl' => '/backend/web/'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'concept.xsk.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.98 Safari/537.36 QQBrowser/4.2.4763.400'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://concept.xsk.com/backend/web/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8'
+    'HTTP_COOKIE' => 'advanced-backend=b3ad13080197a728a0f9ad889e3eff3d; _identity-backend=e0583adc6700cc8ca373bb714594b6a5aa3b6d4f8c5bb6583611c428ce257d22a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22mUhdHISkHPsvCkCPDVCeOp4hS2c3kEVS%22%2C2592000%5D%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'concept.xsk.com'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Applications/var/www/concept_crm'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Applications/var/www/concept_crm/backend/web/index.php'
+    'REMOTE_PORT' => '50635'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=stock-logs%2Finputs'
+    'REQUEST_URI' => '/backend/web/index.php?r=stock-logs%2Finputs'
+    'SCRIPT_NAME' => '/backend/web/index.php'
+    'PHP_SELF' => '/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544532463.68
+    'REQUEST_TIME' => 1544532463
+    'argv' => [
+        0 => 'r=stock-logs%2Finputs'
+    ]
+    'argc' => 1
+]
+2018-12-11 20:48:16 [::1][1][-][error][yii\i18n\PhpMessageSource::loadFallbackMessages] The message file for category 'app' does not exist: /Applications/var/www/concept_crm/backend/messages/zh-CN/app.php Fallback file does not exist as well: /Applications/var/www/concept_crm/backend/messages/zh/app.php
+    in /Applications/var/www/concept_crm/backend/views/stock-logs/inputs.php:14
+    in /Applications/var/www/concept_crm/backend/controllers/StockLogsController.php:22
+2018-12-11 20:48:16 [::1][1][-][info][application] $_GET = [
+    'r' => 'stock-logs/inputs'
+]
+
+$_COOKIE = [
+    'advanced-backend' => 'b3ad13080197a728a0f9ad889e3eff3d'
+    '_identity-backend' => 'e0583adc6700cc8ca373bb714594b6a5aa3b6d4f8c5bb6583611c428ce257d22a:2:{i:0;s:17:\"_identity-backend\";i:1;s:46:\"[1,\"mUhdHISkHPsvCkCPDVCeOp4hS2c3kEVS\",2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    'web_id' => '1'
+    '__returnUrl' => '/backend/web/'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'concept.xsk.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.98 Safari/537.36 QQBrowser/4.2.4763.400'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://concept.xsk.com/backend/web/index.php?r=stock-logs%2Finputs'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8'
+    'HTTP_COOKIE' => 'advanced-backend=b3ad13080197a728a0f9ad889e3eff3d; _identity-backend=e0583adc6700cc8ca373bb714594b6a5aa3b6d4f8c5bb6583611c428ce257d22a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22mUhdHISkHPsvCkCPDVCeOp4hS2c3kEVS%22%2C2592000%5D%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'concept.xsk.com'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Applications/var/www/concept_crm'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Applications/var/www/concept_crm/backend/web/index.php'
+    'REMOTE_PORT' => '50651'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=stock-logs%2Finputs'
+    'REQUEST_URI' => '/backend/web/index.php?r=stock-logs%2Finputs'
+    'SCRIPT_NAME' => '/backend/web/index.php'
+    'PHP_SELF' => '/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544532496.07
+    'REQUEST_TIME' => 1544532496
+    'argv' => [
+        0 => 'r=stock-logs%2Finputs'
+    ]
+    'argc' => 1
+]
+2018-12-11 20:48:18 [::1][1][-][error][yii\i18n\PhpMessageSource::loadFallbackMessages] The message file for category 'app' does not exist: /Applications/var/www/concept_crm/backend/messages/zh-CN/app.php Fallback file does not exist as well: /Applications/var/www/concept_crm/backend/messages/zh/app.php
+    in /Applications/var/www/concept_crm/backend/views/stock-logs/outs.php:14
+    in /Applications/var/www/concept_crm/backend/controllers/StockLogsController.php:26
+2018-12-11 20:48:17 [::1][1][-][info][application] $_GET = [
+    'r' => 'stock-logs/outs'
+]
+
+$_COOKIE = [
+    'advanced-backend' => 'b3ad13080197a728a0f9ad889e3eff3d'
+    '_identity-backend' => 'e0583adc6700cc8ca373bb714594b6a5aa3b6d4f8c5bb6583611c428ce257d22a:2:{i:0;s:17:\"_identity-backend\";i:1;s:46:\"[1,\"mUhdHISkHPsvCkCPDVCeOp4hS2c3kEVS\",2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    'web_id' => '1'
+    '__returnUrl' => '/backend/web/'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'concept.xsk.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.98 Safari/537.36 QQBrowser/4.2.4763.400'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://concept.xsk.com/backend/web/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8'
+    'HTTP_COOKIE' => 'advanced-backend=b3ad13080197a728a0f9ad889e3eff3d; _identity-backend=e0583adc6700cc8ca373bb714594b6a5aa3b6d4f8c5bb6583611c428ce257d22a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22mUhdHISkHPsvCkCPDVCeOp4hS2c3kEVS%22%2C2592000%5D%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'concept.xsk.com'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Applications/var/www/concept_crm'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Applications/var/www/concept_crm/backend/web/index.php'
+    'REMOTE_PORT' => '50653'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=stock-logs%2Fouts'
+    'REQUEST_URI' => '/backend/web/index.php?r=stock-logs%2Fouts'
+    'SCRIPT_NAME' => '/backend/web/index.php'
+    'PHP_SELF' => '/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544532497.23
+    'REQUEST_TIME' => 1544532497
+    'argv' => [
+        0 => 'r=stock-logs%2Fouts'
+    ]
+    'argc' => 1
+]
+2018-12-11 20:50:57 [::1][1][-][error][yii\i18n\PhpMessageSource::loadFallbackMessages] The message file for category 'app' does not exist: /Applications/var/www/concept_crm/backend/messages/zh-CN/app.php Fallback file does not exist as well: /Applications/var/www/concept_crm/backend/messages/zh/app.php
+    in /Applications/var/www/concept_crm/backend/views/stock-logs/outs.php:14
+    in /Applications/var/www/concept_crm/backend/controllers/StockLogsController.php:26
+2018-12-11 20:50:56 [::1][1][-][info][application] $_GET = [
+    'r' => 'stock-logs/outs'
+]
+
+$_COOKIE = [
+    'advanced-backend' => 'b3ad13080197a728a0f9ad889e3eff3d'
+    '_identity-backend' => 'e0583adc6700cc8ca373bb714594b6a5aa3b6d4f8c5bb6583611c428ce257d22a:2:{i:0;s:17:\"_identity-backend\";i:1;s:46:\"[1,\"mUhdHISkHPsvCkCPDVCeOp4hS2c3kEVS\",2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    'web_id' => '1'
+    '__returnUrl' => '/backend/web/'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'concept.xsk.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.98 Safari/537.36 QQBrowser/4.2.4763.400'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://concept.xsk.com/backend/web/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8'
+    'HTTP_COOKIE' => 'advanced-backend=b3ad13080197a728a0f9ad889e3eff3d; _identity-backend=e0583adc6700cc8ca373bb714594b6a5aa3b6d4f8c5bb6583611c428ce257d22a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22mUhdHISkHPsvCkCPDVCeOp4hS2c3kEVS%22%2C2592000%5D%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'concept.xsk.com'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Applications/var/www/concept_crm'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Applications/var/www/concept_crm/backend/web/index.php'
+    'REMOTE_PORT' => '50712'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=stock-logs%2Fouts'
+    'REQUEST_URI' => '/backend/web/index.php?r=stock-logs%2Fouts'
+    'SCRIPT_NAME' => '/backend/web/index.php'
+    'PHP_SELF' => '/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544532656.76
+    'REQUEST_TIME' => 1544532656
+    'argv' => [
+        0 => 'r=stock-logs%2Fouts'
+    ]
+    'argc' => 1
+]
+2018-12-11 20:52:00 [::1][1][-][error][yii\i18n\PhpMessageSource::loadFallbackMessages] The message file for category 'app' does not exist: /Applications/var/www/concept_crm/backend/messages/zh-CN/app.php Fallback file does not exist as well: /Applications/var/www/concept_crm/backend/messages/zh/app.php
+    in /Applications/var/www/concept_crm/backend/views/stock-logs/outs.php:14
+    in /Applications/var/www/concept_crm/backend/controllers/StockLogsController.php:26
+2018-12-11 20:51:59 [::1][1][-][info][application] $_GET = [
+    'r' => 'stock-logs/outs'
+]
+
+$_COOKIE = [
+    'advanced-backend' => 'b3ad13080197a728a0f9ad889e3eff3d'
+    '_identity-backend' => 'e0583adc6700cc8ca373bb714594b6a5aa3b6d4f8c5bb6583611c428ce257d22a:2:{i:0;s:17:\"_identity-backend\";i:1;s:46:\"[1,\"mUhdHISkHPsvCkCPDVCeOp4hS2c3kEVS\",2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    'web_id' => '1'
+    '__returnUrl' => '/backend/web/'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'concept.xsk.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.98 Safari/537.36 QQBrowser/4.2.4763.400'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://concept.xsk.com/backend/web/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8'
+    'HTTP_COOKIE' => 'advanced-backend=b3ad13080197a728a0f9ad889e3eff3d; _identity-backend=e0583adc6700cc8ca373bb714594b6a5aa3b6d4f8c5bb6583611c428ce257d22a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22mUhdHISkHPsvCkCPDVCeOp4hS2c3kEVS%22%2C2592000%5D%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'concept.xsk.com'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Applications/var/www/concept_crm'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Applications/var/www/concept_crm/backend/web/index.php'
+    'REMOTE_PORT' => '50739'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=stock-logs%2Fouts'
+    'REQUEST_URI' => '/backend/web/index.php?r=stock-logs%2Fouts'
+    'SCRIPT_NAME' => '/backend/web/index.php'
+    'PHP_SELF' => '/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544532719.73
+    'REQUEST_TIME' => 1544532719
+    'argv' => [
+        0 => 'r=stock-logs%2Fouts'
+    ]
+    'argc' => 1
+]
+2018-12-11 20:53:36 [::1][1][-][error][yii\i18n\PhpMessageSource::loadFallbackMessages] The message file for category 'app' does not exist: /Applications/var/www/concept_crm/backend/messages/zh-CN/app.php Fallback file does not exist as well: /Applications/var/www/concept_crm/backend/messages/zh/app.php
+    in /Applications/var/www/concept_crm/backend/views/stock-logs/outs.php:14
+    in /Applications/var/www/concept_crm/backend/controllers/StockLogsController.php:26
+2018-12-11 20:53:36 [::1][1][-][info][application] $_GET = [
+    'r' => 'stock-logs/outs'
+]
+
+$_COOKIE = [
+    'advanced-backend' => 'b3ad13080197a728a0f9ad889e3eff3d'
+    '_identity-backend' => 'e0583adc6700cc8ca373bb714594b6a5aa3b6d4f8c5bb6583611c428ce257d22a:2:{i:0;s:17:\"_identity-backend\";i:1;s:46:\"[1,\"mUhdHISkHPsvCkCPDVCeOp4hS2c3kEVS\",2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    'web_id' => '1'
+    '__returnUrl' => '/backend/web/'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'concept.xsk.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.98 Safari/537.36 QQBrowser/4.2.4763.400'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://concept.xsk.com/backend/web/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8'
+    'HTTP_COOKIE' => 'advanced-backend=b3ad13080197a728a0f9ad889e3eff3d; _identity-backend=e0583adc6700cc8ca373bb714594b6a5aa3b6d4f8c5bb6583611c428ce257d22a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22mUhdHISkHPsvCkCPDVCeOp4hS2c3kEVS%22%2C2592000%5D%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'concept.xsk.com'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Applications/var/www/concept_crm'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Applications/var/www/concept_crm/backend/web/index.php'
+    'REMOTE_PORT' => '50782'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=stock-logs%2Fouts'
+    'REQUEST_URI' => '/backend/web/index.php?r=stock-logs%2Fouts'
+    'SCRIPT_NAME' => '/backend/web/index.php'
+    'PHP_SELF' => '/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544532816.16
+    'REQUEST_TIME' => 1544532816
+    'argv' => [
+        0 => 'r=stock-logs%2Fouts'
+    ]
+    'argc' => 1
+]
+2018-12-11 20:53:59 [::1][1][-][error][yii\i18n\PhpMessageSource::loadFallbackMessages] The message file for category 'app' does not exist: /Applications/var/www/concept_crm/backend/messages/zh-CN/app.php Fallback file does not exist as well: /Applications/var/www/concept_crm/backend/messages/zh/app.php
+    in /Applications/var/www/concept_crm/backend/views/stock-logs/outs.php:14
+    in /Applications/var/www/concept_crm/backend/controllers/StockLogsController.php:26
+2018-12-11 20:53:58 [::1][1][-][info][application] $_GET = [
+    'r' => 'stock-logs/outs'
+]
+
+$_COOKIE = [
+    'advanced-backend' => 'b3ad13080197a728a0f9ad889e3eff3d'
+    '_identity-backend' => 'e0583adc6700cc8ca373bb714594b6a5aa3b6d4f8c5bb6583611c428ce257d22a:2:{i:0;s:17:\"_identity-backend\";i:1;s:46:\"[1,\"mUhdHISkHPsvCkCPDVCeOp4hS2c3kEVS\",2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    'web_id' => '1'
+    '__returnUrl' => '/backend/web/'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'concept.xsk.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.98 Safari/537.36 QQBrowser/4.2.4763.400'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://concept.xsk.com/backend/web/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8'
+    'HTTP_COOKIE' => 'advanced-backend=b3ad13080197a728a0f9ad889e3eff3d; _identity-backend=e0583adc6700cc8ca373bb714594b6a5aa3b6d4f8c5bb6583611c428ce257d22a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22mUhdHISkHPsvCkCPDVCeOp4hS2c3kEVS%22%2C2592000%5D%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'concept.xsk.com'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Applications/var/www/concept_crm'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Applications/var/www/concept_crm/backend/web/index.php'
+    'REMOTE_PORT' => '50801'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=stock-logs%2Fouts'
+    'REQUEST_URI' => '/backend/web/index.php?r=stock-logs%2Fouts'
+    'SCRIPT_NAME' => '/backend/web/index.php'
+    'PHP_SELF' => '/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544532838.61
+    'REQUEST_TIME' => 1544532838
+    'argv' => [
+        0 => 'r=stock-logs%2Fouts'
+    ]
+    'argc' => 1
+]
+2018-12-11 20:54:28 [::1][1][-][error][yii\i18n\PhpMessageSource::loadFallbackMessages] The message file for category 'app' does not exist: /Applications/var/www/concept_crm/backend/messages/zh-CN/app.php Fallback file does not exist as well: /Applications/var/www/concept_crm/backend/messages/zh/app.php
+    in /Applications/var/www/concept_crm/backend/views/stock-logs/outs.php:14
+    in /Applications/var/www/concept_crm/backend/controllers/StockLogsController.php:26
+2018-12-11 20:54:27 [::1][1][-][info][application] $_GET = [
+    'r' => 'stock-logs/outs'
+]
+
+$_COOKIE = [
+    'advanced-backend' => 'b3ad13080197a728a0f9ad889e3eff3d'
+    '_identity-backend' => 'e0583adc6700cc8ca373bb714594b6a5aa3b6d4f8c5bb6583611c428ce257d22a:2:{i:0;s:17:\"_identity-backend\";i:1;s:46:\"[1,\"mUhdHISkHPsvCkCPDVCeOp4hS2c3kEVS\",2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    'web_id' => '1'
+    '__returnUrl' => '/backend/web/'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'concept.xsk.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.98 Safari/537.36 QQBrowser/4.2.4763.400'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://concept.xsk.com/backend/web/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8'
+    'HTTP_COOKIE' => 'advanced-backend=b3ad13080197a728a0f9ad889e3eff3d; _identity-backend=e0583adc6700cc8ca373bb714594b6a5aa3b6d4f8c5bb6583611c428ce257d22a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22mUhdHISkHPsvCkCPDVCeOp4hS2c3kEVS%22%2C2592000%5D%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'concept.xsk.com'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Applications/var/www/concept_crm'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Applications/var/www/concept_crm/backend/web/index.php'
+    'REMOTE_PORT' => '50818'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=stock-logs%2Fouts'
+    'REQUEST_URI' => '/backend/web/index.php?r=stock-logs%2Fouts'
+    'SCRIPT_NAME' => '/backend/web/index.php'
+    'PHP_SELF' => '/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544532867.84
+    'REQUEST_TIME' => 1544532867
+    'argv' => [
+        0 => 'r=stock-logs%2Fouts'
+    ]
+    'argc' => 1
+]
+2018-12-11 20:55:17 [::1][1][-][error][yii\i18n\PhpMessageSource::loadFallbackMessages] The message file for category 'app' does not exist: /Applications/var/www/concept_crm/backend/messages/zh-CN/app.php Fallback file does not exist as well: /Applications/var/www/concept_crm/backend/messages/zh/app.php
+    in /Applications/var/www/concept_crm/backend/views/stock-logs/outs.php:14
+    in /Applications/var/www/concept_crm/backend/controllers/StockLogsController.php:26
+2018-12-11 20:55:17 [::1][1][-][info][application] $_GET = [
+    'r' => 'stock-logs/outs'
+]
+
+$_COOKIE = [
+    'advanced-backend' => 'b3ad13080197a728a0f9ad889e3eff3d'
+    '_identity-backend' => 'e0583adc6700cc8ca373bb714594b6a5aa3b6d4f8c5bb6583611c428ce257d22a:2:{i:0;s:17:\"_identity-backend\";i:1;s:46:\"[1,\"mUhdHISkHPsvCkCPDVCeOp4hS2c3kEVS\",2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    'web_id' => '1'
+    '__returnUrl' => '/backend/web/'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'concept.xsk.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.98 Safari/537.36 QQBrowser/4.2.4763.400'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://concept.xsk.com/backend/web/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8'
+    'HTTP_COOKIE' => 'advanced-backend=b3ad13080197a728a0f9ad889e3eff3d; _identity-backend=e0583adc6700cc8ca373bb714594b6a5aa3b6d4f8c5bb6583611c428ce257d22a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22mUhdHISkHPsvCkCPDVCeOp4hS2c3kEVS%22%2C2592000%5D%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'concept.xsk.com'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Applications/var/www/concept_crm'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Applications/var/www/concept_crm/backend/web/index.php'
+    'REMOTE_PORT' => '50849'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=stock-logs%2Fouts'
+    'REQUEST_URI' => '/backend/web/index.php?r=stock-logs%2Fouts'
+    'SCRIPT_NAME' => '/backend/web/index.php'
+    'PHP_SELF' => '/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544532917.13
+    'REQUEST_TIME' => 1544532917
+    'argv' => [
+        0 => 'r=stock-logs%2Fouts'
+    ]
+    'argc' => 1
+]

@@ -79,10 +79,17 @@ class Stock extends \yii\db\ActiveRecord
                 $res[$k]['goods_type']=Types::getName($v['goods_type']);
                 $res[$k]['brand']=Types::getName($v['brand']);
                 $res[$k]['company']=Types::getName($v['company']);
-                $res[$k]['total_number']=1000;
+//                $res[$k]['total_number']=1000;
             }
         }
         return $res;
+    }
+    public static function get_total_number($id){
+        $res=Stock::findOne($id);
+        if(!empty($res->total_number)){
+            return $res->total_number;
+        }
+        return '';
     }
     public static function update_total_number($id,$number,$action){
         if(empty($action)){
@@ -90,15 +97,39 @@ class Stock extends \yii\db\ActiveRecord
         }
         $update=Stock::findOne($id);
         if($action=='plus'){
-            $update->total_number=$update->total_number+$number;
+            $update->total_number=bcadd($update->total_number,$number);
         }
         if($action=='reduce'){
-            $update->total_number=$update->total_number-$number;
+            $total_number=bcsub($update->total_number,$number);
+
+            if($total_number >= 0){
+//                var_dump($total_number,2);exit;
+                $update->total_number=$total_number;
+            }else{
+//                var_dump($total_number,3);exit;
+                return 'insufficient';
+            }
         }
         $res=$update->save();
         if($res){
             return true;
         }
         return false;
+    }
+    public static function dddd(){
+        $customer = Customer::findOne(123);
+        $transaction = Customer::getDb()->beginTransaction();
+        try {
+            $customer->id = 200;
+            $customer->save();
+            // ...other DB operations...
+            $transaction->commit();
+        } catch(\Exception $e) {
+            $transaction->rollBack();
+            throw $e;
+        } catch(\Throwable $e) {
+            $transaction->rollBack();
+            throw $e;
+        }
     }
 }

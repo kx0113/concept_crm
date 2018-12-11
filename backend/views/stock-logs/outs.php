@@ -29,8 +29,6 @@ $this->params['breadcrumbs'][] = $this->title;
                         <div class="ibox float-e-margins">
                             <div class="ibox-content">
                                 <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
-
                                 <div>
                                     <link href="components/bootstrap-datetimepicker-master/css/bootstrap-datetimepicker.css"
                                           media="all" rel="stylesheet" type="text/css"/>
@@ -46,7 +44,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                     </div>
                                     <div style="padding: 0;" class="form-group col-xs-offset-3 col-xs-6">
                                         <label class="search_title_stock"
-                                               for="exampleInputEmail1">出库客户</label>
+                                               for="customer_id">出库客户</label>
                                         <select class="form-control" name="" id="customer_id">
                                             <option value="1">产品1</option>
                                             <option value="2">产品2</option>
@@ -57,7 +55,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
                                     <div style="padding: 0;" class="form-group col-xs-offset-3 col-xs-6">
                                         <label class="search_title_stock"
-                                               for="exampleInputEmail1">用途</label>
+                                               for="purpose_id">用途</label>
                                         <select  class="form-control" name="" id="purpose_id">
                                             <option value="5">产品5</option>
                                             <option value="6">产品6</option>
@@ -92,6 +90,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                     function submit_form() {
                                         var params={};
                                         var stock_id=$("#pro_name").val();
+                                        var pro_total_number=$("#pro_total_number").val();
                                         var current_number=$("#current_number").val();
                                         var customer_id=$("#customer_id").val();
                                         var purpose_id=$("#purpose_id").val();
@@ -103,7 +102,8 @@ $this->params['breadcrumbs'][] = $this->title;
                                         params.customer_id = customer_id;
                                         params.purpose_id = purpose_id;
                                         params.status = 2;
-                                        console.log(params);
+//                                        console.log(pro_total_number);
+                                        console.log(pro_total_number-current_number);
                                         if(stock_id=='' || stock_id==0){
                                             alert('请选择产品');
                                             return false;
@@ -122,6 +122,11 @@ $this->params['breadcrumbs'][] = $this->title;
                                         }
                                         if(operation_time==''){
                                             alert('请选择时间');
+                                            return false;
+                                        }
+
+                                        if((pro_total_number-current_number) < 0){
+                                            alert('库存不足');
                                             return false;
                                         }
 //                                        return false;
