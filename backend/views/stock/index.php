@@ -45,8 +45,10 @@ $this->params['breadcrumbs'][] = $this->title;
                                         width: 80%;
                                     }
                                 </style>
+                                <form name="test" method="POST" action="index.php?r=stock/index" enctype="" >
                                 <div>
                                     <div>
+
                                         <link href="components/bootstrap-datetimepicker-master/css/bootstrap-datetimepicker.css"
                                               media="all" rel="stylesheet" type="text/css"/>
                                         <script src="components/bootstrap-datetimepicker-master/js/bootstrap-datetimepicker.js"
@@ -59,8 +61,17 @@ $this->params['breadcrumbs'][] = $this->title;
                                                    for="exampleInputEmail1">开始时间</label>
 
                                             <input class="search_input_stock form-control"
-                                                   type="text" value="2012-05-15" data-date-format="yyyy-mm-dd"
-                                                   id="datetimepicker">
+                                                   type="text" value="" data-date-format="yyyy-mm-dd"
+                                                   id="datetimepicker1">
+
+                                        </div>
+                                        <div style="padding: 0;" class="form-group col-xs-4">
+                                            <label class="search_title_stock"
+                                                   for="exampleInputEmail1">结束时间</label>
+
+                                            <input class="search_input_stock form-control"
+                                                   type="text" value="" data-date-format="yyyy-mm-dd"
+                                                   id="datetimepicker2">
 
                                         </div>
                                         <div style="padding: 0;" class="form-group col-xs-4">
@@ -111,7 +122,15 @@ $this->params['breadcrumbs'][] = $this->title;
 
                                 </div>
                                 <script>
-                                    $('#datetimepicker').datetimepicker({
+                                    $('#datetimepicker1').datetimepicker({
+                                        autoclose: true,
+                                        format: 'yyyy-mm-dd',
+                                        todayBtn: false,
+                                        showMeridian: false,
+                                        language: 'zh-CN',
+                                        pickerPosition: "bottom-left",
+                                    });
+                                    $('#datetimepicker2').datetimepicker({
                                         autoclose: true,
                                         format: 'yyyy-mm-dd',
                                         todayBtn: false,
@@ -122,19 +141,23 @@ $this->params['breadcrumbs'][] = $this->title;
 
                                 </script>
                                 <p>
-                                    <?= Html::a(Yii::t('app', '搜索'), ['index'], ['class' => 'btn btn-success']) ?>
+                                    <button type="button" class="btn btn-primary">提交</button>
+                                    <?= Html::submitButton(Yii::t('app', '更新'), ['class' => 'btn btn-success']) ?>
+
                                 </p>
+
                                 <div class="alert alert-info" role="alert">
                                     <p>查询条件：</p>
                                     <p>[起始时间：2010-09-23] - [结束时间：2018-10-10]</p>
                                     <p> 出库数量：1679</p>
                                     <p>出库次数：1265</p>
                                 </div>
-
+                                </form>
                                 <?php Pjax::begin(); ?>    <?= GridView::widget([
                                     'dataProvider' => $dataProvider,
                                     'layout' => '{items}{summary}{pager}',
                                     'columns' => [
+                                        'id',
                                         'number',
                                         'name',
                                         [
@@ -190,7 +213,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                             'class' => 'yii\grid\ActionColumn',
                                             'header' => '操作',
                                             'options' => ['width' => '100px;'],
-                                            'template' => '{view} {update}{delete}{upload}',
+                                            'template' => '{view} {update}{delete}{logs}',
                                             'buttons' => [
                                                 'view' => function ($url, $model) {
                                                     return Html::a(Yii::t('app', '[查看]'), $url, [
@@ -212,8 +235,8 @@ $this->params['breadcrumbs'][] = $this->title;
                                                         'class' => 'dglyphicon dglyphicon-trash',
                                                     ]);
                                                 },
-                                                'upload' => function ($url, $model) {
-                                                    return Html::a(Yii::t('app', '[入库记录]'), $url, [
+                                                'logs' => function ($url, $model) {
+                                                    return Html::a(Yii::t('app', '[操作记录]'), $url, [
                                                         'class' => 'dglyphicon dglyphicon-picture',
                                                         'title' => Yii::t('app', '图片上传'),
                                                         'style' => 'margin: 0 0 0 5px',

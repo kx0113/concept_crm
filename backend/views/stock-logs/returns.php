@@ -40,13 +40,12 @@ $this->params['breadcrumbs'][] = $this->title;
 
                                     <br>
                                     <?= $this->render('stock_common', []) ?>
+
                                     <div style="padding: 0;" class="form-group col-xs-offset-3 col-xs-6">
                                         <label class="search_title_stock"
-                                               for="exampleInputEmail1">是否归还</label>
-                                        <select  class="form-control" name="" id="">
-                                            <option value="">否</option>
-                                            <option value="">是</option>
-                                        </select>
+                                               for="exampleInputEmail1">归还数量</label>
+                                        <input type="email" class="search_input_stock form-control"
+                                               id="current_number" placeholder="归还数量">
                                     </div>
                                     <div style="padding: 0;" class="form-group col-xs-offset-3 col-xs-6">
                                         <label class="search_title_stock"
@@ -64,7 +63,10 @@ $this->params['breadcrumbs'][] = $this->title;
                                                   class="search_input_stock form-control col-xs-10 col-sm-5"></textarea>
 
                                     </div>
+                                    <div style="padding: 0;" class="form-group col-xs-offset-3 col-xs-6">
+                                        <button type="button" onclick="submit_form()" class="btn btn-primary">提交</button>
 
+                                    </div>
                                     <div style="clear: both"></div>
                                 </div>
 

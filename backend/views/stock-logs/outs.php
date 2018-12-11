@@ -103,7 +103,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                         params.purpose_id = purpose_id;
                                         params.status = 2;
 //                                        console.log(pro_total_number);
-                                        console.log(pro_total_number-current_number);
+//                                        console.log(pro_total_number-current_number);
                                         if(stock_id=='' || stock_id==0){
                                             alert('请选择产品');
                                             return false;
@@ -124,8 +124,11 @@ $this->params['breadcrumbs'][] = $this->title;
                                             alert('请选择时间');
                                             return false;
                                         }
+                                        var num=pro_total_number-current_number;
+                                        console.log(num);
+                                        if(num >= 0){
 
-                                        if((pro_total_number-current_number) < 0){
+                                        }else{
                                             alert('库存不足');
                                             return false;
                                         }

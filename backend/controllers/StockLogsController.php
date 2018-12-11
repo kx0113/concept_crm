@@ -76,10 +76,6 @@ class StockLogsController extends BaseController
                 $model->purpose_id=Yii::$app->request->post('purpose_id');
             }
             $update_total_number=Stock::update_total_number($stock_id,$current_number,$number_action);
-            var_dump($update_total_number);exit;
-            if($update_total_number=='insufficient'){
-                $this->ReturnJson(0,'数量不足22');
-            }
             $model->status=$status;
             $model->remark=$remark;
             $model->operation_time=$operation_time;
@@ -89,7 +85,7 @@ class StockLogsController extends BaseController
             $model->stock_id=$stock_id;
             $model->create_at=date("Y-m-d H:i:s");
             $model->update_at=date("Y-m-d H:i:s");
-            if($update_total_number){
+            if($update_total_number===true){
                 $res=$model->save();
                 if($res){
                     $transaction->commit();
@@ -97,13 +93,13 @@ class StockLogsController extends BaseController
                 }else{
                     $transaction->rollBack();
                 }
-            }else{
+            }elseif($update_total_number=='insufficient'){
                 $transaction->rollBack();
+                $this->ReturnJson(0,'数量不足');
             }
-
         } catch(\Exception $e) {
             $transaction->rollBack();
-            throw $e;
+            $this->ReturnJson(0,'操作失败');
         }
         $this->ReturnJson(0,'操作失败');
     }

@@ -4,6 +4,7 @@ namespace backend\controllers;
 
 use Yii;
 use common\models\Stock;
+use common\models\StockLogs;
 use common\models\Types;
 use common\models\StockSearch;
 use yii\web\Controller;
@@ -52,7 +53,13 @@ class StockController extends BaseController
             'dataProvider' => $dataProvider,
         ]);
     }
-
+    public function actionLogs($id){
+        $res=StockLogs::find()->where(['stock_id'=>$id])->asArray()->all();
+        return $this->render('logs', [
+            'model' => $this->findModel($id),
+            'stock_logs' => $res,
+        ]);
+    }
     /**
      * Displays a single Stock model.
      * @param string $id

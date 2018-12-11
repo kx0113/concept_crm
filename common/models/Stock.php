@@ -86,10 +86,10 @@ class Stock extends \yii\db\ActiveRecord
     }
     public static function get_total_number($id){
         $res=Stock::findOne($id);
-        if(!empty($res->total_number)){
+//        if(!empty($res->total_number)){
             return $res->total_number;
-        }
-        return '';
+//        }
+//        return '';
     }
     public static function update_total_number($id,$number,$action){
         if(empty($action)){
@@ -101,8 +101,7 @@ class Stock extends \yii\db\ActiveRecord
         }
         if($action=='reduce'){
             $total_number=bcsub($update->total_number,$number);
-
-            if($total_number >= 0){
+            if($total_number >= "0"){
 //                var_dump($total_number,2);exit;
                 $update->total_number=$total_number;
             }else{
