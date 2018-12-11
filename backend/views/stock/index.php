@@ -45,7 +45,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                         width: 80%;
                                     }
                                 </style>
-                                <form name="test" method="POST" action="index.php?r=stock/index" enctype="" >
+                                <form name="test" method="POST" action="index.php?r=stock/index">
                                 <div>
                                     <div>
 
@@ -61,7 +61,9 @@ $this->params['breadcrumbs'][] = $this->title;
                                                    for="exampleInputEmail1">开始时间</label>
 
                                             <input class="search_input_stock form-control"
-                                                   type="text" value="" data-date-format="yyyy-mm-dd"
+                                                   type="text"
+                                                   value="<?php if(isset($post_data['start_time']) && !empty($post_data['start_time'])){ echo $post_data['start_time']; } ?>"
+                                                   name="start_time" data-date-format="yyyy-mm-dd"
                                                    id="datetimepicker1">
 
                                         </div>
@@ -70,52 +72,44 @@ $this->params['breadcrumbs'][] = $this->title;
                                                    for="exampleInputEmail1">结束时间</label>
 
                                             <input class="search_input_stock form-control"
-                                                   type="text" value="" data-date-format="yyyy-mm-dd"
+                                                   type="text"
+                                                   value="<?php if(isset($post_data['end_time']) && !empty($post_data['end_time'])){ echo $post_data['end_time']; } ?>"
+                                                   name="end_time" data-date-format="yyyy-mm-dd"
                                                    id="datetimepicker2">
-
                                         </div>
                                         <div style="padding: 0;" class="form-group col-xs-4">
                                             <label class="search_title_stock"
                                                    for="exampleInputEmail1">产品编号</label>
-                                            <input type="email" class="search_input_stock form-control"
-                                                   id="exampleInputEmail1" placeholder="产品编号">
+                                            <input type="text" class="search_input_stock form-control"
+                                                   id="number" value="<?php if(isset($post_data['number']) && !empty($post_data['number'])){ echo $post_data['number']; } ?>"
+                                                   name="number" placeholder="产品编号">
                                         </div>
 
                                         <div style="padding: 0;" class="form-group col-xs-4">
                                             <label class="search_title_stock"
                                                    for="exampleInputEmail1">产品名称</label>
-                                            <input type="email" class="search_input_stock form-control"
-                                                   id="exampleInputEmail1" placeholder="产品名称">
+                                            <input type="text" class="search_input_stock form-control"
+                                                   id="name" value="<?php if(isset($post_data['name']) && !empty($post_data['name'])){ echo $post_data['name']; } ?>"
+                                                   name="name" placeholder="产品名称">
                                         </div>
                                         <div style="padding: 0;" class="form-group col-xs-4">
                                             <label class="search_title_stock"
                                                    for="exampleInputEmail1">规格分类</label>
-                                            <input type="email" class="search_input_stock form-control"
-                                                   id="exampleInputEmail1" placeholder="规格">
+                                            <input type="text" class="search_input_stock form-control"
+                                                   id="size" value="<?php if(isset($post_data['size']) && !empty($post_data['size'])){ echo $post_data['size']; } ?>" name="size" placeholder="规格">
                                         </div>
                                         <div style="padding: 0;" class="form-group col-xs-4">
                                             <label class="search_title_stock"
                                                    for="exampleInputEmail1">物品分类</label>
-                                            <input type="email" class="search_input_stock form-control"
-                                                   id="exampleInputEmail1" placeholder="物品分类">
+                                            <input type="text" class="search_input_stock form-control"
+                                                   id="goods_type" value="<?php if(isset($post_data['goods_type']) && !empty($post_data['goods_type'])){ echo $post_data['goods_type']; } ?>" name="goods_type" placeholder="物品分类">
                                         </div>
                                         <div style="padding: 0;" class="form-group col-xs-4">
                                             <label class="search_title_stock"
                                                    for="exampleInputEmail1">单位分类</label>
-                                            <input type="email" class="search_input_stock form-control"
-                                                   id="exampleInputEmail1" placeholder="单位分类">
+                                            <input type="text" class="search_input_stock form-control"
+                                                   id="company" value="<?php if(isset($post_data['company']) && !empty($post_data['company'])){ echo $post_data['company']; } ?>" name="company" placeholder="单位分类">
                                         </div>
-                                        <!--            <div class="col-xs-3 form-group field-stock-number has-success">-->
-                                        <!--                <label style="-->
-                                        <!--                float: left;-->
-                                        <!---->
-                                        <!--                margin:8px 0 0 0;-->
-                                        <!--                font-size: 15px;"-->
-                                        <!--                       class="control-label" for="stock-number">编号</label>-->
-                                        <!--                <input style="width: 80%;float: right;" type="text" id="stock-number" class="form-control" name="Stock[number]" aria-invalid="false">-->
-                                        <!---->
-                                        <!--                <div class="help-block"></div>-->
-                                        <!--            </div>-->
 
                                         <div style="clear: both"></div>
                                     </div>
@@ -148,7 +142,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
                                 <div class="alert alert-info" role="alert">
                                     <p>查询条件：</p>
-                                    <p>[起始时间：2010-09-23] - [结束时间：2018-10-10]</p>
+                                    <p>[起始时间：<?php if(isset($post_data['start_time']) && !empty($post_data['start_time'])){ echo $post_data['start_time']; } ?>] - [结束时间：<?php if(isset($post_data['end_time']) && !empty($post_data['end_time'])){ echo $post_data['end_time']; } ?>]</p>
                                     <p> 出库数量：1679</p>
                                     <p>出库次数：1265</p>
                                 </div>
