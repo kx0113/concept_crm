@@ -1,3 +1,4 @@
 backend/runtime/*
 backend/runtime/logs/
 backend/debug/*
+backend/web/assets/
