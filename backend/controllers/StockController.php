@@ -47,6 +47,7 @@ class StockController extends BaseController
         if($_POST){
 //            var_dump($_POST);
         }
+        var_dump(Yii::$app->request->queryParams);
         $searchModel = new StockSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 

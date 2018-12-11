@@ -135,9 +135,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
                                 </script>
                                 <p>
-                                    <button type="button" class="btn btn-primary">提交</button>
-                                    <?= Html::submitButton(Yii::t('app', '更新'), ['class' => 'btn btn-success']) ?>
-
+                                    <?= Html::submitButton(Yii::t('app', '提交'), ['class' => 'btn btn-success']) ?>
                                 </p>
 
                                 <div class="alert alert-info" role="alert">
@@ -150,6 +148,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 <?php Pjax::begin(); ?>    <?= GridView::widget([
                                     'dataProvider' => $dataProvider,
                                     'layout' => '{items}{summary}{pager}',
+                                    'filterModel' => $searchModel,
                                     'columns' => [
                                         'id',
                                         'number',

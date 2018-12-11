@@ -70,7 +70,7 @@ class StockSearch extends Stock
             'update_at' => $this->update_at,
             'create_at' => $this->create_at,
         ]);
-
+var_dump($params);
         $query->andFilterWhere(['like', 'name', $this->name])
             ->andFilterWhere(['like', 'remark', $this->remark])
             ->andFilterWhere(['like', 'ext1', $this->ext1])
