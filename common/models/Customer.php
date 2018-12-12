@@ -61,4 +61,12 @@ class Customer extends \yii\db\ActiveRecord
             'create_at' => '创建时间',
         ];
     }
+    public static function getLists($where=[])
+    {
+        return Customer::find()->where($where)->asArray()->all();
+    }
+    public static function get_name($id){
+        $res=Customer::findOne($id);
+        return $res->name;
+    }
 }

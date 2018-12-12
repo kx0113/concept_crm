@@ -4,18 +4,127 @@ namespace backend\controllers;
 
 use Yii;
 use common\models\Stock;
-use common\models\Types;
 use common\models\StockLogs;
-use common\models\StockSearch;
+use common\models\StockLogsSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
+/**
+ * SignalController implements the CRUD actions for StockLogs model.
+ */
 class StockLogsController extends BaseController
 {
-    public function actionIndex()
+    /**
+     * @inheritdoc
+     */
+    public function behaviors()
     {
-        return $this->render('index');
+        return [
+            'verbs' => [
+                'class' => VerbFilter::className(),
+                'actions' => [
+                    'delete' => ['POST'],
+                ],
+            ],
+        ];
+    }
+
+    /**
+     * Lists all StockLogs models.
+     * @return mixed
+     */
+    public function actionIndex($id)
+    {
+//        var_dump($id);
+        $queryParams=Yii::$app->request->queryParams;
+        $queryParams['StockLogsSearch']['stock_id']=$id;
+//        echo json_encode($queryParams);
+        $searchModel = new StockLogsSearch();
+        $dataProvider = $searchModel->search($queryParams);
+
+        return $this->render('index', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+
+    /**
+     * Displays a single StockLogs model.
+     * @param string $id
+     * @return mixed
+     */
+    public function actionView($id)
+    {
+        return $this->render('view', [
+            'model' => $this->findModel($id),
+        ]);
+    }
+
+    /**
+     * Creates a new StockLogs model.
+     * If creation is successful, the browser will be redirected to the 'view' page.
+     * @return mixed
+     */
+    public function actionCreate()
+    {
+        $model = new StockLogs();
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id]);
+        } else {
+            return $this->render('create', [
+                'model' => $model,
+            ]);
+        }
+    }
+
+    /**
+     * Updates an existing StockLogs model.
+     * If update is successful, the browser will be redirected to the 'view' page.
+     * @param string $id
+     * @return mixed
+     */
+    public function actionUpdate($id)
+    {
+        $model = $this->findModel($id);
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id]);
+        } else {
+            return $this->render('update', [
+                'model' => $model,
+            ]);
+        }
+    }
+
+    /**
+     * Deletes an existing StockLogs model.
+     * If deletion is successful, the browser will be redirected to the 'index' page.
+     * @param string $id
+     * @return mixed
+     */
+    public function actionDelete($id)
+    {
+        $this->findModel($id)->delete();
+
+        return $this->redirect(['index']);
+    }
+
+    /**
+     * Finds the StockLogs model based on its primary key value.
+     * If the model is not found, a 404 HTTP exception will be thrown.
+     * @param string $id
+     * @return StockLogs the loaded model
+     * @throws NotFoundHttpException if the model cannot be found
+     */
+    protected function findModel($id)
+    {
+        if (($model = StockLogs::findOne($id)) !== null) {
+            return $model;
+        } else {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
     }
     public function actionInputs(){
         return $this->render('inputs', [
@@ -30,7 +139,6 @@ class StockLogsController extends BaseController
      * @desc 入库出库操作
      */
     public function actionAddStockLogs(){
-
         $model=new StockLogs();
         //备注
         $remark = Yii::$app->request->post('remark','');
@@ -81,6 +189,7 @@ class StockLogsController extends BaseController
             $model->operation_time=$operation_time;
             $model->current_number=$current_number;
             $model->total_number=Stock::get_total_number($stock_id);
+            $model->token=$this->session->get('web_id');
             $model->add_user=yii::$app->user->identity->id;
             $model->stock_id=$stock_id;
             $model->create_at=date("Y-m-d H:i:s");
@@ -108,6 +217,4 @@ class StockLogsController extends BaseController
         return $this->render('returns', [
         ]);
     }
-
-
 }

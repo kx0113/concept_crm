@@ -6,6 +6,7 @@ use yii\widgets\Pjax;
 use common\models\Types;
 use common\models\User;
 use common\models\Web;
+use common\models\Customer;
 
 /* @var $this yii\web\View */
 /* @var $searchModel common\models\StockSearch */
@@ -46,10 +47,9 @@ $this->params['breadcrumbs'][] = $this->title;
                                         <label class="search_title_stock"
                                                for="customer_id">出库客户</label>
                                         <select class="form-control" name="" id="customer_id">
-                                            <option value="1">产品1</option>
-                                            <option value="2">产品2</option>
-                                            <option value="3">产品3</option>
-                                            <option value="4">产品4</option>
+                                            <?php foreach(Customer::getLists() as $k=>$v){ ?>
+                                                <option value="<?php echo $v['id']; ?>"><?php echo $v['name']; ?></option>
+                                            <?php } ?>
                                         </select>
                                     </div>
 
@@ -57,10 +57,10 @@ $this->params['breadcrumbs'][] = $this->title;
                                         <label class="search_title_stock"
                                                for="purpose_id">用途</label>
                                         <select  class="form-control" name="" id="purpose_id">
-                                            <option value="5">产品5</option>
-                                            <option value="6">产品6</option>
-                                            <option value="7">产品7</option>
-                                            <option value="8">产品8</option>
+                                            <?php foreach(Types::types_list(['keys'=>1009]) as $k=>$v){ ?>
+                                            <option value="<?php echo $k; ?>"><?php echo $v; ?></option>
+
+                                            <?php } ?>
                                         </select>
                                     </div>
 
@@ -135,7 +135,7 @@ $this->params['breadcrumbs'][] = $this->title;
 //                                        return false;
                                         $.post('index.php?r=/stock-logs/add-stock-logs',params,function(res){
                                             alert(res.msg);
-//                                            location.reload();
+                                            location.reload();
                                         },'json');
 
                                     }

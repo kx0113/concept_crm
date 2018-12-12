@@ -44,20 +44,20 @@ class StockController extends BaseController
      */
     public function actionIndex()
     {
-        if($_POST){
-//            var_dump($_POST);
-        }
-        var_dump(Yii::$app->request->queryParams);
+        $queryParams=Yii::$app->request->queryParams;
+//        echo json_encode(Yii::$app->request->queryParams);
         $searchModel = new StockSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        $dataProvider = $searchModel->search($queryParams);
 
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
-            'post_data'=>$_POST,
+            'post_data'=>isset($queryParams['StockSearch']) ? $queryParams['StockSearch'] : '',
         ]);
     }
     public function actionLogs($id){
+        $this->redirect(['/stock-logs/index','id'=>$id]);
 
         $res=StockLogs::find()->where(['stock_id'=>$id])->asArray()->all();
         return $this->render('logs', [

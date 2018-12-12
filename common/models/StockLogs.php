@@ -51,20 +51,36 @@ class StockLogs extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('app', 'ID'),
-            'stock_id' => Yii::t('app', 'Stock ID'),
-            'total_number' => Yii::t('app', 'Total Number'),
-            'current_number' => Yii::t('app', 'Current Number'),
-            'customer_id' => Yii::t('app', 'Customer ID'),
-            'before_number' => Yii::t('app', 'before_number ID'),
-            'purpose_id' => Yii::t('app', 'Purpose ID'),
-            'operation_time' => Yii::t('app', 'Operation Time'),
-            'status' => Yii::t('app', 'Status'),
-            'remark' => Yii::t('app', 'Remark'),
+            'stock_id' => Yii::t('app', '产品名称'),
+            'total_number' => Yii::t('app', '操作后总数'),
+            'current_number' => Yii::t('app', '当前操作数量'),
+            'customer_id' => Yii::t('app', '客户'),
+            'before_number' => Yii::t('app', '操作前数量'),
+            'purpose_id' => Yii::t('app', '用途分类'),
+            'operation_time' => Yii::t('app', '操作时间'),
+            'is_returns' => Yii::t('app', '是否归还'),
+            'status' => Yii::t('app', '操作'),
+            'remark' => Yii::t('app', '备注'),
             'token' => Yii::t('app', 'token'),
-            'add_user' => Yii::t('app', 'Add User'),
-            'update_at' => Yii::t('app', 'Update At'),
-            'create_at' => Yii::t('app', 'Create At'),
+            'add_user' => Yii::t('app', '操作用户'),
+            'update_at' => Yii::t('app', '更新时间'),
+            'create_at' => Yii::t('app', '创建时间'),
         ];
+    }
+//      `is_returns` tinyint(1) DEFAULT '1' COMMENT '是否归还1=未归还2=未归还',
+    public static function get_is_returns_name($data){
+        if($data==1){
+            return '未归还';
+        }elseif($data==2){
+            return '未归还';
+        }
+    }
+    public static function get_status_name($data){
+        if($data==1){
+            return '入库';
+        }elseif($data==2){
+            return '出库';
+        }
     }
 
 }
