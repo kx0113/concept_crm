@@ -44,6 +44,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'address',
             'customer_type',
             'source_type',
+            'remark',
             'token',
             'add_user',
             'status',

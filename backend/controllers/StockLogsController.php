@@ -88,10 +88,18 @@ class StockLogsController extends BaseController
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        } else {
+        if (Yii::$app->request->isPost) {
+            $model->load(Yii::$app->request->post());
+            $model->add_user=yii::$app->user->identity->id;
+            $model->create_at=date("Y-m-d H:i:s");
+            $model->token=Yii::$app->session->get('web_id');
+            if($model->save()){
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
+        }
+//        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+//            return $this->redirect(['view', 'id' => $model->id]);
+        else {
             return $this->render('update', [
                 'model' => $model,
             ]);
@@ -189,7 +197,7 @@ class StockLogsController extends BaseController
             $model->operation_time=$operation_time;
             $model->current_number=$current_number;
             $model->total_number=Stock::get_total_number($stock_id);
-            $model->token=$this->session->get('web_id');
+            $model->token=Yii::$app->session->get('web_id');
             $model->add_user=yii::$app->user->identity->id;
             $model->stock_id=$stock_id;
             $model->create_at=date("Y-m-d H:i:s");

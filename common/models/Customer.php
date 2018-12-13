@@ -11,6 +11,7 @@ use Yii;
  * @property string $name
  * @property string $phone
  * @property string $address
+ * @property string $remark
  * @property integer $customer_type
  * @property integer $source_type
  * @property integer $token
@@ -35,9 +36,13 @@ class Customer extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            [['name','phone','customer_type','source_type'], 'required'],
             [['customer_type', 'source_type', 'token', 'add_user', 'status'], 'integer'],
             [['update_at', 'create_at'], 'safe'],
-            [['name', 'phone'], 'string', 'max' => 50],
+            [['remark'], 'string'],
+            [['name'], 'string', 'max' => 50],
+            [['phone'], 'string', 'max' => 11],
+            [['phone'], 'string', 'min' => 8],
             [['address'], 'string', 'max' => 255],
         ];
     }
@@ -54,7 +59,8 @@ class Customer extends \yii\db\ActiveRecord
             'address' => '地址',
             'customer_type' => '客户类型',
             'source_type' => '客户来源',
-            'token' => 'Token',
+            'remark' => '备注',
+            'token' => '公司名称',
             'add_user' => '创建用户',
             'status' => '客户状态',
             'update_at' => '更新时间',
@@ -66,7 +72,7 @@ class Customer extends \yii\db\ActiveRecord
         return Customer::find()->where($where)->asArray()->all();
     }
     public static function get_name($id){
-        $res=Customer::findOne($id);
-        return $res->name;
+        $res=Customer::find()->where(['id'=>$id])->asArray()->one();
+        return $res['name'];
     }
 }

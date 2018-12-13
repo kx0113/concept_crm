@@ -41,6 +41,7 @@ class Stock extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            [['name','number','brand','size','goods_type','company'], 'required'],
             [['brand','token', 'size', 'goods_type', 'company', 'status', 'add_user'], 'integer'],
             [['update_at', 'create_at'], 'safe'],
             [['name', 'remark', 'ext1', 'ext2'], 'string', 'max' => 255],
@@ -72,7 +73,7 @@ class Stock extends \yii\db\ActiveRecord
         ];
     }
     public static function getLists($where=[]){
-        $res= Stock::find()->where($where)->asArray()->all();
+        $res= Stock::find()->where($where)->andWhere(['token'=>Yii::$app->session->get('web_id')])->asArray()->all();
         if(!empty($res)){
             foreach($res as $k=>$v){
                 $res[$k]['size']=Types::getName($v['size']);

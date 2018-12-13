@@ -61,7 +61,7 @@ class StockLogs extends \yii\db\ActiveRecord
             'is_returns' => Yii::t('app', '是否归还'),
             'status' => Yii::t('app', '操作'),
             'remark' => Yii::t('app', '备注'),
-            'token' => Yii::t('app', 'token'),
+            'token' => Yii::t('app', '公司名称'),
             'add_user' => Yii::t('app', '操作用户'),
             'update_at' => Yii::t('app', '更新时间'),
             'create_at' => Yii::t('app', '创建时间'),

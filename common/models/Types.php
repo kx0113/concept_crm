@@ -54,7 +54,7 @@ class Types extends \yii\db\ActiveRecord
             'info' => Yii::t('app', '描述'),
             'add_time' => Yii::t('app', '创建时间'),
             'add_user' => Yii::t('app', '创建用户'),
-            'token' => Yii::t('app', 'Token'),
+            'token' => Yii::t('app', '公司名称'),
         ];
     }
     public static function types_list($where){

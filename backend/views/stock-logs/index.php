@@ -86,6 +86,13 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
              'operation_time',
             [
+                'attribute' => 'token',
+                'value'=>
+                    function($model){
+                        return \common\models\Web::GetWebName($model->token);
+                    },
+            ],
+            [
                 'class' => 'yii\grid\ActionColumn',
                 'header' => '操作',
                 'options' => ['width' => '100px;'],

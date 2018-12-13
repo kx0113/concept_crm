@@ -3,6 +3,8 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
+use common\models\Types;
+
 /* @var $this yii\web\View */
 /* @var $searchModel common\models\CustomerSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -39,14 +41,41 @@ $this->params['breadcrumbs'][] = $this->title;
             'name',
             'phone',
             'address',
-            'customer_type',
-             'source_type',
+//            'customer_type',
+            [
+                'attribute' => 'customer_type',
+                'value' =>
+                    function ($searchModel) {
+                        return mb_substr(Types::getName($searchModel->customer_type), 0, 10, 'utf-8');
+                    },
+            ],
+            [
+                'attribute' => 'source_type',
+                'value' =>
+                    function ($searchModel) {
+                        return mb_substr(Types::getName($searchModel->source_type), 0, 10, 'utf-8');
+                    },
+            ],
+            [
+                'attribute' => 'status',
+                'value' =>
+                    function ($searchModel) {
+                        return mb_substr(Types::getName($searchModel->status), 0, 10, 'utf-8');
+                    },
+            ],
+//             'source_type',
             // 'token',
             // 'add_user',
-             'status',
+//             'status',
              'update_at',
              'create_at',
-
+            [
+                'attribute' => 'token',
+                'value'=>
+                    function($model){
+                        return \common\models\Web::GetWebName($model->token);
+                    },
+            ],
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>

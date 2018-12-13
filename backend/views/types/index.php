@@ -45,6 +45,13 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
 //            'parent',
             'info',
+            [
+                'attribute' => 'token',
+                'value'=>
+                    function($model){
+                        return \common\models\Web::GetWebName($model->token);
+                    },
+            ],
             // 'add_time',
             // 'add_user',
             // 'token',

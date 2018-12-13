@@ -80,7 +80,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute' => 'token',
                 'value'=>
                     function($model){
-                        return Web::GetWebName($model->token);
+                        return \common\models\Web::GetWebName($model->token);
                     },
             ],
             ['class' => 'yii\grid\ActionColumn'],

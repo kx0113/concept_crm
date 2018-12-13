@@ -19,7 +19,7 @@ class CustomerSearch extends Customer
     {
         return [
             [['id', 'customer_type', 'source_type', 'token', 'add_user', 'status'], 'integer'],
-            [['name', 'phone', 'address', 'update_at', 'create_at'], 'safe'],
+            [['name', 'remark','phone', 'address', 'update_at', 'create_at'], 'safe'],
         ];
     }
 
@@ -41,8 +41,7 @@ class CustomerSearch extends Customer
      */
     public function search($params)
     {
-        $query = Customer::find();
-
+        $query = Customer::find()->where(['token'=>Yii::$app->session->get('web_id')]);
         // add conditions that should always apply here
 
         $dataProvider = new ActiveDataProvider([
@@ -64,6 +63,7 @@ class CustomerSearch extends Customer
             'source_type' => $this->source_type,
             'token' => $this->token,
             'add_user' => $this->add_user,
+            'remark' => $this->remark,
             'status' => $this->status,
             'update_at' => $this->update_at,
             'create_at' => $this->create_at,

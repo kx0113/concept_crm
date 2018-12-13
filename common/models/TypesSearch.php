@@ -41,8 +41,7 @@ class TypesSearch extends Types
      */
     public function search($params)
     {
-        $query = Types::find();
-
+        $query = Types::find()->where(['token'=>Yii::$app->session->get('web_id')]);
         // add conditions that should always apply here
 
         $dataProvider = new ActiveDataProvider([

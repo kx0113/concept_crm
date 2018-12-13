@@ -35,6 +35,7 @@ class CustomerController extends BaseController
      */
     public function actionIndex()
     {
+//        var_dump(Yii::$app->session->get('web_id'));
         $searchModel = new CustomerSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
@@ -64,9 +65,14 @@ class CustomerController extends BaseController
     public function actionCreate()
     {
         $model = new Customer();
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if (Yii::$app->request->isPost) {
+            $model->load(Yii::$app->request->post());
+            $model->add_user=yii::$app->user->identity->id;
+            $model->create_at=date("Y-m-d H:i:s");
+            $model->token=Yii::$app->session->get('web_id');
+            if($model->save()){
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
         } else {
             return $this->render('create', [
                 'model' => $model,

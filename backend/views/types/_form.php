@@ -9,7 +9,7 @@ use yii\widgets\ActiveForm;
 ?>
 
 <div class="types-form">
-
+    <div class="col-xs-6 col-xs-offset-3">
     <?php $form = ActiveForm::begin(); ?>
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
@@ -33,4 +33,5 @@ use yii\widgets\ActiveForm;
 
     <?php ActiveForm::end(); ?>
 
+</div>
 </div>
