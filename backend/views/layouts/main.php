@@ -28,7 +28,7 @@ use common\widgets\Alert;
     <!--[if lt IE 9]>
     <meta http-equiv="refresh" content="0;ie.html" />
     <![endif]-->
-    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="凯旋科技" href="favicon.ico">
     <script type="text/javascript" charset="utf-8" src="/components/utf8-php/ueditor.config.js"></script>
     <script type="text/javascript" charset="utf-8" src="/components/utf8-php/ueditor.all.min.js"> </script>
     <!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
