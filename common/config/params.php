@@ -1,6 +1,6 @@
 <?php
 return [
-    'upload_path' => 'http://59.110.215.21//var/www/concept_crm_test/concept_crm',
+    'upload_path' => 'http://59.110.215.21/concept_crm_test/concept_crm',
     'types_classs'=>[
         ''=>'-- 请选择 --',
         1001=>'规格',
