@@ -4,19 +4,23 @@
 <div style="background: #fff;padding: 10px;">
 
 <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
-<h1>折线</h1>
-<hr>
-<br>
-<div id="main" style="width: 600px;height:400px;"></div>
-<br>
-<h1>饼</h1><hr>
-<br>
-<div id="main2" style="width: 600px;height:400px;"></div>
-<br>
-<h1>柱状</h1><hr>
-<br>
-<div id="main3" style="width: 600px;height:400px;"></div>
-<br>
+
+    <div class="row">
+        <div class="col-xs-4">
+            <h1>折线</h1>
+            <hr>
+<div id="main" style="width: 400px;height:400px;"></div></div>
+
+        <div class="col-xs-4">
+
+            <h1>饼</h1><hr>
+
+<div id="main2" style="width: 400px;height:400px;"></div></div>
+
+            <div class="col-xs-4">
+                <h1>柱状</h1><hr>
+<div id="main3" style="width: 400px;height:400px;"></div></div>
+
 <script type="text/javascript">
     // 基于准备好的dom，初始化echarts实例
     var myChart = echarts.init(document.getElementById('main'));
