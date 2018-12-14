@@ -14,7 +14,7 @@ $this->params['breadcrumbs'][] = $this->title;
     body{background: #fff}
 </style>
 <div class="middle-box text-center loginscreen  animated fadeInDown">
-     <img src="./img/108108.png" />
+<!--     <img src="./img/108108.png" />-->
     <div style="margin:30px 0 0 0;" class="panel panel-default">
     <div style="width:100%;padding: 20px 40px 10px 40px;">
 
