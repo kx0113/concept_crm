@@ -262,7 +262,7 @@ $this->title = '';
         var id=$(this).attr('data-id');
         var par={};
         par.id=id;
-        $.post('index.php?r=/web/ajax-web-session',par,function(data){
+        $.post('index.php?r=web/ajax-web-session',par,function(data){
             if(data.msg=='1'){
                 location.reload();
             }
