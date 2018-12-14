@@ -18,6 +18,7 @@ class BaseController extends Controller
     public function init()
     {
         parent::init();
+        Yii::info(json_encode(['data'=>date("Y-m-d H:i:s"),'par']),'lstu');
     }
     public function ReturnJson($code=1,$msg,$data=[]){
         Yii::$app->response->format=Response::FORMAT_JSON;
