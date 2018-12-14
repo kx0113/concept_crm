@@ -21,10 +21,10 @@ $this->title = 'My Yii Application';
                     <div class="panel-heading">
                         网站快捷查看
                     </div>
-<!--                    href="http://--><?php //echo $wv['weburl']; ?><!--"-->
+
                     <div class="panel-body">
                         <?php foreach($web_list as $wk=>$wv){?>
-                            <a
+                            <a   href="http://<?php echo $wv['weburl']; ?>"
                                 onclick="web_post_session('<?php echo $wv['id']; ?>')"
                                class="   <?php if($wv['id'] == $web_session_id){ ?>
                               btn btn-danger btn-rounded
