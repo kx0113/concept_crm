@@ -16,6 +16,7 @@ use common\models\Types;
  * @property integer $brand
  * @property integer $size
  * @property integer $goods_type
+ * @property integer $total_number
  * @property integer $company
  * @property string $remark
  * @property string $ext1
@@ -42,7 +43,7 @@ class Stock extends \yii\db\ActiveRecord
     {
         return [
             [['name','number','brand','size','goods_type','company'], 'required'],
-            [['brand','token', 'size', 'goods_type', 'company', 'status', 'add_user'], 'integer'],
+            [['brand','token','total_number', 'size', 'goods_type', 'company', 'status', 'add_user'], 'integer'],
             [['update_at', 'create_at'], 'safe'],
             [['name', 'remark', 'ext1', 'ext2'], 'string', 'max' => 255],
             [['number'], 'string', 'max' => 50],
@@ -60,6 +61,7 @@ class Stock extends \yii\db\ActiveRecord
             'token' => '公司名称',
             'name' => '产品名称',
             'brand' => '品牌分类',
+            'total_number' => '总数量',
             'size' => '规格',
             'goods_type' => '物品分类',
             'company' => '单位',

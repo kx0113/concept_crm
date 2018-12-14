@@ -14,26 +14,27 @@ use yii\widgets\ActiveForm;
         'action' => ['index'],
         'method' => 'get',
     ]); ?>
+    <div class="row">
 
-    <?= $form->field($model, 'id') ?>
 
+        <div class="col-xs-6">
     <?= $form->field($model, 'name') ?>
+        </div>
+        <div class="col-xs-6">
+    <?= $form->field($model, 'keys')->dropDownList(Yii::$app->params['types_classs']); ?>
+        </div>
 
-    <?= $form->field($model, 'keys') ?>
 
-    <?= $form->field($model, 'parent') ?>
-
-    <?= $form->field($model, 'info') ?>
 
     <?php // echo $form->field($model, 'add_time') ?>
 
     <?php // echo $form->field($model, 'add_user') ?>
 
     <?php // echo $form->field($model, 'token') ?>
-
+</div>
     <div class="form-group">
-        <?= Html::submitButton(Yii::t('app', 'Search'), ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton(Yii::t('app', 'Reset'), ['class' => 'btn btn-default']) ?>
+        <?= Html::submitButton(Yii::t('app', '搜索'), ['class' => 'btn btn-primary']) ?>
+<!--        --><?//= Html::resetButton(Yii::t('app', 'Reset'), ['class' => 'btn btn-default']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

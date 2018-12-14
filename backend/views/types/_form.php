@@ -19,7 +19,7 @@ use yii\widgets\ActiveForm;
 <!--    --><?//= $form->field($model, 'parent')->textInput() ?>
     <?= $form->field($model, 'parent')->dropDownList($type_list); ?>
 
-    <?= $form->field($model, 'info')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'info')->textarea(['rows' => 6]) ?>
 
 <!--    --><?//= $form->field($model, 'add_time')->textInput() ?>
 
@@ -28,7 +28,7 @@ use yii\widgets\ActiveForm;
 <!--    --><?//= $form->field($model, 'token')->textInput() ?>
 
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton($model->isNewRecord ? Yii::t('app', '创建') : Yii::t('app', '更新'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

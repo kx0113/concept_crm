@@ -76,7 +76,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                     <div style="padding: 0;" class="form-group col-xs-offset-3 col-xs-6">
                                         <label class="search_title_stock"
                                                for="exampleInputEmail1">备注</label>
-                                        <textarea placeholder="备注" rows="5" id="remark" name="remark"
+                                        <textarea placeholder="备注" rows="6" id="remark" name="remark"
                                                   class="search_input_stock form-control col-xs-10 col-sm-5"></textarea>
                                     </div>
                                     <div style="clear: both"></div>
@@ -135,7 +135,7 @@ $this->params['breadcrumbs'][] = $this->title;
 //                                        return false;
                                         $.post('index.php?r=/stock-logs/add-stock-logs',params,function(res){
                                             alert(res.msg);
-                                            location.reload();
+                                            location.href="index.php?r=stock/index";
                                         },'json');
 
                                     }

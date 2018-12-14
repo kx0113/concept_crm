@@ -60,6 +60,7 @@ class Types extends \yii\db\ActiveRecord
     public static function types_list($where){
         $arr=[];
         $res= Types::find()->where($where)->asArray()->all();
+        $arr['']='-- 请选择 --';
         foreach ($res as $k=>$v){
             $arr[$v['id']]=$v['name'];
         }

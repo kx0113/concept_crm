@@ -25,19 +25,17 @@ $this->params['breadcrumbs'][] = $this->title;
                     <div class="col-sm-12">
                         <div class="ibox float-e-margins">
                             <div class="ibox-content">
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+    <?php  echo $this->render('_search', ['model' => $searchModel]); ?>
 
-    <p>
-        <?= Html::a(Yii::t('app', '创建'), ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+
 <?php Pjax::begin(); ?>    <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
+//        'filterModel' => $searchModel,
         'layout' => '{items}{summary}{pager}',
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+//            ['class' => 'yii\grid\SerialColumn'],
 
-//            'id',
+            'id',
             'name',
             'phone',
             'address',
@@ -67,7 +65,7 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'token',
             // 'add_user',
 //             'status',
-             'update_at',
+//             'update_at',
              'create_at',
             [
                 'attribute' => 'token',
@@ -76,7 +74,13 @@ $this->params['breadcrumbs'][] = $this->title;
                         return \common\models\Web::GetWebName($model->token);
                     },
             ],
-            ['class' => 'yii\grid\ActionColumn'],
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'header' => '操作',
+                'options' => ['width' => '100px;'],
+                'template' => '{view} {update}',
+            ],
+//            ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
 <?php Pjax::end(); ?></div></div></div></div></div></div></div></div>

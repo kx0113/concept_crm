@@ -14,38 +14,31 @@ use yii\widgets\ActiveForm;
         'action' => ['index'],
         'method' => 'get',
     ]); ?>
+    <div class="row">
 
-    <?= $form->field($model, 'id') ?>
+        <div class="col-xs-3">
+            <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
+        </div>
+        <div class="col-xs-3">
+            <?= $form->field($model, 'number')->textInput(['maxlength' => true]) ?>
+        </div>
+        <div class="col-xs-3">
+            <?= $form->field($model, 'brand')->dropDownList(\common\models\Types::types_list(['keys'=>1010])); ?>
+        </div>
+        <div class="col-xs-3">
+            <?= $form->field($model, 'size')->dropDownList(\common\models\Types::types_list(['keys'=>1001])); ?>
+        </div>
+        <div class="col-xs-3">
+            <?= $form->field($model, 'goods_type')->dropDownList(\common\models\Types::types_list(['keys'=>1002])); ?>
+        </div>
+        <div class="col-xs-3">
+            <?= $form->field($model, 'company')->dropDownList(\common\models\Types::types_list(['keys'=>1003])); ?>
+        </div>
 
-    <?= $form->field($model, 'number') ?>
-
-    <?= $form->field($model, 'token') ?>
-
-    <?= $form->field($model, 'name') ?>
-
-    <?= $form->field($model, 'size') ?>
-
-    <?= $form->field($model, 'goods_type') ?>
-
-    <?php // echo $form->field($model, 'company') ?>
-
-    <?php // echo $form->field($model, 'remark') ?>
-
-    <?php // echo $form->field($model, 'ext1') ?>
-
-    <?php // echo $form->field($model, 'ext2') ?>
-
-    <?php // echo $form->field($model, 'status') ?>
-
-    <?php // echo $form->field($model, 'add_user') ?>
-
-    <?php // echo $form->field($model, 'upate_at') ?>
-
-    <?php // echo $form->field($model, 'create_at') ?>
-
+    </div>
     <div class="form-group">
-        <?= Html::submitButton(Yii::t('app', 'Search'), ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton(Yii::t('app', 'Reset'), ['class' => 'btn btn-default']) ?>
+        <?= Html::submitButton(Yii::t('app', '搜索'), ['class' => 'btn btn-primary']) ?>
+<!--        --><?//= Html::resetButton(Yii::t('app', 'Reset'), ['class' => 'btn btn-default']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

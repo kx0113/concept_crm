@@ -3,22 +3,17 @@
 namespace backend\controllers;
 
 use Yii;
-use common\models\Stock;
-use common\models\StockLogs;
-use common\models\Types;
-use common\models\StockSearch;
+use common\models\Finance;
+use common\models\FinanceSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * StockController implements the CRUD actions for Stock model.
+ * FinanceController implements the CRUD actions for Finance model.
  */
-class StockController extends BaseController
+class FinanceController extends Controller
 {
-    public function init(){
-        parent::init();
-    }
     /**
      * @inheritdoc
      */
@@ -33,64 +28,24 @@ class StockController extends BaseController
             ],
         ];
     }
-    public function test22View($info){
-        return $this->render('test21', ['info'=>$info]);
-    }
-    public function actionTest21(){
-        return $this->test22View('订单创建');
-    }
-    public function actionTest22(){
-        return $this->test22View('订单列表');
-    }
-    public function actionTest23(){
-        return $this->test22View('财务统计');
-    }
-    public function actionTest24(){
-        return $this->test22View('订单统计');
-    }
-    public function actionTest25(){
-        return $this->test22View('客户统计');
-    }
-    public function actionTest26(){
-        return $this->test22View('入库统计');
-    }
-    public function actionTest27(){
-        return $this->test22View('出库统计');
-    }
-    public function actionGetStockInfo(){
-        return $this->ReturnJson(1,'OK',Stock::getLists());
-//        return Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
-//        echo json_encode(['list'=>Stock::getLists()]);exit;
-    }
+
     /**
-     * Lists all Stock models.
+     * Lists all Finance models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $queryParams=Yii::$app->request->queryParams;
-//        echo json_encode(Yii::$app->request->queryParams);
-        $searchModel = new StockSearch();
-
-        $dataProvider = $searchModel->search($queryParams);
+        $searchModel = new FinanceSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
-//            'post_data'=>isset($queryParams['StockSearch']) ? $queryParams['StockSearch'] : '',
         ]);
     }
-    public function actionLogs($id){
-        $this->redirect(['/stock-logs/index','id'=>$id]);
 
-        $res=StockLogs::find()->where(['stock_id'=>$id])->asArray()->all();
-        return $this->render('logs', [
-            'model' => $this->findModel($id),
-            'stock_logs' => $res,
-        ]);
-    }
     /**
-     * Displays a single Stock model.
+     * Displays a single Finance model.
      * @param string $id
      * @return mixed
      */
@@ -102,14 +57,16 @@ class StockController extends BaseController
     }
 
     /**
-     * Creates a new Stock model.
+     * Creates a new Finance model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-//        var_dump(Types::types_list(['keys'=>1001]));exit;
-        $model = new Stock();
+//        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+//            return $this->redirect(['view', 'id' => $model->id]);
+//        }
+        $model = new Finance();
         if (Yii::$app->request->isPost) {
             $model->load(Yii::$app->request->post());
             $model->add_user=yii::$app->user->identity->id;
@@ -127,7 +84,7 @@ class StockController extends BaseController
     }
 
     /**
-     * Updates an existing Stock model.
+     * Updates an existing Finance model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param string $id
      * @return mixed
@@ -146,7 +103,7 @@ class StockController extends BaseController
     }
 
     /**
-     * Deletes an existing Stock model.
+     * Deletes an existing Finance model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param string $id
      * @return mixed
@@ -159,15 +116,15 @@ class StockController extends BaseController
     }
 
     /**
-     * Finds the Stock model based on its primary key value.
+     * Finds the Finance model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param string $id
-     * @return Stock the loaded model
+     * @return Finance the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Stock::findOne($id)) !== null) {
+        if (($model = Finance::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

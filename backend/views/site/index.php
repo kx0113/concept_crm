@@ -20,7 +20,10 @@ $this->title = '';
                     <li class="nav-header">
 
                         <div class="dropdown profile-element">
-                            <span><img alt="<?= Yii::$app->user->identity->username ?>" class="img-circle" style="wdith:70px;height:70px;" src="<?php echo Yii::$app->params['upload_path'] . Yii::$app->user->identity->head_img; ?>" /></span>
+                            <span><img alt="<?= Yii::$app->user->identity->username ?>"
+                                       class="img-circle" style="wdith:70px;height:70px;"
+                                       src="<?php echo Yii::$app->params['upload_path'] . Yii::$app->user->identity->head_img; ?>" />
+                            </span>
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                 <span class="clear">
                                <span class="block m-t-xs"><strong class="font-bold"><?= Yii::$app->user->identity->username ?></strong></span>

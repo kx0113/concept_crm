@@ -29,11 +29,11 @@ use common\models\Types;
 
 <!--    --><?//= $form->field($model, 'company')->textInput() ?>
 
-    <?= $form->field($model, 'remark')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'remark')->textarea(['rows' => 6]) ?>
 
     <?= $form->field($model, 'ext1')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'ext2')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'ext2')->textarea(['rows' => 6]) ?>
 
 
     <div class="form-group">

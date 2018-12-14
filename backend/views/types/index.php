@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel common\models\TypesSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('app', 'Types');
+$this->title = Yii::t('app', '分类列表');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="types-index">
@@ -23,16 +23,15 @@ $this->params['breadcrumbs'][] = $this->title;
                     <div class="col-sm-12">
                         <div class="ibox float-e-margins">
                             <div class="ibox-content">
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+    <?php  echo $this->render('_search', ['model' => $searchModel]); ?>
 
-    <p>
-        <?= Html::a(Yii::t('app', 'Create Types'), ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
+//        'filterModel' => $searchModel,
+        'layout' => '{items}{summary}{pager}',
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+//            ['class' => 'yii\grid\SerialColumn'],
 
             'id',
             'name',
@@ -44,7 +43,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     },
             ],
 //            'parent',
-            'info',
+//            'info',
             [
                 'attribute' => 'token',
                 'value'=>

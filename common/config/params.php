@@ -1,7 +1,8 @@
 <?php
 return [
+    'upload_path' => 'http://59.110.215.21//var/www/concept_crm_test/concept_crm',
     'types_classs'=>[
-        ''=>'请选择',
+        ''=>'-- 请选择 --',
         1001=>'规格',
         1002=>'物品',
         1003=>'单位',
@@ -15,5 +16,5 @@ return [
         1011=>'账务类型',
         1012=>'账户类别',
     ],
-    'upload_path'=>'',
+
 ];

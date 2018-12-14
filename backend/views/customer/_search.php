@@ -14,32 +14,30 @@ use yii\widgets\ActiveForm;
         'action' => ['index'],
         'method' => 'get',
     ]); ?>
+    <div class="row">
+        <div class="col-xs-3">
+            <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
+        </div>
+        <div class="col-xs-3">
+            <?= $form->field($model, 'phone')->textInput(['maxlength' => true]) ?>
+        </div>
+        <div class="col-xs-3">
+            <?= $form->field($model, 'address')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'id') ?>
+        </div>
 
-    <?= $form->field($model, 'name') ?>
+        <div class="col-xs-3">
+            <?= $form->field($model, 'customer_type')->dropDownList(\common\models\Types::types_list(['keys'=>1005])); ?>
+        </div>
 
-    <?= $form->field($model, 'phone') ?>
-
-    <?= $form->field($model, 'address') ?>
-
-    <?= $form->field($model, 'customer_type') ?>
-
-    <?php // echo $form->field($model, 'source_type') ?>
-
-    <?php // echo $form->field($model, 'token') ?>
-
-    <?php // echo $form->field($model, 'add_user') ?>
-
-    <?php // echo $form->field($model, 'status') ?>
-
-    <?php // echo $form->field($model, 'update_at') ?>
-
-    <?php // echo $form->field($model, 'create_at') ?>
-
+        <div class="col-xs-3">
+        <?= $form->field($model, 'source_type')->dropDownList(\common\models\Types::types_list(['keys'=>1006])); ?>
+        </div> <div class="col-xs-3">
+        <?= $form->field($model, 'status')->dropDownList(\common\models\Types::types_list(['keys'=>1007])); ?>
+        </div> </div>
     <div class="form-group">
-        <?= Html::submitButton(Yii::t('app', 'Search'), ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton(Yii::t('app', 'Reset'), ['class' => 'btn btn-default']) ?>
+        <?= Html::submitButton(Yii::t('app', '搜索'), ['class' => 'btn btn-primary']) ?>
+<!--        --><?//= Html::resetButton(Yii::t('app', 'Reset'), ['class' => 'btn btn-default']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

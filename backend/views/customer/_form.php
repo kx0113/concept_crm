@@ -17,7 +17,7 @@ use common\models\Types;
 
     <?= $form->field($model, 'phone')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'address')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'address')->textarea(['rows' => 6]) ?>
 
 <!--    --><?//= $form->field($model, 'customer_type')->textInput() ?>
 
