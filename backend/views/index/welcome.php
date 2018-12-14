@@ -21,10 +21,12 @@ $this->title = 'My Yii Application';
                     <div class="panel-heading">
                         网站快捷查看
                     </div>
+<!--                    href="http://--><?php //echo $wv['weburl']; ?><!--"-->
                     <div class="panel-body">
                         <?php foreach($web_list as $wk=>$wv){?>
-                            <a href="http://<?php echo $wv['weburl']; ?>"
-                               class=" <?php if($wv['id'] == $web_session_id){ ?>
+                            <a
+                                onclick="web_post_session('<?php echo $wv['id']; ?>')"
+                               class="   <?php if($wv['id'] == $web_session_id){ ?>
                               btn btn-danger btn-rounded
                                <?php }else{ ?>
                                btn btn-danger btn-rounded btn-outline
@@ -70,3 +72,15 @@ $this->title = 'My Yii Application';
         </div>
     </div>
 </div>
+<script>
+    function web_post_session(id){
+//    var id=$(this).attr('data-id');
+    var par={};
+    par.id=id;
+    $.post('index.php?r=/web/ajax-web-session',par,function(data){
+    if(data.msg=='1'){
+    location.reload();
+    }
+    },'json');
+    }
+</script>
