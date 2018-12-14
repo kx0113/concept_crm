@@ -19,26 +19,10 @@ $this->title = 'My Yii Application';
 
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        网站快捷查看
+                        网站登录日志
                     </div>
 
-                    <div class="panel-body">
-                        <?php foreach($web_list as $wk=>$wv){?>
-                            <a   href="http://<?php echo $wv['weburl']; ?>"
-                                onclick="web_post_session('<?php echo $wv['id']; ?>')"
-                               class="   <?php if($wv['id'] == $web_session_id){ ?>
-                              btn btn-danger btn-rounded
-                               <?php }else{ ?>
-                               btn btn-danger btn-rounded btn-outline
-                                <?php } ?>"
-                              target="_blank" data-id="<?php echo $wv['id'];?>">
-                                <?php echo $wv['name'];?>
-                                <?php if($wv['id'] == $web_session_id){ ?>
-                                    (当前)
-                                <?php }?>
-                            </a>
-                        <?php } ?>
-                    </div>
+
                 </div>
             </div>
         <div class="col-md-12">
