@@ -38,9 +38,19 @@ use common\models\Types;
 <!--    --><?//= $form->field($model, 'status')->textInput() ?>
 
 
-    <?= $form->field($model, 'operation_time')->textInput() ?>
+<!--    --><?//= $form->field($model, 'operation_time')->textInput() ?>
 
-
+                                <?= $form->field($model, 'operation_time')->widget(\kartik\datetime\DateTimePicker::classname(), [
+                                    'options' => ['placeholder' => ''],
+                                    'pluginOptions' => [
+                                        'autoclose' => true,
+                                        'todayHighlight' => true,
+                                        'todayBtn'=> true,
+                                        'minView'=>'month',
+                                        'format'=> 'yyyy-mm-dd',
+                                        'pickerPosition'=> "bottom-left",
+                                    ]
+                                ]); ?>
     <?= $form->field($model, 'account_card')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'content')->textarea(['rows' => 6]) ?>

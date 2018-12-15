@@ -1,6 +1,5 @@
 <div style=" background:#ccc;font-size:50px;text-align: center;"><?php echo $info; ?>待完善</div>
 
-<script type="text/javascript" charset="utf-8" src="js/echarts.js"> </script>
 <div style="background: #fff;padding: 10px;">
 
 <!-- 为ECharts准备一个具备大小（宽高）的Dom -->

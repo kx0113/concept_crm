@@ -69,10 +69,22 @@ class Customer extends \yii\db\ActiveRecord
     }
     public static function getLists($where=[])
     {
-        return Customer::find()->where($where)->asArray()->all();
+        return Customer::find()->where($where)
+            ->andWhere(['token'=>Yii::$app->session->get('web_id')])->asArray()->all();
+    }
+    public static function getDropDownList()
+    {
+        $arr=[];
+        $res=self::getLists();
+        $arr['']='-- 请选择 --';
+        foreach($res as $k=>$v){
+            $arr[$v['id']]=$v['name'];
+        }
+        return $arr;
     }
     public static function get_name($id){
-        $res=Customer::find()->where(['id'=>$id])->asArray()->one();
+        $res=Customer::find()->where(['id'=>$id])
+            ->andWhere(['token'=>Yii::$app->session->get('web_id')])->asArray()->one();
         return $res['name'];
     }
 }

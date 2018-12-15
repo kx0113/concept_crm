@@ -39,6 +39,7 @@ class Orders extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            [['name','start_time','end_time','customer_id','phone','address'], 'required'],
             [['customer_id', 'status', 'token', 'add_user'], 'integer'],
             [['start_time', 'end_time', 'update_at', 'create_at'], 'safe'],
             [['work_cost', 'freight_cost'], 'number'],
@@ -78,5 +79,14 @@ class Orders extends \yii\db\ActiveRecord
     public static function find()
     {
         return new OrdersQuery(get_called_class());
+    }
+    public static function get_status($data){
+        if($data==1){
+            return '正在进行中';
+        }elseif($data==2){
+            return '已结束';
+        }else{
+            return '';
+        }
     }
 }

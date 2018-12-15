@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="ibox float-e-margins">
             <div class="ibox-content">
                 <p>
-                    <?= Html::encode($this->title) ?>
+                    <?= Html::encode('查看：'.$this->title) ?>
                 </p>
 
                 <div class="row">

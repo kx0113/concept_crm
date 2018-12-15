@@ -59,7 +59,7 @@ class Types extends \yii\db\ActiveRecord
     }
     public static function types_list($where){
         $arr=[];
-        $res= Types::find()->where($where)->asArray()->all();
+        $res= Types::find()->where($where)->andWhere(['token'=>Yii::$app->session->get('web_id')])->asArray()->all();
         $arr['']='-- 请选择 --';
         foreach ($res as $k=>$v){
             $arr[$v['id']]=$v['name'];
@@ -67,7 +67,7 @@ class Types extends \yii\db\ActiveRecord
         return $arr;
     }
     public static function getName($id){
-        $res=Types::find()->where(['id'=>$id])->asArray()->one();
+        $res=Types::find()->where(['id'=>$id])->andWhere(['token'=>Yii::$app->session->get('web_id')])->asArray()->one();
         if(!empty($res)){
             return $res['name'];
         }

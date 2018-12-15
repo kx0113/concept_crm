@@ -32,12 +32,6 @@ $this->params['breadcrumbs'][] = $this->title;
 
 
                                 <div>
-                                    <link href="components/bootstrap-datetimepicker-master/css/bootstrap-datetimepicker.css"
-                                          media="all" rel="stylesheet" type="text/css"/>
-                                    <script src="components/bootstrap-datetimepicker-master/js/bootstrap-datetimepicker.js"
-                                            type="text/javascript"></script>
-
-
                                     <br>
                                     <?= $this->render('stock_common', []) ?>
                                     <div style="padding: 0;" class="form-group col-xs-offset-3 col-xs-6">
@@ -51,7 +45,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                                for="operation_time">入库时间</label>
 
                                         <input class="search_input_stock form-control"
-                                               type="text" value="2018-10-09" data-date-format="yyyy-mm-dd"
+                                               type="text" value="" data-date-format="yyyy-mm-dd"
                                                id="operation_time">
 
                                     </div>
@@ -110,12 +104,12 @@ $this->params['breadcrumbs'][] = $this->title;
                                     $('#operation_time').datetimepicker({
                                         autoclose: true,
                                         format: 'yyyy-mm-dd',
-                                        todayBtn: false,
-                                        showMeridian: false,
+                                        todayBtn: true,
+                                        minView: "month",
                                         language: 'zh-CN',
                                         pickerPosition: "bottom-left",
                                     });
-
+                                    $('#operation_time').val(getNowFormatDate());
 
                                 </script>
                             </div>

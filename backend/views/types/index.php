@@ -42,8 +42,25 @@ $this->params['breadcrumbs'][] = $this->title;
                         return Yii::$app->params['types_classs'][$model->keys];
                     },
             ],
-//            'parent',
-//            'info',
+            [
+                'attribute' => 'parent',
+                'value'=>
+                    function($model){
+                         if(!empty($model->parent)){
+                             return Yii::$app->params['types_classs'][$model->parent];
+                         }else{
+                             return '';
+                         }
+                    },
+            ],
+            'add_time',
+            [
+                'attribute' => 'add_user',
+                'value'=>
+                    function($model){
+                        return \common\models\User::get_username($model->add_user);
+                    },
+            ],
             [
                 'attribute' => 'token',
                 'value'=>
@@ -51,10 +68,6 @@ $this->params['breadcrumbs'][] = $this->title;
                         return \common\models\Web::GetWebName($model->token);
                     },
             ],
-            // 'add_time',
-            // 'add_user',
-            // 'token',
-
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>

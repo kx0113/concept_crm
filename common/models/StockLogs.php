@@ -72,8 +72,18 @@ class StockLogs extends \yii\db\ActiveRecord
         if($data==1){
             return '未归还';
         }elseif($data==2){
-            return '未归还';
+            return '已归还';
         }
+    }
+    public static function getDropDownListStatus()
+    {
+        $arr=[''=>'-- 请选择 --','1'=>'入库','2'=>'出库'];
+        return $arr;
+    }
+    public static function getDropDownListIsReturns()
+    {
+        $arr=[''=>'-- 请选择 --','1'=>'未归还','2'=>'已归还'];
+        return $arr;
     }
     public static function get_status_name($data){
         if($data==1){

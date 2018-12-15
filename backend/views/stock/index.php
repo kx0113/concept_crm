@@ -11,7 +11,7 @@ use common\models\Web;
 /* @var $searchModel common\models\StockSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('app', '产品列表');
+$this->title = Yii::t('app', '库存列表');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 

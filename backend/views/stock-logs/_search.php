@@ -14,17 +14,26 @@ use yii\widgets\ActiveForm;
         'action' => ['index'],
         'method' => 'get',
     ]); ?>
-
-    <?= $form->field($model, 'id') ?>
-
-    <?= $form->field($model, 'stock_id') ?>
-
-    <?= $form->field($model, 'total_number') ?>
-
-    <?= $form->field($model, 'current_number') ?>
-
-    <?= $form->field($model, 'before_number') ?>
-
+    <div class="row">
+        <div class="col-xs-3">
+            <?= $form->field($model, 'purpose_id')
+                ->dropDownList(\common\models\Types::types_list(['keys'=>1009])); ?>
+        </div>
+        <div class="col-xs-3">
+            <?= $form->field($model, 'stock_id')
+                ->dropDownList(\common\models\Stock::getDropDownList()); ?>
+        </div>
+        <div class="col-xs-3">
+            <?= $form->field($model, 'customer_id')
+                ->dropDownList(\common\models\Customer::getDropDownList()); ?>
+        </div>
+        <div class="col-xs-3">
+            <?= $form->field($model, 'status')
+                ->dropDownList(\common\models\StockLogs::getDropDownListStatus()); ?>
+        </div> <div class="col-xs-3">
+            <?= $form->field($model, 'is_returns')
+                ->dropDownList(\common\models\StockLogs::getDropDownListIsReturns()); ?>
+        </div>
     <?php // echo $form->field($model, 'customer_id') ?>
 
     <?php // echo $form->field($model, 'purpose_id') ?>
@@ -44,10 +53,9 @@ use yii\widgets\ActiveForm;
     <?php // echo $form->field($model, 'update_at') ?>
 
     <?php // echo $form->field($model, 'create_at') ?>
-
+        </div>
     <div class="form-group">
-        <?= Html::submitButton(Yii::t('app', 'Search'), ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton(Yii::t('app', 'Reset'), ['class' => 'btn btn-default']) ?>
+        <?= Html::submitButton(Yii::t('app', '搜索'), ['class' => 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

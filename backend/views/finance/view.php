@@ -14,7 +14,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="ibox float-e-margins">
         <div class="ibox-content">
             <p>
-                <?= Html::encode($this->title) ?>
+                <?= Html::encode('查看：'.$this->title) ?>
             </p>
 
             <div class="row">
@@ -23,8 +23,8 @@ $this->params['breadcrumbs'][] = $this->title;
                         <div class="ibox-content">
 
     <p>
-        <?= Html::a(Yii::t('app', 'Update'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a(Yii::t('app', 'Delete'), ['delete', 'id' => $model->id], [
+        <?= Html::a(Yii::t('app', '更新'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a(Yii::t('app', '删除'), ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => Yii::t('app', 'Are you sure you want to delete this item?'),
@@ -40,9 +40,23 @@ $this->params['breadcrumbs'][] = $this->title;
             'total_number',
             'current_number',
             'before_number',
-            'account_type',
+//            'account_type',
+
+            [
+                'attribute' => 'account_type',
+                'value' =>
+                    function ($searchModel) {
+                        return mb_substr(\common\models\Types::getName($searchModel->account_type), 0, 10, 'utf-8');
+                    },
+            ],
             'status',
-            'account_category',
+            [
+                'attribute' => 'account_category',
+                'value' =>
+                    function ($searchModel) {
+                        return mb_substr(\common\models\Types::getName($searchModel->account_category), 0, 10, 'utf-8');
+                    },
+            ],
             'operation_time',
             'name',
             'account_card',
@@ -50,8 +64,22 @@ $this->params['breadcrumbs'][] = $this->title;
             'remark',
             'ext1',
             'ext2',
-            'add_user',
-            'token',
+            [
+                'attribute' => 'add_user',
+                'value'=>
+                    function($model){
+                        return \common\models\User::get_username($model->add_user);
+                    },
+            ],
+            [
+                'attribute' => 'token',
+                'value'=>
+                    function($model){
+                        return \common\models\Web::GetWebName($model->token);
+                    },
+            ],
+//            'add_user',
+//            'token',
             'update_at',
             'create_at',
         ],

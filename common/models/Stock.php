@@ -87,6 +87,16 @@ class Stock extends \yii\db\ActiveRecord
         }
         return $res;
     }
+    public static function getDropDownList()
+    {
+        $arr=[];
+        $arr['']='-- 请选择 --';
+        $res= $res= Stock::find()->where([])->andWhere(['token'=>Yii::$app->session->get('web_id')])->asArray()->all();
+        foreach($res as $k=>$v){
+            $arr[$v['id']]=$v['name'];
+        }
+        return $arr;
+    }
     public static function get_total_number($id){
         $res=Stock::findOne($id);
 //        if(!empty($res->total_number)){
@@ -121,21 +131,5 @@ class Stock extends \yii\db\ActiveRecord
             return true;
         }
         return false;
-    }
-    public static function dddd(){
-        $customer = Customer::findOne(123);
-        $transaction = Customer::getDb()->beginTransaction();
-        try {
-            $customer->id = 200;
-            $customer->save();
-            // ...other DB operations...
-            $transaction->commit();
-        } catch(\Exception $e) {
-            $transaction->rollBack();
-            throw $e;
-        } catch(\Throwable $e) {
-            $transaction->rollBack();
-            throw $e;
-        }
     }
 }

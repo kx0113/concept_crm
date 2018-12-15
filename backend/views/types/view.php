@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="ibox float-e-margins">
             <div class="ibox-content">
                 <p>
-                    <?= Html::encode($this->title) ?>
+                    <?= Html::encode('查看：'.$this->title) ?>
                 </p>
 
                 <div class="row">
@@ -25,8 +25,8 @@ $this->params['breadcrumbs'][] = $this->title;
                             <div class="ibox-content">
 
     <p>
-        <?= Html::a(Yii::t('app', 'Update'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a(Yii::t('app', 'Delete'), ['delete', 'id' => $model->id], [
+        <?= Html::a(Yii::t('app', '更新'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a(Yii::t('app', '删除'), ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => Yii::t('app', 'Are you sure you want to delete this item?'),
@@ -40,12 +40,40 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id',
             'name',
-            'keys',
-            'parent',
+            [
+                'attribute' => 'keys',
+                'value'=>
+                    function($model){
+                        return Yii::$app->params['types_classs'][$model->keys];
+                    },
+            ],
+            [
+                'attribute' => 'parent',
+                'value'=>
+                    function($model){
+                        if(!empty($model->parent)){
+                            return Yii::$app->params['types_classs'][$model->parent];
+                        }else{
+                            return '';
+                        }
+                    },
+            ],
             'info',
             'add_time',
-            'add_user',
-            'token',
+            [
+                'attribute' => 'add_user',
+                'value'=>
+                    function($model){
+                        return \common\models\User::get_username($model->add_user);
+                    },
+            ],
+            [
+                'attribute' => 'token',
+                'value'=>
+                    function($model){
+                        return \common\models\Web::GetWebName($model->token);
+                    },
+            ],
         ],
     ]) ?>
 

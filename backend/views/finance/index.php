@@ -57,8 +57,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
              'operation_time',
              'name',
-
-            'account_card',
+//            'account_card',
              'content',
             // 'remark',
             // 'ext1',

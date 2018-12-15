@@ -44,9 +44,27 @@ $this->params['breadcrumbs'][] = $this->title;
 //             'work_cost',
 //             'freight_cost',
              'remark',
-             'status',
-             'token',
-             'add_user',
+            [
+            'attribute' => 'status',
+            'value'=>
+                function($model){
+                    return \common\models\Orders::get_status($model->status);
+                },
+        ],
+        [
+            'attribute' => 'add_user',
+            'value'=>
+                function($model){
+                    return \common\models\User::get_username($model->add_user);
+                },
+        ],
+            [
+                'attribute' => 'token',
+                'value'=>
+                    function($model){
+                        return \common\models\Web::GetWebName($model->token);
+                    },
+            ],
             // 'update_at',
              'create_at',
 

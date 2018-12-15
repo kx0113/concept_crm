@@ -42,12 +42,45 @@ $this->params['breadcrumbs'][] = $this->title;
             'name',
             'phone',
             'address',
-            'customer_type',
-            'source_type',
+//            'customer_type',
+            [
+                'attribute' => 'customer_type',
+                'value' =>
+                    function ($searchModel) {
+                        return mb_substr(common\models\Types::getName($searchModel->customer_type), 0, 10, 'utf-8');
+                    },
+            ],
+            [
+                'attribute' => 'source_type',
+                'value' =>
+                    function ($searchModel) {
+                        return mb_substr(common\models\Types::getName($searchModel->source_type), 0, 10, 'utf-8');
+                    },
+            ],
+//            'source_type',
             'remark',
-            'token',
-            'add_user',
-            'status',
+            [
+                'attribute' => 'token',
+                'value'=>
+                    function($model){
+                        return \common\models\Web::GetWebName($model->token);
+                    },
+            ],
+            [
+                'attribute' => 'add_user',
+                'value'=>
+                    function($model){
+                        return \common\models\User::get_username($model->add_user);
+                    },
+            ],
+            [
+                'attribute' => 'status',
+                'value' =>
+                    function ($searchModel) {
+                        return mb_substr(common\models\Types::getName($searchModel->status), 0, 10, 'utf-8');
+                    },
+            ],
+//            'status',
             'update_at',
             'create_at',
         ],

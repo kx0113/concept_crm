@@ -29,17 +29,17 @@ class StockLogsController extends BaseController
             ],
         ];
     }
-
     /**
      * Lists all StockLogs models.
      * @return mixed
      */
-    public function actionIndex($id)
+    public function actionIndex()
     {
-//        var_dump($id);
         $queryParams=Yii::$app->request->queryParams;
-        $queryParams['StockLogsSearch']['stock_id']=$id;
-//        echo json_encode($queryParams);
+        $stock_id=Yii::$app->request->post('StockLogsSearch[stock_id]','');
+        if(!empty($stock_id)){
+            $queryParams['StockLogsSearch']['stock_id']=$stock_id;
+        }
         $searchModel = new StockLogsSearch();
         $dataProvider = $searchModel->search($queryParams);
 

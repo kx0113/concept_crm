@@ -81,7 +81,7 @@ class StockController extends BaseController
         ]);
     }
     public function actionLogs($id){
-        $this->redirect(['/stock-logs/index','id'=>$id]);
+        $this->redirect(['/stock-logs/index','StockLogsSearch[stock_id]'=>$id]);
 
         $res=StockLogs::find()->where(['stock_id'=>$id])->asArray()->all();
         return $this->render('logs', [
