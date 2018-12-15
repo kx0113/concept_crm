@@ -27,8 +27,9 @@ use yii\widgets\ActiveForm;
                                 <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
                                 <?= $form->field($model, 'address')->textInput(['maxlength' => true]) ?>
-
-                                <?= $form->field($model, 'customer_id')->textInput() ?>
+                                <?= $form->field($model, 'customer_id')
+                                    ->dropDownList(\common\models\Customer::getDropDownList()); ?>
+<!--                                --><?//= $form->field($model, 'customer_id')->textInput() ?>
 <!--                                <div class="form-group field-orders-start_time required">-->
 <!--                                    <label class="control-label"-->
 <!--                                           for="orders-start_time">开始时间</label>-->
