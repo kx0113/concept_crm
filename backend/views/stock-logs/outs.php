@@ -111,6 +111,11 @@ $this->params['breadcrumbs'][] = $this->title;
                                         if(current_number==''){
                                             alert('请选择数量');
                                             return false;
+                                        }else{
+                                            if(current_number < 0){
+                                                alert('请输入大于0整形数字');
+                                                return false;
+                                            }
                                         }
                                         if(purpose_id==''){
                                             alert('请选择用途');

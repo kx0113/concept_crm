@@ -88,6 +88,11 @@ $this->params['breadcrumbs'][] = $this->title;
                                         if(current_number==''){
                                             alert('请选择数量');
                                             return false;
+                                        }else{
+                                            if(current_number < 0){
+                                                alert('请输入大于0整形数字');
+                                                return false;
+                                            }
                                         }
                                         if(operation_time==''){
                                             alert('请选择时间');
