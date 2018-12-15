@@ -163,6 +163,10 @@ class StockLogsController extends BaseController
         }
         if(empty($current_number)){
             $this->ReturnJson(0,'请选择数量');
+        }else{
+            if($current_number < 0){
+                $this->ReturnJson(0,'数量不能小于0');
+            }
         }
         if(empty($operation_time)){
             $this->ReturnJson(0,'请选择时间');
