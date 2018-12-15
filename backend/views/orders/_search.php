@@ -22,8 +22,9 @@ use yii\widgets\ActiveForm;
         </div>  <div class="col-xs-3">
     <?= $form->field($model, 'address') ?>
             </div>  <div class="col-xs-3">
-    <?= $form->field($model, 'customer_id') ?>
-                </div>
+            <?= $form->field($model, 'customer_id')
+                ->dropDownList(\common\models\Customer::getDropDownList()); ?>
+        </div>
 <!--    --><?//= $form->field($model, 'start_time') ?>
 
     <?php // echo $form->field($model, 'end_time') ?>
