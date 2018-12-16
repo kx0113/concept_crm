@@ -153,7 +153,7 @@ class StockLogsController extends BaseController
         //产品id
         $stock_id = Yii::$app->request->post('stock_id','');
         //时间
-        $operation_time = Yii::$app->request->post('operation_time','');
+        $operation_time = Yii::$app->request->post('operation_time',date('Y-m-d'));
         //数量
         $current_number = Yii::$app->request->post('current_number','');
         //1=入库; 2=出库
@@ -180,11 +180,15 @@ class StockLogsController extends BaseController
             $customer_id = Yii::$app->request->post('customer_id',0);
             //用途
             $purpose_id = Yii::$app->request->post('purpose_id',0);
+            $orders_id = Yii::$app->request->post('orders_id',0);
             if(empty($customer_id)){
                 $this->ReturnJson(0,'请选择客户');
             }
             if(empty($purpose_id)){
                 $this->ReturnJson(0,'请选择用途');
+            }
+            if(empty($orders_id) || $orders_id==0){
+                $this->ReturnJson(0,'订单不能为空');
             }
             $number_action='reduce';
         }
@@ -194,8 +198,10 @@ class StockLogsController extends BaseController
             if($status==2){
                 $model->customer_id=Yii::$app->request->post('customer_id');
                 $model->purpose_id=Yii::$app->request->post('purpose_id');
+                $model->orders_id=Yii::$app->request->post('orders_id',0);
             }
             $update_total_number=Stock::update_total_number($stock_id,$current_number,$number_action);
+
             $model->status=$status;
             $model->remark=$remark;
             $model->operation_time=$operation_time;

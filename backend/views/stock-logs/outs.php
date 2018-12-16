@@ -42,20 +42,28 @@ $this->params['breadcrumbs'][] = $this->title;
                                     <div style="padding: 0;" class="form-group col-xs-offset-3 col-xs-6">
                                         <label class="search_title_stock"
                                                for="customer_id">出库客户</label>
-                                        <select class="form-control" name="" id="customer_id">
+                                        <select onchange="findCustomerOrderList()" class="form-control" name="" id="customer_id">
+                                            <option value="">-- 请选择 --</option>
                                             <?php foreach(Customer::getLists() as $k=>$v){ ?>
                                                 <option value="<?php echo $v['id']; ?>"><?php echo $v['name']; ?></option>
                                             <?php } ?>
                                         </select>
                                     </div>
+                                    <div style="padding: 0;" class="form-group col-xs-offset-3 col-xs-6">
+                                        <label class="search_title_stock"
+                                               for="orders_id">出库订单</label>
+                                        <select class="form-control" name="" id="orders_id">
+                                            <option value="">-- 请选择 --</option>
+
+                                        </select>
+                                    </div>
 
                                     <div style="padding: 0;" class="form-group col-xs-offset-3 col-xs-6">
                                         <label class="search_title_stock"
-                                               for="purpose_id">用途</label>
+                                               for="purpose_id">出库用途</label>
                                         <select  class="form-control" name="" id="purpose_id">
                                             <?php foreach(Types::types_list(['keys'=>1009]) as $k=>$v){ ?>
                                             <option value="<?php echo $k; ?>"><?php echo $v; ?></option>
-
                                             <?php } ?>
                                         </select>
                                     </div>
@@ -83,6 +91,26 @@ $this->params['breadcrumbs'][] = $this->title;
                                 </div>
 
                                 <script>
+                                    $("#orders_id").attr("disabled",true);
+                    function findCustomerOrderList(){
+                        $("#orders_id").attr("disabled",true);
+                        var customer_id=$("#customer_id").val();
+                        var params={};
+                        params.customer_id=customer_id;
+                        $.post('index.php?r=/stock/customer-order-list',params,function(res){
+                            var obj=res.data;
+                            var html='<option value="">-- 请选择 --</option>';
+                            var objs = $.isEmptyObject(obj);
+                            console.log(objs);
+                            if(objs==false){
+                                for(var i=0;i<obj.length;i++){
+                                    html+="<option value='"+obj[i]['id']+"'>"+obj[i]['name']+"</option>";
+                                }
+                                $("#orders_id").attr("disabled",false);
+                                $("#orders_id").html(html);
+                            }
+                        },'json');
+                    }
                                     function submit_form() {
                                         var params={};
                                         var stock_id=$("#pro_name").val();
@@ -91,10 +119,12 @@ $this->params['breadcrumbs'][] = $this->title;
                                         var customer_id=$("#customer_id").val();
                                         var purpose_id=$("#purpose_id").val();
                                         var operation_time=$("#operation_time").val();
+                                        var orders_id=$("#orders_id").val();
                                         params.current_number =current_number;
                                         params.operation_time = operation_time;
                                         params.remark = $("#remark").val();
                                         params.stock_id = stock_id;
+                                        params.orders_id = orders_id;
                                         params.customer_id = customer_id;
                                         params.purpose_id = purpose_id;
                                         params.status = 2;
@@ -121,12 +151,16 @@ $this->params['breadcrumbs'][] = $this->title;
                                             alert('请选择客户');
                                             return false;
                                         }
+                                        if(orders_id==''){
+                                            alert('请选择订单');
+                                            return false;
+                                        }
                                         if(operation_time==''){
                                             alert('请选择时间');
                                             return false;
                                         }
                                         var num=pro_total_number-current_number;
-                                        console.log(num);
+//                                        console.log(params);
                                         if(num >= 0){
 
                                         }else{

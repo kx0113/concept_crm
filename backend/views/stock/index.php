@@ -72,6 +72,8 @@ $this->params['breadcrumbs'][] = $this->title;
                                         'number',
                                         'name',
                                         'total_number',
+                                        'purchase_price',
+                                        'market_price',
                                         [
                                             'attribute' => 'brand',
                                             'value' =>

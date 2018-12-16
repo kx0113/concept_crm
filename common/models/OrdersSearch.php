@@ -20,7 +20,7 @@ class OrdersSearch extends Orders
         return [
             [['id', 'customer_id', 'status', 'token', 'add_user'], 'integer'],
             [['name', 'address', 'start_time', 'end_time', 'phone', 'remark', 'update_at', 'create_at'], 'safe'],
-            [['work_cost', 'freight_cost'], 'number'],
+            [['work_cost', 'freight_cost','other_cost',], 'number'],
         ];
     }
 

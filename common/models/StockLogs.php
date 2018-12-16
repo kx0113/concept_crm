@@ -8,6 +8,7 @@ use Yii;
  * This is the model class for table "kx_stock_logs".
  *
  * @property string $id
+ * @property integer $orders_id
  * @property integer $stock_id
  * @property integer $total_number
  * @property integer $current_number
@@ -38,7 +39,7 @@ class StockLogs extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['token','stock_id', 'before_number','total_number', 'current_number', 'customer_id', 'purpose_id', 'status', 'add_user'], 'integer'],
+            [['orders_id','token','stock_id', 'before_number','total_number', 'current_number', 'customer_id', 'purpose_id', 'status', 'add_user'], 'integer'],
             [['operation_time', 'update_at', 'create_at'], 'safe'],
             [['remark'], 'string', 'max' => 500],
         ];
@@ -51,6 +52,7 @@ class StockLogs extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('app', 'ID'),
+            'orders_id' => Yii::t('app', '订单名称'),
             'stock_id' => Yii::t('app', '产品名称'),
             'total_number' => Yii::t('app', '操作后总数'),
             'current_number' => Yii::t('app', '当前操作数量'),

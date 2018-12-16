@@ -18,6 +18,7 @@ use common\models\Customer;
  * @property string $phone
  * @property double $work_cost
  * @property double $freight_cost
+ * @property double $other_cost
  * @property string $remark
  * @property integer $status
  * @property integer $token
@@ -44,7 +45,7 @@ class Orders extends \yii\db\ActiveRecord
             [['name','start_time','end_time','customer_id','phone','address'], 'required'],
             [['customer_id', 'status', 'token', 'add_user'], 'integer'],
             [['start_time', 'end_time', 'update_at', 'create_at'], 'safe'],
-            [['work_cost', 'freight_cost'], 'number'],
+            [['work_cost', 'freight_cost','other_cost'], 'number'],
             [['name', 'address', 'remark'], 'string', 'max' => 255],
             [['phone'], 'string', 'max' => 50],
         ];
@@ -65,6 +66,7 @@ class Orders extends \yii\db\ActiveRecord
             'phone' => Yii::t('app', '联系电话'),
             'work_cost' => Yii::t('app', '施工费用'),
             'freight_cost' => Yii::t('app', '运费'),
+            'other_cost' => Yii::t('app', '其他费用'),
             'remark' => Yii::t('app', '备注'),
             'status' => Yii::t('app', '状态'),
             'token' => Yii::t('app', '公司名称'),
@@ -95,6 +97,12 @@ class Orders extends \yii\db\ActiveRecord
         $res=Orders::find()->where(['id'=>$id])
             ->andWhere(['token'=>Yii::$app->session->get('web_id')])
             ->asArray()->one();
+        return $res;
+    }
+    public static function findCustomerOrderList($customer_id){
+        $res=Orders::find()->where(['customer_id'=>$customer_id])
+            ->andWhere(['token'=>Yii::$app->session->get('web_id')])
+            ->asArray()->all();
         return $res;
     }
     public static function orders_view($id){

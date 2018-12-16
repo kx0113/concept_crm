@@ -71,6 +71,7 @@ use yii\widgets\ActiveForm;
                                 <?= $form->field($model, 'work_cost')->textInput() ?>
 
                                 <?= $form->field($model, 'freight_cost')->textInput() ?>
+                                <?= $form->field($model, 'other_cost')->textInput() ?>
 
                                 <?= $form->field($model, 'remark')->textarea(['rows' => 6]) ?>
 

@@ -18,6 +18,8 @@ use common\models\Types;
  * @property integer $goods_type
  * @property integer $total_number
  * @property integer $company
+ * @property double $purchase_price
+ * @property double $market_price
  * @property string $remark
  * @property string $ext1
  * @property string $ext2
@@ -42,9 +44,10 @@ class Stock extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name','number','brand','size','goods_type','company'], 'required'],
+            [['name','number','brand','size','goods_type','company','purchase_price', 'market_price'], 'required'],
             [['brand','token','total_number', 'size', 'goods_type', 'company', 'status', 'add_user'], 'integer'],
             [['update_at', 'create_at'], 'safe'],
+            [['purchase_price', 'market_price'], 'number'],
             [['name', 'remark', 'ext1', 'ext2'], 'string', 'max' => 255],
             [['number'], 'string', 'max' => 50],
         ];
@@ -61,6 +64,8 @@ class Stock extends \yii\db\ActiveRecord
             'token' => '公司名称',
             'name' => '产品名称',
             'brand' => '品牌分类',
+            'purchase_price' => '成本价',
+            'market_price' => '零售价',
             'total_number' => '总数量',
             'size' => '规格',
             'goods_type' => '物品分类',
@@ -110,6 +115,7 @@ class Stock extends \yii\db\ActiveRecord
     }
     public static function update_total_number($id,$number,$action){
         if(empty($action)){
+//            return '1';
             return false;
         }
         $update=Stock::findOne($id);
@@ -125,11 +131,15 @@ class Stock extends \yii\db\ActiveRecord
 //                var_dump($total_number,3);exit;
                 return 'insufficient';
             }
+//            var_dump($total_number);exit;
         }
         $res=$update->save();
+//        var_dump($id,$number,$action,$res,$update->errors);exit;
         if($res){
+//            return '12';
             return true;
         }
+//        return '13';
         return false;
     }
 }

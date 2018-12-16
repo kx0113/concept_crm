@@ -7,6 +7,7 @@ use common\models\Stock;
 use common\models\StockLogs;
 use common\models\Types;
 use common\models\StockSearch;
+use common\models\Orders;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -56,6 +57,13 @@ class StockController extends BaseController
     }
     public function actionTest27(){
         return $this->test22View('出库统计');
+    }
+    public function actionCustomerOrderList(){
+        $customer_id = Yii::$app->request->post('customer_id','');
+        if(empty($customer_id)){
+            $this->ReturnJson(0,'请选择客户');
+        }
+        return $this->ReturnJson(1,'OK',Orders::findCustomerOrderList($customer_id));
     }
     public function actionGetStockInfo(){
         return $this->ReturnJson(1,'OK',Stock::getLists());

@@ -41,6 +41,8 @@ $this->params['breadcrumbs'][] = $this->title;
                                         'id',
                                         'number',
                                         'name',
+                                        'purchase_price',
+                                        'market_price',
                                         [
                                             'attribute' => 'brand',
                                             'value' =>

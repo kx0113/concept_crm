@@ -20,6 +20,8 @@ use common\models\Types;
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
 <!--    --><?//= $form->field($model, 'size')->textInput() ?>
+        <?= $form->field($model, 'purchase_price')->textInput() ?>
+        <?= $form->field($model, 'market_price')->textInput() ?>
         <?= $form->field($model, 'brand')->dropDownList(Types::types_list(['keys'=>1010])); ?>
         <?= $form->field($model, 'size')->dropDownList(Types::types_list(['keys'=>1001])); ?>
         <?= $form->field($model, 'goods_type')->dropDownList(Types::types_list(['keys'=>1002])); ?>

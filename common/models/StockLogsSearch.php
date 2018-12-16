@@ -18,7 +18,7 @@ class StockLogsSearch extends StockLogs
     public function rules()
     {
         return [
-            [['id', 'stock_id', 'total_number', 'current_number', 'before_number', 'customer_id', 'purpose_id', 'is_returns', 'status', 'token', 'add_user'], 'integer'],
+            [['orders_id','id', 'stock_id', 'total_number', 'current_number', 'before_number', 'customer_id', 'purpose_id', 'is_returns', 'status', 'token', 'add_user'], 'integer'],
             [['remark', 'operation_time', 'update_at', 'create_at'], 'safe'],
         ];
     }
