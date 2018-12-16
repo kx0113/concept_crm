@@ -12,7 +12,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="orders-view">
         <div class="wrapper wrapper-content">
-            <div class="alert alert-info"> <?= Html::encode('订单：' . $this->title) ?></div>
+
             <div class="row">
                 <style>
                     table tr td {text-align: center;}
@@ -25,7 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <div class="col-sm-12">
                     <div class="ibox float-e-margins">
                         <div class="ibox-title">
-                            <h5>订单基础信息</h5>
+                            <h5>订单信息</h5>
                             <div class="ibox-tools">
 
                             </div>
@@ -34,7 +34,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         <div class="ibox-content">
                             <table class="table table-bordered">
                                 <tr>
-                                    <td style="text-align: center; font-size: 20px;font-weight: bold;"  colspan="15">订单名称</td>
+                                    <td style="text-align: center; font-size: 20px;font-weight: bold;"  colspan="15"> <?= Html::encode('' . $this->title) ?></td>
                                 </tr>
                                 <tr>
                                     <td class="tabletrtdleft tabletrtdbold" colspan="8">客户姓名</td>
