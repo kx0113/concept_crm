@@ -3,6 +3,8 @@
 namespace common\models;
 
 use Yii;
+use common\models\StockLogs;
+use common\models\Customer;
 
 /**
  * This is the model class for table "kx_orders".
@@ -88,5 +90,21 @@ class Orders extends \yii\db\ActiveRecord
         }else{
             return '';
         }
+    }
+    public static function findOrderOne($id){
+        $res=Orders::find()->where(['id'=>$id])
+            ->andWhere(['token'=>Yii::$app->session->get('web_id')])
+            ->asArray()->one();
+        return $res;
+    }
+    public static function orders_view($id){
+        $arr=[];
+        $orders=self::findOrderOne($id);
+        if(isset($orders['customer_id']) && !empty($orders['customer_id'])){
+            $arr['stock_logs']=StockLogs::get_customer_list($orders['customer_id']);
+            $arr['customer_info']=Customer::get_customer_info($orders['customer_id']);
+        }
+        $arr['info']=$orders;
+        return $arr;
     }
 }

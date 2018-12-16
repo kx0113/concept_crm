@@ -39,17 +39,62 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'stock_id',
+            [
+                'attribute' => 'stock_id',
+                'value' =>
+                    function ($searchModel) {
+                        return mb_substr(\common\models\Stock::get_stock_name($searchModel->stock_id), 0, 10, 'utf-8');
+                    },
+            ],
             'total_number',
             'current_number',
             'before_number',
-            'customer_id',
-            'purpose_id',
-            'is_returns',
-            'status',
+            [
+                'attribute' => 'customer_id',
+                'value' =>
+                    function ($searchModel) {
+                        return mb_substr(\common\models\Customer::get_name($searchModel->customer_id), 0, 10, 'utf-8');
+                    },
+            ],
+//             'purpose_id',
+//             'is_returns',
+            [
+                'attribute' => 'is_returns',
+                'value' =>
+                    function ($searchModel) {
+                        return mb_substr(\common\models\StockLogs::get_is_returns_name($searchModel->is_returns), 0, 10, 'utf-8');
+                    },
+            ],
+            [
+                'attribute' => 'purpose_id',
+                'value' =>
+                    function ($searchModel) {
+                        return mb_substr(\common\models\Types::getName($searchModel->purpose_id), 0, 10, 'utf-8');
+                    },
+            ],
+            [
+                'attribute' => 'status',
+                'value' =>
+                    function ($searchModel) {
+                        return mb_substr(\common\models\StockLogs::get_status_name($searchModel->status), 0, 10, 'utf-8');
+                    },
+            ],
             'remark',
-            'token',
-            'add_user',
+            [
+                'attribute' => 'add_user',
+                'value' =>
+                    function ($model) {
+                        return \common\models\User::get_username($model->add_user);
+                    },
+            ],
+            'operation_time',
+            [
+                'attribute' => 'token',
+                'value' =>
+                    function ($model) {
+                        return \common\models\Web::GetWebName($model->token);
+                    },
+            ],
             'operation_time',
             'update_at',
             'create_at',

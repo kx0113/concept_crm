@@ -82,6 +82,11 @@ class Customer extends \yii\db\ActiveRecord
         }
         return $arr;
     }
+    public static function get_customer_info($id){
+        $res=Customer::find()->where(['id'=>$id])
+            ->andWhere(['token'=>Yii::$app->session->get('web_id')])->asArray()->one();
+        return $res;
+    }
     public static function get_name($id){
         $res=Customer::find()->where(['id'=>$id])
             ->andWhere(['token'=>Yii::$app->session->get('web_id')])->asArray()->one();

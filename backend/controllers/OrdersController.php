@@ -51,8 +51,11 @@ class OrdersController extends Controller
      */
     public function actionView($id)
     {
+        $orders=Orders::orders_view($id);
+//        echo json_encode($orders);exit;
         return $this->render('view', [
-            'model' => $this->findModel($id),
+//            'model' => $this->findModel($id),
+            'orders_info'=>$orders,
         ]);
     }
 
@@ -64,10 +67,15 @@ class OrdersController extends Controller
     public function actionCreate()
     {
         $model = new Orders();
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        } else {
+        if (Yii::$app->request->isPost) {
+            $model->load(Yii::$app->request->post());
+            $model->add_user=yii::$app->user->identity->id;
+            $model->create_at=date("Y-m-d H:i:s");
+            $model->token=Yii::$app->session->get('web_id');
+            if($model->save()){
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
+        }else {
             return $this->render('create', [
                 'model' => $model,
             ]);
@@ -88,9 +96,9 @@ class OrdersController extends Controller
         $model = $this->findModel($id);
         if (Yii::$app->request->isPost) {
             $model->load(Yii::$app->request->post());
-            $model->add_user=yii::$app->user->identity->id;
-            $model->create_at=date("Y-m-d H:i:s");
-            $model->token=Yii::$app->session->get('web_id');
+//            $model->add_user=yii::$app->user->identity->id;
+            $model->update_at=date("Y-m-d H:i:s");
+//            $model->token=Yii::$app->session->get('web_id');
             if($model->save()){
                 return $this->redirect(['view', 'id' => $model->id]);
             }

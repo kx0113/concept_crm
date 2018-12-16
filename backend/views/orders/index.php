@@ -33,31 +33,30 @@ $this->params['breadcrumbs'][] = $this->title;
         'layout' => '{items}{summary}{pager}',
         'columns' => [
 //            ['class' => 'yii\grid\SerialColumn'],
-
             'id',
             'name',
-            'address',
+//            'address',
             'customer_id',
 //            'start_time',
 //             'end_time',
              'phone',
 //             'work_cost',
 //             'freight_cost',
-             'remark',
+//             'remark',
             [
-            'attribute' => 'status',
-            'value'=>
-                function($model){
-                    return \common\models\Orders::get_status($model->status);
-                },
-        ],
-        [
-            'attribute' => 'add_user',
-            'value'=>
-                function($model){
-                    return \common\models\User::get_username($model->add_user);
-                },
-        ],
+                'attribute' => 'status',
+                'value'=>
+                    function($model){
+                        return \common\models\Orders::get_status($model->status);
+                    },
+            ],
+            [
+                'attribute' => 'add_user',
+                'value'=>
+                    function($model){
+                        return \common\models\User::get_username($model->add_user);
+                    },
+            ],
             [
                 'attribute' => 'token',
                 'value'=>
