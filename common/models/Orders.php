@@ -5,6 +5,7 @@ namespace common\models;
 use Yii;
 use common\models\StockLogs;
 use common\models\Customer;
+use common\models\Stock;
 
 /**
  * This is the model class for table "kx_orders".
@@ -110,15 +111,63 @@ class Orders extends \yii\db\ActiveRecord
     public static function orders_view($id){
         $arr=[];
         $orders=self::findOrderOne($id);
+//        echo json_encode($orders);exit;
+
         $log_stock_id=[];
+        $log_stock_arr=[];
+        $log_stock_data=[];
         if(isset($orders['customer_id']) && !empty($orders['customer_id'])){
-            $arr['stock_logs']=StockLogs::get_customer_list($orders['customer_id'],$orders['id']);
+            $where['customer_id']=$orders['customer_id'];
+            $where['orders_id']=$orders['id'];
+            $where['status']=2;
+            $get_customer_list=StockLogs::get_customer_list($where);
             //提取stock_id
-//            $log_stock_id=Yii::$app->Helper->arrayGivenField($get_customer_list,'stock_id');
+            $log_stock_id=Yii::$app->Helper->arrayGivenField($get_customer_list,'stock_id');
             //去除重复不要key
             $log_stock_id=Yii::$app->Helper->arrayUniqueDefaultKey($log_stock_id);
-
-//            echo json_encode($log_stock_id);exit;
+            if(!empty($get_customer_list)){
+                foreach($get_customer_list as $k=>$v){
+                    if(in_array($v['stock_id'],$log_stock_id)){
+                        $log_stock_arr[$v['stock_id']]['list'][]=$v;
+                    }
+                }
+            }
+            if(!empty($log_stock_id)){
+                foreach($log_stock_id as $k3=>$v3){
+                    $log_stock_arr[$v3]['count']=count($log_stock_arr[$v3]);
+                }
+            }
+            if(!empty($log_stock_arr)){
+                foreach($log_stock_arr as $k1=>$v1){
+                    $stock_info=Stock::get_stock_one($k1);
+                    $current_number=0;
+                    $row_purchase_price=0;
+                    $row_market_price=0;
+                    foreach($v1['list'] as $k4=>$v4){
+                        $current_number=bcadd($current_number,$v4['current_number'],0);
+                    }
+                    foreach($stock_info as $k6=>$v6){
+                        $log_stock_arr[$k1][$k6]=$v6;
+                    }
+                    $log_stock_arr[$k1]['current_number']=$current_number;
+                    $log_stock_arr[$k1]['row_purchase_price']=bcmul($stock_info['purchase_price'],$current_number,2);
+                    $log_stock_arr[$k1]['row_market_price']=bcmul($stock_info['market_price'],$current_number,2);
+                }
+                $total_purchase_price=0;
+                $total_market_price=0;
+                $total_data_count=0;
+                foreach($log_stock_arr as $k21=>$v21){
+                    $total_purchase_price=bcadd($total_purchase_price,$v21['row_purchase_price'],2);
+                    $total_market_price=bcadd($total_market_price,$v21['row_market_price'],2);
+                    $total_data_count=bcadd($total_data_count,$v21['count'],0);
+                }
+                $log_stock_data['total_purchase_price']=$total_purchase_price;
+                $log_stock_data['total_market_price']=$total_market_price;
+                $log_stock_data['total_data_count']=$total_data_count;
+            }
+            $arr['stock_logs']=$log_stock_arr;
+            $arr['stock_sum']=$log_stock_data;
+//            echo json_encode($log_stock_arr);exit;
             $arr['customer_info']=Customer::get_customer_info($orders['customer_id']);
         }
         $arr['info']=$orders;

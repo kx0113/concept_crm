@@ -94,8 +94,8 @@ class StockLogs extends \yii\db\ActiveRecord
             return '出库';
         }
     }
-    public static function get_customer_list($customer_id,$orders_id){
-        $res= $res= StockLogs::find()->where(['customer_id'=>$customer_id,'orders_id'=>$orders_id])
+    public static function get_customer_list($where){
+        $res= StockLogs::find()->where($where)
             ->andWhere(['token'=>Yii::$app->session->get('web_id')])
             ->asArray()->all();
         return $res;

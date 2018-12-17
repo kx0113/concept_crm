@@ -113,6 +113,17 @@ class Stock extends \yii\db\ActiveRecord
         $res=Stock::findOne($id);
         return $res->name;
     }
+    public static function get_stock_one($id){
+        $res=Stock::find()->where(['id'=>$id])->one();
+        return $res;
+    }
+    public static function get_stock_field_value($id,$field){
+        $res=Stock::find()->where(['id'=>$id])->one();
+        if(isset($res[$field]) && !empty($res[$field])){
+            return $res[$field];
+        }
+        return '';
+    }
     public static function update_total_number($id,$number,$action){
         if(empty($action)){
 //            return '1';

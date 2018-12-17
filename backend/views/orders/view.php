@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use common\models\Types;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Orders */
@@ -73,23 +74,27 @@ $this->params['breadcrumbs'][] = $this->title;
 
                                 </tr>
                                 <?php if(isset($orders_info['stock_logs']) && !empty($orders_info['stock_logs'])){
+                                        $num=1;
                                          foreach ($orders_info['stock_logs'] as $k1=>$v1){ ?>
                                              <tr>
-                                                 <td  colspan="1"><?php echo $k1+1; ?></td>
-                                                 <td  colspan="1"><?php echo $v1['stock_id']; ?></td>
-                                                 <td  colspan="1">1002</td>
-                                                 <td  colspan="1">北京牌</td>
-                                                 <td  colspan="1">10*10</td>
-                                                 <td  colspan="1">水果</td>
-                                                 <td  colspan="1">个</td>
-                                                 <td  colspan="1">20</td>
-                                                 <td  colspan="1">10</td>
-                                                 <td  colspan="1">10</td>
-                                                 <td  colspan="1">2</td>
-                                                 <td  colspan="1">8</td>
-                                                 <td  colspan="1">¥100.00</td>
-                                                 <td  colspan="1">200</td>
-                                                 <td  rowspan="1">300</td>
+                                                 <td  colspan="1"><?php echo $num++; ?></td>
+                                                 <td  colspan="1"><?php echo $orders_info['stock_logs'][$k1]['name']; ?></td>
+                                                 <td  colspan="1"><?php echo $orders_info['stock_logs'][$k1]['number']; ?></td>
+                                                 <td  colspan="1"><?php echo Types::getName($orders_info['stock_logs'][$k1]['brand']); ?></td>
+                                                 <td  colspan="1"><?php echo Types::getName($orders_info['stock_logs'][$k1]['size']); ?></td>
+                                                 <td  colspan="1"><?php echo Types::getName($orders_info['stock_logs'][$k1]['goods_type']); ?></td>
+                                                 <td  colspan="1"><?php echo Types::getName($orders_info['stock_logs'][$k1]['company']); ?></td>
+                                                 <td  colspan="1">¥<?php echo $orders_info['stock_logs'][$k1]['market_price']; ?></td>
+                                                 <td  colspan="1">¥<?php echo $orders_info['stock_logs'][$k1]['purchase_price']; ?></td>
+                                                 <td  colspan="1"><?php echo $orders_info['stock_logs'][$k1]['current_number']; ?></td>
+                                                 <td  colspan="1"><?php echo 0; ?></td>
+                                                 <td  colspan="1"><?php echo $orders_info['stock_logs'][$k1]['current_number']; ?></td>
+                                                 <td  colspan="1">¥<?php echo $orders_info['stock_logs'][$k1]['row_market_price']; ?></td>
+                                                 <td  colspan="1">¥<?php echo $orders_info['stock_logs'][$k1]['row_purchase_price']; ?></td>
+                                                 <td  colspan="1">¥<?php echo $orders_info['stock_logs'][$k1]['row_purchase_price']; ?></td>
+<!--                                                 <td  rowspan="--><?php //echo $orders_info['stock_sum']['total_data_count']; ?><!--">-->
+<!--                                                     --><?php //echo $orders_info['stock_sum']['total_purchase_price']; ?>
+<!--                                                 </td>-->
                                                  <td  colspan="1"><a href="#">[出库]</a><a href="#">[归还]</a></td>
 
                                              </tr>
