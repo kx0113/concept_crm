@@ -20,6 +20,7 @@ use common\models\Customer;
  * @property double $freight_cost
  * @property double $other_cost
  * @property string $remark
+ * @property integer $orders_type
  * @property integer $status
  * @property integer $token
  * @property integer $add_user
@@ -42,8 +43,8 @@ class Orders extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name','start_time','end_time','customer_id','phone','address'], 'required'],
-            [['customer_id', 'status', 'token', 'add_user'], 'integer'],
+            [['name','orders_type','start_time','end_time','customer_id','phone','address'], 'required'],
+            [['orders_type','customer_id', 'status', 'token', 'add_user'], 'integer'],
             [['start_time', 'end_time', 'update_at', 'create_at'], 'safe'],
             [['work_cost', 'freight_cost','other_cost'], 'number'],
             [['name', 'address', 'remark'], 'string', 'max' => 255],
@@ -59,6 +60,7 @@ class Orders extends \yii\db\ActiveRecord
         return [
             'id' => Yii::t('app', 'ID'),
             'name' => Yii::t('app', '名称'),
+            'orders_type' => Yii::t('app', '订单类型'),
             'address' => Yii::t('app', '地址'),
             'customer_id' => Yii::t('app', '客户'),
             'start_time' => Yii::t('app', '开始时间'),
@@ -108,8 +110,15 @@ class Orders extends \yii\db\ActiveRecord
     public static function orders_view($id){
         $arr=[];
         $orders=self::findOrderOne($id);
+        $log_stock_id=[];
         if(isset($orders['customer_id']) && !empty($orders['customer_id'])){
-            $arr['stock_logs']=StockLogs::get_customer_list($orders['customer_id']);
+            $arr['stock_logs']=StockLogs::get_customer_list($orders['customer_id'],$orders['id']);
+            //提取stock_id
+//            $log_stock_id=Yii::$app->Helper->arrayGivenField($get_customer_list,'stock_id');
+            //去除重复不要key
+            $log_stock_id=Yii::$app->Helper->arrayUniqueDefaultKey($log_stock_id);
+
+//            echo json_encode($log_stock_id);exit;
             $arr['customer_info']=Customer::get_customer_info($orders['customer_id']);
         }
         $arr['info']=$orders;

@@ -36,13 +36,28 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'name',
 //            'address',
-            'customer_id',
+//            'customer_id',
+
+            [
+            'attribute' => 'customer_id',
+            'value'=>
+                function($model){
+                    return \common\models\Customer::get_name($model->customer_id);
+                },
+        ],
 //            'start_time',
 //             'end_time',
              'phone',
 //             'work_cost',
 //             'freight_cost',
 //             'remark',
+            [
+                'attribute' => 'orders_type',
+                'value' =>
+                    function ($searchModel) {
+                        return mb_substr(\common\models\Types::getName($searchModel->orders_type), 0, 10, 'utf-8');
+                    },
+            ],
             [
                 'attribute' => 'status',
                 'value'=>

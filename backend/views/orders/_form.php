@@ -26,6 +26,7 @@ use yii\widgets\ActiveForm;
 
                                 <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
+                                <?= $form->field($model, 'orders_type')->dropDownList(\common\models\Types::types_list(['keys'=>1013])); ?>
                                 <?= $form->field($model, 'address')->textInput(['maxlength' => true]) ?>
                                 <?= $form->field($model, 'customer_id')
                                     ->dropDownList(\common\models\Customer::getDropDownList()); ?>
