@@ -110,6 +110,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 <button type="button" class="btn btn-primary">批量归还</button>
                                 <button type="button" class="btn btn-success">批量出库</button>
                                 <button type="button" class="btn btn-info">导出Excel</button>
+                                <button type="button" class="btn btn-info">导出pdf</button>
                                 <button type="button" class="btn btn-danger">打印订单</button>
                             </div>
                             <div style="clear: both;"></div>
