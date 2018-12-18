@@ -63,9 +63,9 @@ $this->params['breadcrumbs'][] = $this->title;
                                         <td class="tabletrtdleft tabletrtdbold" width="25%"  >施工费：<?php if(isset($orders_info['info']['work_cost'])){ echo $orders_info['info']['work_cost']; }?></td>
                                     </tr>
                                     <tr>
-                                        <td class="tabletrtdleft tabletrtdbold" width="25%" colspan="1">成本总价：<?php echo $orders_info['stock_sum']['total_purchase_price']; ?></td>
+                                        <td class="tabletrtdleft tabletrtdbold" width="25%" colspan="1">成本总价：<?php echo isset($orders_info['stock_sum']['total_purchase_price']) ?  $orders_info['stock_sum']['total_purchase_price'] : '0.00'; ?></td>
 
-                                        <td class="tabletrtdleft tabletrtdbold" width="25%" colspan="1">零售总价：<?php echo $orders_info['stock_sum']['total_market_price']; ?></td>
+                                        <td class="tabletrtdleft tabletrtdbold" width="25%" colspan="1">零售总价：<?php echo isset($orders_info['stock_sum']['total_market_price']) ?  $orders_info['stock_sum']['total_market_price'] : '0.00'; ?></td>
                                         <td class="tabletrtdleft tabletrtdbold" width="25%" colspan="1">其他费用：<?php echo $orders_info['info']['other_cost']; ?></td>
                                         <td class="tabletrtdleft tabletrtdbold" width="25%" colspan="1">创建时间：<?php echo $orders_info['info']['create_at']; ?></td>
                                     </tr>
