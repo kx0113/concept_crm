@@ -38,7 +38,7 @@ class StockController extends BaseController
     public function test22View($info){
         return $this->render('test21', ['info'=>$info]);
     }
-    public function actionTest21(){
+    public function actionSendMail(){
         $email_title = Yii::$app->request->post('email_title','');
         $html = Yii::$app->request->post('html','');
         $mail= Yii::$app->mailer->compose();
@@ -77,7 +77,18 @@ class StockController extends BaseController
         $objectPHPExcel->setActiveSheetIndex()->setCellValue('O1', '成本总价');
         $n = 2;
         $key = 1;
-        if(!empty($data['stock_logs'])){
+
+//        $objectPHPExcel->getActiveSheet()->mergeCells('A1:O2');
+//        $objectPHPExcel->getActiveSheet()->getStyle('A1')->getAlignment()->
+//        setVertical(\PHPExcel_Style_Alignment::VERTICAL_CENTER);
+//        $objectPHPExcel->getActiveSheet()->getStyle('A1')->getFont()->setSize(20);
+//        $objectPHPExcel->getActiveSheet()->getStyle('A1')->getFont()->setBold(true);
+//        $objectPHPExcel->getActiveSheet()->getStyle('A1')->getAlignment()
+//            ->setHorizontal(\PHPExcel_Style_Alignment::VERTICAL_CENTER);
+//
+//        $objectPHPExcel->getActiveSheet()->getColumnDimension('A')->setWidth(20);
+//        $objectPHPExcel->getActiveSheet()->getStyle('B4')->getBorders()->getTop()->setBorderStyle(\PHPExcel_Style_Border::BORDER_THIN);
+         if(!empty($data['stock_logs'])){
             foreach ($data['stock_logs'] as $k=>$v){
                 $objectPHPExcel->getActiveSheet()->setCellValue('A'.($n) ,$key++);
                 $objectPHPExcel->getActiveSheet()->setCellValue('B'.($n) ,$v['name']);
@@ -100,10 +111,17 @@ class StockController extends BaseController
 
         ob_end_clean();
         ob_start();
+//        header('Content-Type:application/pdf');
+//        header('Content-Disposition:attachment;filename="'.$name.'-'.date("Ymd").'-'.rand(1111,9999).'.pdf"');
+//        header('Cache-Control:max-age=0');
+
         header('Content-Type : application/vnd.ms-excel');
         //设置输出文件名及格式
         header('Content-Disposition:attachment;filename="'.$name.'-'.date("Ymd").'-'.rand(1111,9999).'.xls"');
         //导出.xls格式的话使用Excel5,若是想导出.xlsx需要使用Excel2007
+//        $objWriter =\PHPExcel_IOFactory::createWriter($objectPHPExcel, 'PDF');
+//        $objWriter->save('a.pdf');
+//exit;
         $objWriter= \PHPExcel_IOFactory::createWriter($objectPHPExcel,'Excel5');
         $objWriter->save('php://output');
         ob_end_flush();
