@@ -69,6 +69,7 @@ use yii\widgets\ActiveForm;
 
                                 <?= $form->field($model, 'phone')->textInput(['maxlength' => true]) ?>
 
+                                <?= $form->field($model, 'sale_cost')->textInput() ?>
                                 <?= $form->field($model, 'work_cost')->textInput() ?>
 
                                 <?= $form->field($model, 'freight_cost')->textInput() ?>

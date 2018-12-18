@@ -20,6 +20,7 @@ use common\models\Stock;
  * @property double $work_cost
  * @property double $freight_cost
  * @property double $other_cost
+ * @property double $sale_cost
  * @property string $remark
  * @property integer $orders_type
  * @property integer $status
@@ -44,10 +45,10 @@ class Orders extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name','orders_type','start_time','end_time','customer_id','phone','address'], 'required'],
+            [['name','orders_type','sale_cost','start_time','end_time','customer_id','phone','address'], 'required'],
             [['orders_type','customer_id', 'status', 'token', 'add_user'], 'integer'],
             [['start_time', 'end_time', 'update_at', 'create_at'], 'safe'],
-            [['work_cost', 'freight_cost','other_cost'], 'number'],
+            [['work_cost', 'freight_cost','other_cost','sale_cost',], 'number'],
             [['name', 'address', 'remark'], 'string', 'max' => 255],
             [['phone'], 'string', 'max' => 50],
         ];
@@ -63,6 +64,7 @@ class Orders extends \yii\db\ActiveRecord
             'name' => Yii::t('app', '名称'),
             'orders_type' => Yii::t('app', '订单类型'),
             'address' => Yii::t('app', '地址'),
+            'sale_cost' => Yii::t('app', '销售款项'),
             'customer_id' => Yii::t('app', '客户'),
             'start_time' => Yii::t('app', '开始时间'),
             'end_time' => Yii::t('app', '结束时间'),
@@ -174,6 +176,7 @@ class Orders extends \yii\db\ActiveRecord
                 }
 
             }
+//            利润=销售款项-运费-施工费-成本总价-其它费用
             $arr['stock_logs']=$log_stock_arr;
             $arr['stock_sum']['total_purchase_price']=$total_purchase_price;
             $arr['stock_sum']['total_market_price']=$total_market_price;

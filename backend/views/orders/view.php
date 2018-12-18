@@ -41,7 +41,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 <div id="tables_content_print">
                                 <table width="100%" class="table table-bordered">
                                     <tr>
-                                        <td style="text-align: center; font-size: 20px;font-weight: bold;"  colspan="16"> <?= Html::encode('' . $this->title) ?></td>
+                                        <td class="email_title" style="text-align: center; font-size: 20px;font-weight: bold;"  colspan="16"> <?= Html::encode('' . $this->title) ?></td>
                                     </tr>
                                     <tr>
 
@@ -54,7 +54,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                         <td class="tabletrtdleft tabletrtdbold" width="25%">合同日期：<?php if(isset($orders_info['info']['start_time'])){ echo date("Y-m-d",strtotime($orders_info['info']['start_time'])); }?></td>
                                     </tr>
                                     <tr>
-                                        <td class="tabletrtdleft tabletrtdbold" width="25%">销售款项：</td>
+                                        <td class="tabletrtdleft tabletrtdbold" width="25%">销售款项：<?php if(isset($orders_info['info']['sale_cost'])){ echo $orders_info['info']['sale_cost']; }?></td>
 
                                         <td class="tabletrtdleft tabletrtdbold"  width="25%">销售利润：</td>
 
@@ -66,8 +66,8 @@ $this->params['breadcrumbs'][] = $this->title;
                                         <td class="tabletrtdleft tabletrtdbold" width="25%" colspan="1">成本总价：<?php echo $orders_info['stock_sum']['total_purchase_price']; ?></td>
 
                                         <td class="tabletrtdleft tabletrtdbold" width="25%" colspan="1">零售总价：<?php echo $orders_info['stock_sum']['total_market_price']; ?></td>
-                                        <td class="tabletrtdleft tabletrtdbold" width="25%" colspan="1">差价总价：<?php echo $orders_info['stock_sum']['total_diff_price']; ?></td>
-                                        <td class="tabletrtdleft tabletrtdbold" width="25%" colspan="1">创建时间：<?php echo $orders_info['stock_sum']['total_market_price']; ?></td>
+                                        <td class="tabletrtdleft tabletrtdbold" width="25%" colspan="1">其他费用：<?php echo $orders_info['info']['other_cost']; ?></td>
+                                        <td class="tabletrtdleft tabletrtdbold" width="25%" colspan="1">创建时间：<?php echo $orders_info['info']['create_at']; ?></td>
                                     </tr>
                                 </table>
                                 <br>
@@ -147,7 +147,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 layer.close(index);
                 $(".print_option").hide();
                 var html=$("#tables_content").html();
-                $.post('index.php?r=/stock/test21',{"html":html},function(res){
+                var email_title=$(".email_title").html();
+                $.post('index.php?r=/stock/test21',{"html":html,"email_title":email_title},function(res){
                     layer.alert(res.msg);
                 },'json');
                 $(".print_option").show();
