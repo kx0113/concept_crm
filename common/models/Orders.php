@@ -114,10 +114,8 @@ class Orders extends \yii\db\ActiveRecord
         $arr=[];
         $orders=self::findOrderOne($id);
 //        echo json_encode($orders);exit;
-
         $log_stock_id=[];
         $log_stock_arr=[];
-        $log_stock_data=[];
         if(isset($orders['customer_id']) && !empty($orders['customer_id'])){
             $where['customer_id']=$orders['customer_id'];
             $where['orders_id']=$orders['id'];
@@ -136,6 +134,7 @@ class Orders extends \yii\db\ActiveRecord
                     }
                 }
             }
+            $total_profit_price=0;
             $total_purchase_price=0;
             $total_market_price=0;
             $total_data_count=0;
@@ -156,8 +155,9 @@ class Orders extends \yii\db\ActiveRecord
                     foreach($stock_info as $k6=>$v6){
                         $log_stock_arr[$k1][$k6]=$v6;
                     }
-                    $row_purchase_price=bcmul($stock_info['purchase_price'],$current_number,2);;
-                    $row_market_price=bcmul($stock_info['market_price'],$current_number,2);;
+                    $row_purchase_price=bcmul($stock_info['purchase_price'],$current_number,2);
+                    $row_market_price=bcmul($stock_info['market_price'],$current_number,2);
+                    #总出库量
                     $log_stock_arr[$k1]['current_number']=$current_number;
                     $log_stock_arr[$k1]['row_purchase_price']=$row_purchase_price;
                     $log_stock_arr[$k1]['row_market_price']=$row_market_price;
@@ -176,11 +176,22 @@ class Orders extends \yii\db\ActiveRecord
                 }
 
             }
-//            利润=销售款项-运费-施工费-成本总价-其它费用
+            $total_profit_price=bcsub($orders['sale_cost'],$orders['freight_cost'],2);
+            $total_profit_price=bcsub($total_profit_price,$orders['work_cost'],2);
+            $total_profit_price=bcsub($total_profit_price,$orders['other_cost'],2);
+            $total_profit_price=bcsub($total_profit_price,$total_purchase_price,2);
+//            $sale_cost-$freight_cost-$work_cost-$other_cost-$total_purchase_price
+//            利润=销售款项-运费-施工费-其它费用-成本总价
             $arr['stock_logs']=$log_stock_arr;
+            #销售利润
+            $arr['stock_sum']['total_profit_price']=$total_profit_price;
+            #总进货价
             $arr['stock_sum']['total_purchase_price']=$total_purchase_price;
+            #总市场价
             $arr['stock_sum']['total_market_price']=$total_market_price;
+            #差价总价
             $arr['stock_sum']['total_diff_price']=$total_diff_price;
+            #统计总条数
             $arr['stock_sum']['total_data_count']=$total_data_count;
 //            echo json_encode($log_stock_arr);exit;
             $arr['customer_info']=Customer::get_customer_info($orders['customer_id']);

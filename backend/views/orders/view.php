@@ -32,13 +32,13 @@ $this->params['breadcrumbs'][] = $this->title;
 <!--                        编号	产品名称	总数量	进货价	市场价	品牌分类	规格	物品分类	单位-->
                         <div class="ibox-content">
                             <div id="tables_content">
-                                <style>
-                                    table{border: 1px solid #ccc;}
-                                    table tr td {text-align: center;border: 1px solid #ccc;}
-                                    .tabletrtdleft{text-align: left;}
-                                    .tabletrtdbold{font-weight: bold;}
-                                </style>
                                 <div id="tables_content_print">
+                                    <style>
+                                        table{border: 1px solid #ccc;}
+                                        table tr td {text-align: center;border: 1px solid #ccc;}
+                                        .tabletrtdleft{text-align: left;}
+                                        .tabletrtdbold{font-weight: bold;}
+                                    </style>
                                 <table width="100%" class="table table-bordered">
                                     <tr>
                                         <td class="email_title" style="text-align: center; font-size: 20px;font-weight: bold;"  colspan="16"> <?= Html::encode('' . $this->title) ?></td>
@@ -56,7 +56,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                     <tr>
                                         <td class="tabletrtdleft tabletrtdbold" width="25%">销售款项：<?php if(isset($orders_info['info']['sale_cost'])){ echo $orders_info['info']['sale_cost']; }?></td>
 
-                                        <td class="tabletrtdleft tabletrtdbold"  width="25%">销售利润：</td>
+                                        <td class="tabletrtdleft tabletrtdbold"  width="25%">销售利润：<?php echo isset($orders_info['stock_sum']['total_profit_price']) ?  $orders_info['stock_sum']['total_profit_price'] : '0.00'; ?></td>
 
                                         <td class="tabletrtdleft tabletrtdbold" width="25%">运费：<?php if(isset($orders_info['info']['freight_cost'])){ echo $orders_info['info']['freight_cost']; }?></td>
 
