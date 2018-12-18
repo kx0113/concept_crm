@@ -11,6 +11,7 @@ use common\models\Orders;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use moonland\phpexcel\Excel;
 
 /**
  * StockController implements the CRUD actions for Stock model.
@@ -41,7 +42,7 @@ class StockController extends BaseController
         $email_title = Yii::$app->request->post('email_title','');
         $html = Yii::$app->request->post('html','');
         $mail= Yii::$app->mailer->compose();
-        $mail->setTo(['xushenkai99@126.com','1585347003@126.com','827821148@qq.com']); //要发送给那个人的邮箱
+        $mail->setTo(['xushenkai99@126.com','uptostar@163.com']); //要发送给那个人的邮箱
         $mail->setSubject($email_title.date("Y-m-d")); //邮件主题
         $mail->setHtmlBody($html); //发送的消息内容
         $send_mail=$mail->send();
@@ -52,7 +53,36 @@ class StockController extends BaseController
 //        return $this->test22View('订单创建');
     }
     public function actionTest22(){
-        return $this->test22View('订单列表');
+        $queryParams=Yii::$app->request->queryParams;
+//        echo json_encode(Yii::$app->request->queryParams);
+        $searchModel = new StockSearch();
+
+        $dataProvider = $searchModel->search($queryParams);
+        $objectPHPExcel = new \PHPExcel();
+//        Excel::export([
+//            'models' => $enroll,
+//            'fileName' => $enroll[0]['classroom']['title'].'-报名',
+//            'columns' => [
+//
+//            ]
+//        ]);
+
+//        ob_end_clean();
+//        ob_start();
+//        header('Content-Type : application/vnd.ms-excel');
+//
+//        //设置输出文件名及格式
+//        header('Content-Disposition:attachment;filename="代理公司统计'.date("YmdHis").'.xls"');
+//
+//        //导出.xls格式的话使用Excel5,若是想导出.xlsx需要使用Excel2007
+//        $objWriter= \PHPExcel_IOFactory::createWriter($objectPHPExcel,'Excel5');
+//        $objWriter->save('php://output');
+//        ob_end_flush();
+//
+//        //清空数据缓存
+//        unset($data);
+//        var_dump($objectPHPExcel);exit;
+//        return $this->test22View('订单列表');
     }
     public function actionTest23(){
         return $this->test22View('财务统计');
