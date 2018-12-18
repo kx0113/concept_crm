@@ -82,10 +82,10 @@ $this->params['breadcrumbs'][] = $this->title;
                                     <td class="tabletrtdbold" width="50" colspan="1">单位</td>
                                     <td class="tabletrtdbold" width="80" colspan="1">零售价</td>
                                     <td class="tabletrtdbold" width="80" colspan="1">成本价</td>
-                                    <td class="tabletrtdbold" width="60" colspan="1">出库次数</td>
-                                    <td class="tabletrtdbold" width="50" colspan="1">实际数量</td>
-                                    <td class="tabletrtdbold" width="50" colspan="1">归还数量</td>
-                                    <td class="tabletrtdbold" width="50" colspan="1">总用数量</td>
+                                    <td class="tabletrtdbold" width="80" colspan="1">出库次数</td>
+                                    <td class="tabletrtdbold" width="80" colspan="1">实际数量</td>
+                                    <td class="tabletrtdbold" width="80" colspan="1">归还数量</td>
+                                    <td class="tabletrtdbold" width="80" colspan="1">总用数量</td>
                                     <td class="tabletrtdbold" width="80" colspan="1">零售总价</td>
                                     <td class="tabletrtdbold" width="80" colspan="1">成本总价</td>
 <!--                                    <td class="tabletrtdbold" width="80" colspan="1">差价总价</td>-->
