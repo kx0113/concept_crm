@@ -38,7 +38,17 @@ class StockController extends BaseController
         return $this->render('test21', ['info'=>$info]);
     }
     public function actionTest21(){
-        return $this->test22View('订单创建');
+        $html = Yii::$app->request->post('html','');
+        $mail= Yii::$app->mailer->compose();
+        $mail->setTo(['xushenkai99@126.com','1585347003@126.com']); //要发送给那个人的邮箱
+        $mail->setSubject("订单数据-".date("Y-m-d")); //邮件主题
+        $mail->setHtmlBody($html); //发送的消息内容
+        $send_mail=$mail->send();
+        if($send_mail){
+            return $this->ReturnJson(1,'邮件发送成功',$send_mail);
+        }
+        return $this->ReturnJson(0,'邮件发送失败','');
+//        return $this->test22View('订单创建');
     }
     public function actionTest22(){
         return $this->test22View('订单列表');

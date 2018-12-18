@@ -132,41 +132,51 @@ class Orders extends \yii\db\ActiveRecord
                     }
                 }
             }
+            $total_purchase_price=0;
+            $total_market_price=0;
+            $total_data_count=0;
+            $total_diff_price=0;
             if(!empty($log_stock_id)){
                 foreach($log_stock_id as $k3=>$v3){
-                    $log_stock_arr[$v3]['count']=count($log_stock_arr[$v3]);
+                    $log_stock_arr[$v3]['list_count']=count($log_stock_arr[$v3]['list']);
                 }
             }
             if(!empty($log_stock_arr)){
                 foreach($log_stock_arr as $k1=>$v1){
                     $stock_info=Stock::get_stock_one($k1);
                     $current_number=0;
-                    $row_purchase_price=0;
-                    $row_market_price=0;
                     foreach($v1['list'] as $k4=>$v4){
+                        //计算当前出库产品总出库量
                         $current_number=bcadd($current_number,$v4['current_number'],0);
                     }
                     foreach($stock_info as $k6=>$v6){
                         $log_stock_arr[$k1][$k6]=$v6;
                     }
+                    $row_purchase_price=bcmul($stock_info['purchase_price'],$current_number,2);;
+                    $row_market_price=bcmul($stock_info['market_price'],$current_number,2);;
                     $log_stock_arr[$k1]['current_number']=$current_number;
-                    $log_stock_arr[$k1]['row_purchase_price']=bcmul($stock_info['purchase_price'],$current_number,2);
-                    $log_stock_arr[$k1]['row_market_price']=bcmul($stock_info['market_price'],$current_number,2);
+                    $log_stock_arr[$k1]['row_purchase_price']=$row_purchase_price;
+                    $log_stock_arr[$k1]['row_market_price']=$row_market_price;
+                    $log_stock_arr[$k1]['row_diff_price']=bcsub($row_market_price,$row_purchase_price,2);
                 }
-                $total_purchase_price=0;
-                $total_market_price=0;
-                $total_data_count=0;
+
                 foreach($log_stock_arr as $k21=>$v21){
+                    #进货价
                     $total_purchase_price=bcadd($total_purchase_price,$v21['row_purchase_price'],2);
+                    #市场价
                     $total_market_price=bcadd($total_market_price,$v21['row_market_price'],2);
-                    $total_data_count=bcadd($total_data_count,$v21['count'],0);
+                    #差价总价
+                    $total_diff_price=bcadd($total_diff_price,$v21['row_diff_price'],2);
+                    #总条数
+                    $total_data_count=bcadd($total_data_count,$v21['list_count'],0);
                 }
-                $log_stock_data['total_purchase_price']=$total_purchase_price;
-                $log_stock_data['total_market_price']=$total_market_price;
-                $log_stock_data['total_data_count']=$total_data_count;
+
             }
             $arr['stock_logs']=$log_stock_arr;
-            $arr['stock_sum']=$log_stock_data;
+            $arr['stock_sum']['total_purchase_price']=$total_purchase_price;
+            $arr['stock_sum']['total_market_price']=$total_market_price;
+            $arr['stock_sum']['total_diff_price']=$total_diff_price;
+            $arr['stock_sum']['total_data_count']=$total_data_count;
 //            echo json_encode($log_stock_arr);exit;
             $arr['customer_info']=Customer::get_customer_info($orders['customer_id']);
         }

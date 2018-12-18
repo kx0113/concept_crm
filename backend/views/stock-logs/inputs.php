@@ -76,24 +76,24 @@ $this->params['breadcrumbs'][] = $this->title;
                                         params.status = 1;
                                         console.log(params);
                                         if(stock_id=='' || stock_id==0){
-                                            alert('请选择产品');
+                                            layer.alert('请选择产品');
                                             return false;
                                         }
                                         if(current_number==''){
-                                            alert('请选择数量');
+                                            layer.alert('请选择数量');
                                             return false;
                                         }else{
                                             if(current_number < 0){
-                                                alert('请输入大于0整形数字');
+                                                layer.alert('请输入大于0整形数字');
                                                 return false;
                                             }
                                         }
                                         if(operation_time==''){
-                                            alert('请选择时间');
+                                            layer.alert('请选择时间');
                                             return false;
                                         }
                                         $.post('index.php?r=/stock-logs/add-stock-logs',params,function(res){
-                                            alert(res.msg);
+                                            layer.alert(res.msg);
                                             location.href="index.php?r=stock/index";
                                             return false;
                                         },'json');
