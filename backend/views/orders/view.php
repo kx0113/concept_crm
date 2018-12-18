@@ -11,7 +11,9 @@ $this->title = $orders_info['info']['name'];
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Orders'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="orders-view">
+<script src="js/jquery-1.4.4.min.js"></script>
+<script src="js/jquery.jqprint-0.3.js"></script>
+<div  style="" class="orders-view">
         <div class="wrapper wrapper-content">
 
             <div class="row">
@@ -36,7 +38,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                     .tabletrtdleft{text-align: left;}
                                     .tabletrtdbold{font-weight: bold;}
                                 </style>
-                                <!--startprint-->
+                                <div id="tables_content_print">
                                 <table width="100%" class="table table-bordered">
                                     <tr>
                                         <td style="text-align: center; font-size: 20px;font-weight: bold;"  colspan="16"> <?= Html::encode('' . $this->title) ?></td>
@@ -45,9 +47,9 @@ $this->params['breadcrumbs'][] = $this->title;
 
                                         <td class="tabletrtdleft tabletrtdbold" width="25%" >客户姓名：<?php if(isset($orders_info['customer_info']['name'])){ echo $orders_info['customer_info']['name']; }?></td>
 
-                                        <td class="tabletrtdleft tabletrtdbold"  width="25%">联系电话：<?php if(isset($orders_info['customer_info']['phone'])){ echo $orders_info['customer_info']['phone']; }?></td>
+                                        <td class="tabletrtdleft tabletrtdbold"  width="25%">联系电话：<?php if(isset($orders_info['info']['phone'])){ echo $orders_info['info']['phone']; }?></td>
 
-                                        <td class="tabletrtdleft tabletrtdbold" width="25%" >项目地址：<?php if(isset($orders_info['customer_info']['address'])){ echo $orders_info['customer_info']['address']; }?></td>
+                                        <td class="tabletrtdleft tabletrtdbold" width="25%" >项目地址：<?php if(isset($orders_info['info']['address'])){ echo $orders_info['info']['address']; }?></td>
 
                                         <td class="tabletrtdleft tabletrtdbold" width="25%">合同日期：<?php if(isset($orders_info['info']['start_time'])){ echo date("Y-m-d",strtotime($orders_info['info']['start_time'])); }?></td>
                                     </tr>
@@ -87,7 +89,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                     <td class="tabletrtdbold" width="80" colspan="1">零售总价</td>
                                     <td class="tabletrtdbold" width="80" colspan="1">成本总价</td>
                                     <td class="tabletrtdbold" width="80" colspan="1">差价总价</td>
-                                    <td class="tabletrtdbold" width="100" colspan="1">操作</td>
+                                    <td class="tabletrtdbold print_option" width="100" colspan="1">操作</td>
                                 </tr>
                                 <?php if(isset($orders_info['stock_logs']) && !empty($orders_info['stock_logs'])){
                                         $num=1;
@@ -109,11 +111,12 @@ $this->params['breadcrumbs'][] = $this->title;
                                                  <td  colspan="1">¥<?php echo $orders_info['stock_logs'][$k1]['row_market_price']; ?></td>
                                                  <td  colspan="1">¥<?php echo $orders_info['stock_logs'][$k1]['row_purchase_price']; ?></td>
                                                  <td  colspan="1">¥<?php echo $orders_info['stock_logs'][$k1]['row_diff_price']; ?></td>
-                                                 <td  colspan="1"><a href="#">[出库]</a><a href="#">[归还]</a></td>
+                                                 <td class="print_option" colspan="1"><a href="#">[出库]</a><a href="#">[归还]</a></td>
                                              </tr>
                                 <?php  }} ?>
 
                             </table>
+                                </div>
                                 <!--endprint-->
                             </div>
                             <div style="float: right">
@@ -137,18 +140,34 @@ $this->params['breadcrumbs'][] = $this->title;
     <script>
 
         function sendEmail(){
-            var html=$("#tables_content").html();
-            $.post('index.php?r=/stock/test21',{"html":html},function(res){
-                layer.alert(res.msg);
-            },'json');
+            layer.confirm('确定要发送该订单信息到指定邮箱?', {
+                title: '提示',
+                btn: ['确定','取消'] //按钮
+            }, function(index){
+                layer.close(index);
+                $(".print_option").hide();
+                var html=$("#tables_content").html();
+                $.post('index.php?r=/stock/test21',{"html":html},function(res){
+                    layer.alert(res.msg);
+                },'json');
+                $(".print_option").show();
+            }, function(index){
+                layer.close(index);
+            });
         }
+
         function doPrint() {
-            bdhtml=window.document.body.innerHTML;
-            sprnstr="<!--startprint-->";
-            eprnstr="<!--endprint-->";
-            prnhtml=bdhtml.substr(bdhtml.indexOf(sprnstr)+17);
-            prnhtml=prnhtml.substring(0,prnhtml.indexOf(eprnstr));
-            window.document.body.innerHTML=prnhtml;
-            window.print();
+            layer.confirm('确定要打印订单?', {
+                title: '提示',
+                btn: ['确定','取消'] //按钮
+            }, function(index){
+                layer.close(index);
+                $(".print_option").hide();
+                $("#tables_content_print").jqprint();
+                $(".print_option").show();
+            }, function(index){
+                layer.close(index);
+            });
+
         }
     </script>

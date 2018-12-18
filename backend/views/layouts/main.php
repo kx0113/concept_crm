@@ -46,6 +46,7 @@ use common\widgets\Alert;
     <?=Html::jsFile('@web/components/bootstrap-datetimepicker-master/js/bootstrap-datetimepicker.js')?>
     <?=Html::jsFile('@web/components/bootstrap-datetimepicker-master/js/locales/bootstrap-datetimepicker.zh-CN.js')?>
     <?=Html::jsFile('@web/components/layer-v3.1.1/layer/layer.js')?>
+<!--    --><?//=Html::jsFile('@web/js/jquery.jqprint-0.3.js')?>
     <?=Html::jsFile('@web/js/echarts.min.js')?>
     <?php $this->head(); ?>
 </head>
