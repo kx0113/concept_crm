@@ -123,7 +123,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 <button type="button" onclick="sendEmail()" class="btn btn-warning">发送Email</button>
                                 <button type="button" class="btn btn-primary">批量归还</button>
                                 <button type="button" class="btn btn-success">批量出库</button>
-                                <button type="button" class="btn btn-info">导出Excel</button>
+                                <a href="index.php?r=stock/out-excel&id=<?php echo $orders_info['info']['id']; ?>&name=<?php echo $orders_info['info']['name']; ?>" class="btn btn-info">导出Excel</a>
                                 <button type="button" class="btn btn-info">导出pdf</button>
                                 <button type="button" onclick="doPrint()" class="btn btn-danger">打印订单</button>
                             </div>
