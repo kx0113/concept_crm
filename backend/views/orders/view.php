@@ -88,7 +88,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                     <td class="tabletrtdbold" width="50" colspan="1">总用数量</td>
                                     <td class="tabletrtdbold" width="80" colspan="1">零售总价</td>
                                     <td class="tabletrtdbold" width="80" colspan="1">成本总价</td>
-                                    <td class="tabletrtdbold" width="80" colspan="1">差价总价</td>
+<!--                                    <td class="tabletrtdbold" width="80" colspan="1">差价总价</td>-->
                                     <td class="tabletrtdbold print_option" width="100" colspan="1">操作</td>
                                 </tr>
                                 <?php if(isset($orders_info['stock_logs']) && !empty($orders_info['stock_logs'])){
@@ -110,7 +110,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                                  <td  colspan="1"><?php echo $orders_info['stock_logs'][$k1]['current_number']; ?></td>
                                                  <td  colspan="1">¥<?php echo $orders_info['stock_logs'][$k1]['row_market_price']; ?></td>
                                                  <td  colspan="1">¥<?php echo $orders_info['stock_logs'][$k1]['row_purchase_price']; ?></td>
-                                                 <td  colspan="1">¥<?php echo $orders_info['stock_logs'][$k1]['row_diff_price']; ?></td>
+<!--                                                 <td  colspan="1">¥--><?php //echo $orders_info['stock_logs'][$k1]['row_diff_price']; ?><!--</td>-->
                                                  <td class="print_option" colspan="1"><a href="#">[出库]</a><a href="#">[归还]</a></td>
                                              </tr>
                                 <?php  }} ?>

@@ -93,7 +93,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                             return false;
                                         }
                                         $.post('index.php?r=/stock-logs/add-stock-logs',params,function(res){
-                                            layer.alert(res.msg);
+                                            alert(res.msg);
                                             location.href="index.php?r=stock/index";
                                             return false;
                                         },'json');

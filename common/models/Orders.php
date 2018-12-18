@@ -121,10 +121,12 @@ class Orders extends \yii\db\ActiveRecord
             $where['orders_id']=$orders['id'];
             $where['status']=2;
             $get_customer_list=StockLogs::get_customer_list($where);
+//            var_dump(count($get_customer_list));exit;
             //提取stock_id
             $log_stock_id=Yii::$app->Helper->arrayGivenField($get_customer_list,'stock_id');
             //去除重复不要key
             $log_stock_id=Yii::$app->Helper->arrayUniqueDefaultKey($log_stock_id);
+//            var_dump(count($log_stock_id));exit;
             if(!empty($get_customer_list)){
                 foreach($get_customer_list as $k=>$v){
                     if(in_array($v['stock_id'],$log_stock_id)){
