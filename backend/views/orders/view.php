@@ -233,6 +233,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     shadeClose: false,
                     content: [url], //iframe的url，no代表不显示滚动条
                     end: function(){ //此处用于演示
+                        location.reload();
 //                        layer.alert('msg');
                     }
                 });
@@ -252,6 +253,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     shadeClose: false,
                     content: [url], //iframe的url，no代表不显示滚动条
                     end: function(){ //此处用于演示
+                        location.reload();
 //                        layer.alert('msg');
                     }
                 });
