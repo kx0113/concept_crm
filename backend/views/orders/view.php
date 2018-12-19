@@ -227,7 +227,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     title: '快捷出库操作',
                     closeBtn: 1, //不显示关闭按钮
                     shade: [0.5],
-                    area: ['893px', '600px'],
+                    area: ['100%', '100%'],
                     anim: 2,
                     maxmin: true, //开启最大化最小化按钮
                     shadeClose: false,
@@ -247,7 +247,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     title: '快捷归还操作',
                     closeBtn: 1, //不显示关闭按钮
                     shade: [0.5],
-                    area: ['893px', '600px'],
+                    area: ['100%', '100%'],
                     anim: 2,
                     maxmin: true, //开启最大化最小化按钮
                     shadeClose: false,
