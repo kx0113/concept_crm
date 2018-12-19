@@ -119,14 +119,14 @@ $this->params['breadcrumbs'][] = $this->title;
                                 </div>
                                 <!--endprint-->
                             </div>
-                            <div style="float: right">
-                                <button type="button" onclick="sendEmail()" class="btn btn-warning">发送Email</button>
-                                <button type="button" class="btn btn-primary">批量归还</button>
-                                <button type="button" class="btn btn-success">批量出库</button>
-                                <button type="button" class="btn btn-info">导出Excel</button>
-                                <button type="button" class="btn btn-info">导出pdf</button>
-                                <button type="button" onclick="doPrint()" class="btn btn-danger">打印订单</button>
-                            </div>
+<div style="float: right">
+    <button type="button" onclick="sendEmail()" class="btn btn-warning">发送Email</button>
+    <button type="button" onclick="batchReturn()" class="btn btn-primary">批量归还</button>
+    <button type="button" onclick="batchOut()" class="btn btn-success">批量出库</button>
+    <button type="button" onclick="OutExcel()" class="btn btn-info">导出Excel</button>
+    <button type="button" onclick="OutPdf()" class="btn btn-info">导出pdf</button>
+    <button type="button" onclick="doPrint()" class="btn btn-danger">打印订单</button>
+</div>
                             <div style="clear: both;"></div>
 
                         </div>
@@ -138,7 +138,53 @@ $this->params['breadcrumbs'][] = $this->title;
 
 </div>
     <script>
+        function batchOut(){
+            layer.confirm('确定要批量出库?', {
+                title: '提示',
+                btn: ['确定','取消'] //按钮
+            }, function(index){
+                layer.close(index);
+                layer.alert('批量出库开发中...');
+            }, function(index){
+                layer.close(index);
+            });
+        }
+        function batchReturn(){
+            layer.confirm('确定要批量归还?', {
+                title: '提示',
+                btn: ['确定','取消'] //按钮
+            }, function(index){
+                layer.close(index);
+                layer.alert('批量归还开发中...');
+            }, function(index){
+                layer.close(index);
+            });
 
+        }
+        function OutPdf(){
+            layer.confirm('确定要导出pdf?', {
+                title: '提示',
+                btn: ['确定','取消'] //按钮
+            }, function(index){
+                layer.close(index);
+                layer.alert('导出pdf开发中...');
+            }, function(index){
+                layer.close(index);
+            });
+
+        }
+        function OutExcel(){
+            var url = "index.php?r=stock/out-excel&id=<?php echo $orders_info['info']['id']; ?>&name=<?php echo $orders_info['info']['name']; ?>";
+            layer.confirm('确定要导出Excel?', {
+                title: '提示',
+                btn: ['确定','取消'] //按钮
+            }, function(index){
+                layer.close(index);
+                location.href=url;
+            }, function(index){
+                layer.close(index);
+            });
+        }
         function sendEmail(){
             layer.confirm('确定要发送该订单信息到指定邮箱?', {
                 title: '提示',
@@ -148,7 +194,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 $(".print_option").hide();
                 var html=$("#tables_content").html();
                 var email_title=$(".email_title").html();
-                $.post('index.php?r=/stock/test21',{"html":html,"email_title":email_title},function(res){
+                $.post('index.php?r=/stock/send-mail',{"html":html,"email_title":email_title},function(res){
                     layer.alert(res.msg);
                 },'json');
                 $(".print_option").show();

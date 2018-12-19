@@ -11,6 +11,7 @@ use common\models\Orders;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use moonland\phpexcel\Excel;
 
 /**
  * StockController implements the CRUD actions for Stock model.
@@ -37,11 +38,11 @@ class StockController extends BaseController
     public function test22View($info){
         return $this->render('test21', ['info'=>$info]);
     }
-    public function actionTest21(){
+    public function actionSendMail(){
         $email_title = Yii::$app->request->post('email_title','');
         $html = Yii::$app->request->post('html','');
         $mail= Yii::$app->mailer->compose();
-        $mail->setTo(['xushenkai99@126.com','1585347003@126.com','827821148@qq.com']); //要发送给那个人的邮箱
+        $mail->setTo(['xushenkai99@126.com','uptostar@163.com']); //要发送给那个人的邮箱
         $mail->setSubject($email_title.date("Y-m-d")); //邮件主题
         $mail->setHtmlBody($html); //发送的消息内容
         $send_mail=$mail->send();
@@ -51,8 +52,81 @@ class StockController extends BaseController
         return $this->ReturnJson(0,'邮件发送失败','');
 //        return $this->test22View('订单创建');
     }
-    public function actionTest22(){
-        return $this->test22View('订单列表');
+    public function actionOutExcel(){
+        ini_set("memory_limit", "256M");
+        set_time_limit(0);
+        $id = Yii::$app->request->get('id','');
+        $name = Yii::$app->request->get('name','');
+        $objectPHPExcel = new \PHPExcel();
+        $data=Orders::orders_view($id);
+//        echo json_encode($data);exit;
+        $objectPHPExcel->setActiveSheetIndex()->setCellValue('A1', '序号');
+        $objectPHPExcel->setActiveSheetIndex()->setCellValue('B1', '产品名称');
+        $objectPHPExcel->setActiveSheetIndex()->setCellValue('C1', '编号');
+        $objectPHPExcel->setActiveSheetIndex()->setCellValue('D1', '品牌分类');
+        $objectPHPExcel->setActiveSheetIndex()->setCellValue('E1', '规格');
+        $objectPHPExcel->setActiveSheetIndex()->setCellValue('F1', '物品分类');
+        $objectPHPExcel->setActiveSheetIndex()->setCellValue('G1', '单位');
+        $objectPHPExcel->setActiveSheetIndex()->setCellValue('H1', '零售价');
+        $objectPHPExcel->setActiveSheetIndex()->setCellValue('I1', '成本价');
+        $objectPHPExcel->setActiveSheetIndex()->setCellValue('J1', '出库次数');
+        $objectPHPExcel->setActiveSheetIndex()->setCellValue('K1', '实际数量');
+        $objectPHPExcel->setActiveSheetIndex()->setCellValue('L1', '归还数量');
+        $objectPHPExcel->setActiveSheetIndex()->setCellValue('M1', '总用数量');
+        $objectPHPExcel->setActiveSheetIndex()->setCellValue('N1', '零售总价');
+        $objectPHPExcel->setActiveSheetIndex()->setCellValue('O1', '成本总价');
+        $n = 2;
+        $key = 1;
+
+//        $objectPHPExcel->getActiveSheet()->mergeCells('A1:O2');
+//        $objectPHPExcel->getActiveSheet()->getStyle('A1')->getAlignment()->
+//        setVertical(\PHPExcel_Style_Alignment::VERTICAL_CENTER);
+//        $objectPHPExcel->getActiveSheet()->getStyle('A1')->getFont()->setSize(20);
+//        $objectPHPExcel->getActiveSheet()->getStyle('A1')->getFont()->setBold(true);
+//        $objectPHPExcel->getActiveSheet()->getStyle('A1')->getAlignment()
+//            ->setHorizontal(\PHPExcel_Style_Alignment::VERTICAL_CENTER);
+//
+//        $objectPHPExcel->getActiveSheet()->getColumnDimension('A')->setWidth(20);
+//        $objectPHPExcel->getActiveSheet()->getStyle('B4')->getBorders()->getTop()->setBorderStyle(\PHPExcel_Style_Border::BORDER_THIN);
+         if(!empty($data['stock_logs'])){
+            foreach ($data['stock_logs'] as $k=>$v){
+                $objectPHPExcel->getActiveSheet()->setCellValue('A'.($n) ,$key++);
+                $objectPHPExcel->getActiveSheet()->setCellValue('B'.($n) ,$v['name']);
+                $objectPHPExcel->getActiveSheet()->setCellValue('C'.($n) ,$v['number']);
+                $objectPHPExcel->getActiveSheet()->setCellValue('D'.($n) ,Types::getName($v['brand']));
+                $objectPHPExcel->getActiveSheet()->setCellValue('E'.($n) ,Types::getName($v['size']));
+                $objectPHPExcel->getActiveSheet()->setCellValue('F'.($n) ,Types::getName($v['goods_type']));
+                $objectPHPExcel->getActiveSheet()->setCellValue('G'.($n) ,Types::getName($v['company']));
+                $objectPHPExcel->getActiveSheet()->setCellValue('H'.($n) ,$v['market_price']);
+                $objectPHPExcel->getActiveSheet()->setCellValue('I'.($n) ,$v['purchase_price']);
+                $objectPHPExcel->getActiveSheet()->setCellValue('J'.($n) ,$v['list_count']);
+                $objectPHPExcel->getActiveSheet()->setCellValue('K'.($n) ,$v['current_number']);
+                $objectPHPExcel->getActiveSheet()->setCellValue('L'.($n) ,0);
+                $objectPHPExcel->getActiveSheet()->setCellValue('M'.($n) ,$v['current_number']);
+                $objectPHPExcel->getActiveSheet()->setCellValue('N'.($n) ,$v['row_market_price']);
+                $objectPHPExcel->getActiveSheet()->setCellValue('O'.($n) ,$v['row_purchase_price']);
+                $n = $n +1;
+            }
+        }
+
+        ob_end_clean();
+        ob_start();
+//        header('Content-Type:application/pdf');
+//        header('Content-Disposition:attachment;filename="'.$name.'-'.date("Ymd").'-'.rand(1111,9999).'.pdf"');
+//        header('Cache-Control:max-age=0');
+
+        header('Content-Type : application/vnd.ms-excel');
+        //设置输出文件名及格式
+        header('Content-Disposition:attachment;filename="'.$name.'-'.date("Ymd").'-'.rand(1111,9999).'.xls"');
+        //导出.xls格式的话使用Excel5,若是想导出.xlsx需要使用Excel2007
+//        $objWriter =\PHPExcel_IOFactory::createWriter($objectPHPExcel, 'PDF');
+//        $objWriter->save('a.pdf');
+//exit;
+        $objWriter= \PHPExcel_IOFactory::createWriter($objectPHPExcel,'Excel5');
+        $objWriter->save('php://output');
+        ob_end_flush();
+        //清空数据缓存
+        unset($data);
     }
     public function actionTest23(){
         return $this->test22View('财务统计');
