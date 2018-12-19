@@ -94,7 +94,7 @@ class StockController extends BaseController
 
         #设置高度
 //        $objectPHPExcel->getActiveSheet()->getRowDimension('1')->setRowHeight(30);
-        #标题
+        #第一栏标题
         $objectPHPExcel->getActiveSheet()->mergeCells('A1:O2');
         #设置值
         $objectPHPExcel->setActiveSheetIndex()->setCellValue('A1', $name);
@@ -106,6 +106,7 @@ class StockController extends BaseController
         $objectPHPExcel->getActiveSheet()->getStyle('A1')->getAlignment()
             ->setHorizontal(\PHPExcel_Style_Alignment::VERTICAL_CENTER);
 
+        #第二栏数据渲染
         foreach ($data_total as $k24=>$v24){
             $objectPHPExcel->getActiveSheet()->mergeCells($v24['merge_cells']);
             $objectPHPExcel->setActiveSheetIndex()->setCellValue($v24['field'], $v24['name']);
@@ -117,7 +118,7 @@ class StockController extends BaseController
                 ->setVertical(\PHPExcel_Style_Alignment::VERTICAL_CENTER);
         }
 
-        #设置标题
+        #第三栏标题渲染
         $title_num=9;
         foreach ($cell_list as $k=>$v){
             $objectPHPExcel->getActiveSheet()->getStyle($v['cell'].($title_num))->getFill()->setFillType(\PHPExcel_Style_Fill::FILL_SOLID);
@@ -139,6 +140,7 @@ class StockController extends BaseController
         $n = 10;
         #序号
         $key = 1;
+        #第三栏内容渲染
         if(!empty($data['stock_logs'])){
             foreach ($data['stock_logs'] as $k=>$v){
                 foreach ($cell_list as $k222=>$v222){
@@ -172,17 +174,37 @@ class StockController extends BaseController
                 $n = $n +1;
             }
         }
-        $outputFileName = $name.'-' . date('Ymd').'-'.rand(1111,9999) . '.xls';
+//        header('Content-Type: application/pdf');
+//        header('Content-Disposition: attachment;filename="01simple.pdf"');
+//        header('Cache-Control: max-age=0');
+//
+//        $objWriter = \PHPExcel_IOFactory::createWriter($objectPHPExcel, 'PDF');
+//        $objWriter->save('php://output');
+//        exit;
+        $outputFileName = $name.'-' . date('Ymd').'-'.rand(1111,9999);
+//        header("Content-Type: application/force-download");
+//        header("Content-Type: application/octet-stream");
+//        header("Content-Type: application/download");
+//        header('Content-Type: application/pdf');
+//        header("Content-Transfer-Encoding: binary");
+//        header('Content-Disposition: attachment;filename="'.$outputFileName.'.pdf"');
+//        header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
+//        header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
+//        $objectPHPExcel = \PHPExcel_IOFactory::createWriter($objectPHPExcel, 'PDF');
+//        $objectPHPExcel->save('php://output');
+//        exit;
+
+
         header("Content-Type: application/force-download");
         header("Content-Type: application/octet-stream");
         header("Content-Type: application/download");
-        header('Content-Disposition:inline;filename="'.$outputFileName.'"');
+        header('Content-Disposition:inline;filename="'.$outputFileName.'.xls"');
         header("Content-Transfer-Encoding: binary");
         header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
         header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
         header("Pragma: no-cache");
-        $outputFileName = \PHPExcel_IOFactory::createWriter($objectPHPExcel, 'Excel5');
-        $outputFileName->save('php://output');
+        $objectPHPExcel = \PHPExcel_IOFactory::createWriter($objectPHPExcel, 'Excel5');
+        $objectPHPExcel->save('php://output');
         exit;
     }
     public function actionTest23(){
