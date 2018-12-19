@@ -264,6 +264,8 @@ $this->params['breadcrumbs'][] = $this->title;
 //                                        return false;
                                         $.post('index.php?r=/stock-logs/add-stock-logs',params,function(res){
 //                                            layer.close(layer.index);
+                                            var index = parent.layer.getFrameIndex(window.name); //获取当前窗体索引
+                                            parent.layer.close(index); //执行关闭
                                             alert(res.msg);
                                             location.href="index.php?r=stock/index";
                                         },'json');
