@@ -173,18 +173,17 @@ class StockController extends BaseController
             }
         }
         $outputFileName = $name.'-' . date('Ymd').'-'.rand(1111,9999) . '.xls';
-        $xlsWriter = new \PHPExcel_Writer_Excel5($objectPHPExcel);
         header("Content-Type: application/force-download");
         header("Content-Type: application/octet-stream");
         header("Content-Type: application/download");
-        header('Content-Disposition:inline;filename="' . $outputFileName . '"');
+        header('Content-Disposition:inline;filename="'.$outputFileName.'"');
         header("Content-Transfer-Encoding: binary");
-        header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
         header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
         header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
         header("Pragma: no-cache");
-        $xlsWriter->save("php://output");
-        echo file_get_contents($outputFileName);
+        $outputFileName = \PHPExcel_IOFactory::createWriter($objectPHPExcel, 'Excel5');
+        $outputFileName->save('php://output');
+        exit;
     }
     public function actionTest23(){
         return $this->test22View('财务统计');
