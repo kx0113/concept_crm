@@ -273,6 +273,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                                     parent.location.reload();
                                                 }
                                             }, 3000);
+                                            return false;
                                         },'json');
 
                                     }

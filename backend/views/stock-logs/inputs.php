@@ -93,8 +93,16 @@ $this->params['breadcrumbs'][] = $this->title;
                                             return false;
                                         }
                                         $.post('index.php?r=/stock-logs/add-stock-logs',params,function(res){
-                                            alert(res.msg);
-                                            location.href="index.php?r=stock/index";
+                                            var index = parent.layer.getFrameIndex(window.name); //获取当前窗体索引
+                                            layer.alert(res.msg);
+                                            setTimeout(function(){
+                                                if(typeof default_stock_id == "undefined" || default_stock_id == null || default_stock_id == "" || default_stock_id==0){
+                                                    location.href="index.php?r=stock/index";
+                                                }else{
+                                                    parent.layer.close(index); //执行关闭
+                                                    parent.location.reload();
+                                                }
+                                            }, 3000);
                                             return false;
                                         },'json');
 
