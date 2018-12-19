@@ -227,13 +227,13 @@ $this->params['breadcrumbs'][] = $this->title;
                     title: '快捷出库操作',
                     closeBtn: 1, //不显示关闭按钮
                     shade: [0.5],
-                    area: ['893px', '600px'],
+                    area: ['900px', '600px'],
                     anim: 2,
                     maxmin: true, //开启最大化最小化按钮
                     shadeClose: false,
                     content: [url], //iframe的url，no代表不显示滚动条
                     end: function(){ //此处用于演示
-                        location.reload();
+//                        location.reload();
 //                        layer.alert('msg');
                     }
                 });
@@ -247,13 +247,13 @@ $this->params['breadcrumbs'][] = $this->title;
                     title: '快捷归还操作',
                     closeBtn: 1, //不显示关闭按钮
                     shade: [0.5],
-                    area: ['893px', '600px'],
+                    area: ['900px', '600px'],
                     anim: 2,
                     maxmin: true, //开启最大化最小化按钮
                     shadeClose: false,
                     content: [url], //iframe的url，no代表不显示滚动条
                     end: function(){ //此处用于演示
-                        location.reload();
+//                        location.reload();
 //                        layer.alert('msg');
                     }
                 });
