@@ -29,15 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         <div class="ibox float-e-margins">
                             <div class="ibox-content">
                                 <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
-
                                 <div>
-                                    <link href="components/bootstrap-datetimepicker-master/css/bootstrap-datetimepicker.css"
-                                          media="all" rel="stylesheet" type="text/css"/>
-                                    <script src="components/bootstrap-datetimepicker-master/js/bootstrap-datetimepicker.js"
-                                            type="text/javascript"></script>
-
-
                                     <br>
                                     <?= $this->render('stock_common', []) ?>
 
@@ -74,8 +66,8 @@ $this->params['breadcrumbs'][] = $this->title;
                                     $('#datetimepicker').datetimepicker({
                                         autoclose: true,
                                         format: 'yyyy-mm-dd',
-                                        todayBtn: false,
-                                        showMeridian: false,
+                                        todayBtn: true,
+                                        minView: "month",
                                         language: 'zh-CN',
                                         pickerPosition: "bottom-left",
                                     });

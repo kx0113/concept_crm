@@ -56,6 +56,8 @@ use yii\widgets\ActiveForm;
         </div>
     <div class="form-group">
         <?= Html::submitButton(Yii::t('app', '搜索'), ['class' => 'btn btn-primary']) ?>
+        <button type="button"  class="btn btn-danger">导出Excel</button>
+
     </div>
 
     <?php ActiveForm::end(); ?>

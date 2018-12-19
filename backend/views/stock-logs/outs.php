@@ -36,7 +36,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                     <div style="padding: 0;" class="form-group col-xs-offset-3 col-xs-6">
                                         <label class="search_title_stock"
                                                for="exampleInputEmail1">出库数量</label>
-                                        <input type="email" class="search_input_stock form-control"
+                                        <input type="number" class="search_input_stock form-control"
                                                id="current_number" placeholder="出库数量">
                                     </div>
                                     <div style="padding: 0;" class="form-group col-xs-offset-3 col-xs-6">
@@ -92,25 +92,25 @@ $this->params['breadcrumbs'][] = $this->title;
 
                                 <script>
                                     $("#orders_id").attr("disabled",true);
-                    function findCustomerOrderList(){
-                        $("#orders_id").attr("disabled",true);
-                        var customer_id=$("#customer_id").val();
-                        var params={};
-                        params.customer_id=customer_id;
-                        $.post('index.php?r=/stock/customer-order-list',params,function(res){
-                            var obj=res.data;
-                            var html='<option value="">-- 请选择 --</option>';
-                            var objs = $.isEmptyObject(obj);
-                            console.log(objs);
-                            if(objs==false){
-                                for(var i=0;i<obj.length;i++){
-                                    html+="<option value='"+obj[i]['id']+"'>"+obj[i]['name']+"</option>";
-                                }
-                                $("#orders_id").attr("disabled",false);
-                                $("#orders_id").html(html);
-                            }
-                        },'json');
-                    }
+                                    function findCustomerOrderList(){
+                                        $("#orders_id").attr("disabled",true);
+                                        var customer_id=$("#customer_id").val();
+                                        var params={};
+                                        params.customer_id=customer_id;
+                                        $.post('index.php?r=/stock/customer-order-list',params,function(res){
+                                            var obj=res.data;
+                                            var html='<option value="">-- 请选择 --</option>';
+                                            var objs = $.isEmptyObject(obj);
+                                            console.log(objs);
+                                            if(objs==false){
+                                                for(var i=0;i<obj.length;i++){
+                                                    html+="<option value='"+obj[i]['id']+"'>"+obj[i]['name']+"</option>";
+                                                }
+                                                $("#orders_id").attr("disabled",false);
+                                                $("#orders_id").html(html);
+                                            }
+                                        },'json');
+                                    }
                                     function submit_form() {
                                         var params={};
                                         var stock_id=$("#pro_name").val();
@@ -144,8 +144,8 @@ $this->params['breadcrumbs'][] = $this->title;
                                             }
                                         }
                                         if(purpose_id==''){
-                                            layer.alert('请选择用途');
-                                            return false;
+//                                            layer.alert('请选择用途');
+//                                            return false;
                                         }
                                         if(customer_id==''){
                                             layer.alert('请选择客户');

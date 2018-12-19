@@ -61,7 +61,9 @@ use yii\widgets\ActiveForm;
         </div>
     <div class="form-group">
         <?= Html::submitButton(Yii::t('app', '搜索'), ['class' => 'btn btn-primary']) ?>
-<!--        --><?//= Html::resetButton(Yii::t('app', 'Reset'), ['class' => 'btn btn-default']) ?>
+        <button type="button"  class="btn btn-danger">导出Excel</button>
+
+        <!--        --><?//= Html::resetButton(Yii::t('app', 'Reset'), ['class' => 'btn btn-default']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

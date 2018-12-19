@@ -66,6 +66,9 @@
         $.post('index.php?r=/stock/get-stock-info','',function(res){
             console.log(res);
             if(res.code==200){
+
+                var stock_id="<?php if(isset($stock_id) && !empty($stock_id)){ echo $stock_id; }else{ echo ""; } ?>";
+
                 var product_number='<option data-id="" value="0">- 请选择 -</option>';
                 var obj=res.data;
                 for(var i=0;i<obj.length;i++){

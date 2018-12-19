@@ -37,7 +37,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                     <div style="padding: 0;" class="form-group col-xs-offset-3 col-xs-6">
                                         <label class="search_title_stock"
                                                for="exampleInputEmail1">入库数量</label>
-                                        <input type="email" class="search_input_stock form-control"
+                                        <input type="number" class="search_input_stock form-control"
                                                id="current_number" placeholder="入库数量">
                                     </div>
                                     <div style="padding: 0;" class="form-group col-xs-offset-3 col-xs-6">

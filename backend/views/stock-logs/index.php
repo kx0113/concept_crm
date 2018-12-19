@@ -44,6 +44,13 @@ $this->params['breadcrumbs'][] = $this->title;
                                                 return mb_substr(\common\models\Stock::get_stock_name($searchModel->stock_id), 0, 10, 'utf-8');
                                             },
                                     ],
+                                    [
+                                        'attribute' => 'orders_id',
+                                        'value' =>
+                                            function ($searchModel) {
+                                                return mb_substr(\common\models\Orders::get_name($searchModel->orders_id), 0, 10, 'utf-8');
+                                            },
+                                    ],
                                     'total_number',
                                     'current_number',
                                     'before_number',

@@ -7,7 +7,7 @@ use Yii;
 /**
  * This is the model class for table "kx_stock_logs".
  *
- * @property string $id
+ * @property string  $id
  * @property integer $orders_id
  * @property integer $stock_id
  * @property integer $total_number
@@ -15,16 +15,19 @@ use Yii;
  * @property integer $customer_id
  * @property integer $before_number
  * @property integer $purpose_id
- * @property string $operation_time
+ * @property string  $operation_time
  * @property integer $status
- * @property string $remark
+ * @property integer $is_returns
+ * @property string  $remark
  * @property integer $token
  * @property integer $add_user
- * @property string $update_at
- * @property string $create_at
+ * @property string  $update_at
+ * @property string  $create_at
  */
 class StockLogs extends \yii\db\ActiveRecord
 {
+    const IS_RETURNS_1=1;
+    const IS_RETURNS_2=2;
     /**
      * @inheritdoc
      */
@@ -39,7 +42,8 @@ class StockLogs extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['orders_id','token','stock_id', 'before_number','total_number', 'current_number', 'customer_id', 'purpose_id', 'status', 'add_user'], 'integer'],
+            [['orders_id','token','stock_id', 'before_number','total_number','is_returns',
+                'current_number', 'customer_id', 'purpose_id', 'status', 'add_user'], 'integer'],
             [['operation_time', 'update_at', 'create_at'], 'safe'],
             [['remark'], 'string', 'max' => 500],
         ];

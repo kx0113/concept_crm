@@ -98,6 +98,15 @@ class Orders extends \yii\db\ActiveRecord
             return '';
         }
     }
+    public static function get_name($id){
+        $res=Orders::find()->where(['id'=>$id])
+            ->andWhere(['token'=>Yii::$app->session->get('web_id')])
+            ->asArray()->one();
+        if(!empty($res['name'])){
+            return $res['name'];
+        }
+        return '';
+    }
     public static function findOrderOne($id){
         $res=Orders::find()->where(['id'=>$id])
             ->andWhere(['token'=>Yii::$app->session->get('web_id')])

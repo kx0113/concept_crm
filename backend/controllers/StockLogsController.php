@@ -147,6 +147,7 @@ class StockLogsController extends BaseController
      * @desc 入库出库操作
      */
     public function actionAddStockLogs(){
+//        echo StockLogs::IS_RETURNS_2;exit;
         $model=new StockLogs();
         //备注
         $remark = Yii::$app->request->post('remark','');
@@ -172,10 +173,17 @@ class StockLogsController extends BaseController
             $this->ReturnJson(0,'请选择时间');
         }
         $number_action='';
-        if($status==1){
+        //入库操作
+        if($status==StockLogs::IS_RETURNS_1){
             $number_action='plus';
         }
-        if($status==2){
+        //归还操作
+        if($status==3){
+            $status=1;
+
+        }
+        //出库操作
+        if($status==StockLogs::IS_RETURNS_2){
             //客户
             $customer_id = Yii::$app->request->post('customer_id',0);
             //用途
@@ -185,7 +193,7 @@ class StockLogsController extends BaseController
                 $this->ReturnJson(0,'请选择客户');
             }
             if(empty($purpose_id)){
-                $this->ReturnJson(0,'请选择用途');
+//                $this->ReturnJson(0,'请选择用途');
             }
             if(empty($orders_id) || $orders_id==0){
                 $this->ReturnJson(0,'订单不能为空');
@@ -233,6 +241,7 @@ class StockLogsController extends BaseController
 
     public function actionReturns(){
         return $this->render('returns', [
+            'stock_id'=>1,
         ]);
     }
 }
