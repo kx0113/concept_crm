@@ -67,6 +67,7 @@ class OrdersSearch extends Orders
             'end_time' => $this->end_time,
             'work_cost' => $this->work_cost,
             'freight_cost' => $this->freight_cost,
+            'orders_type' => $this->orders_type,
             'status' => $this->status,
             'token' => $this->token,
             'add_user' => $this->add_user,

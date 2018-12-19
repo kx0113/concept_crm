@@ -15,41 +15,46 @@ use yii\widgets\ActiveForm;
         'method' => 'get',
     ]); ?>
 
-<!--    --><?//= $form->field($model, 'id') ?>
+    <!--    --><? //= $form->field($model, 'id') ?>
     <div class="row">
         <div class="col-xs-3">
-    <?= $form->field($model, 'name') ?>
-        </div>  <div class="col-xs-3">
-    <?= $form->field($model, 'address') ?>
-            </div>  <div class="col-xs-3">
+            <?= $form->field($model, 'name') ?>
+        </div>
+        <div class="col-xs-3">
+            <?= $form->field($model, 'address') ?>
+        </div>
+        <div class="col-xs-3">
             <?= $form->field($model, 'customer_id')
                 ->dropDownList(\common\models\Customer::getDropDownList()); ?>
         </div>
-<!--    --><?//= $form->field($model, 'start_time') ?>
+        <div class="col-xs-3">
+            <?= $form->field($model, 'orders_type')->dropDownList(\common\models\Types::types_list(['keys' => 1013])); ?>
+        </div>
+        <!--    --><? //= $form->field($model, 'start_time') ?>
 
-    <?php // echo $form->field($model, 'end_time') ?>
+        <?php // echo $form->field($model, 'end_time') ?>
 
-    <?php // echo $form->field($model, 'phone') ?>
+        <?php // echo $form->field($model, 'phone') ?>
 
-    <?php // echo $form->field($model, 'work_cost') ?>
+        <?php // echo $form->field($model, 'work_cost') ?>
 
-    <?php // echo $form->field($model, 'freight_cost') ?>
+        <?php // echo $form->field($model, 'freight_cost') ?>
 
-    <?php // echo $form->field($model, 'remark') ?>
+        <?php // echo $form->field($model, 'remark') ?>
 
-    <?php // echo $form->field($model, 'status') ?>
+        <?php // echo $form->field($model, 'status') ?>
 
-    <?php // echo $form->field($model, 'token') ?>
+        <?php // echo $form->field($model, 'token') ?>
 
-    <?php // echo $form->field($model, 'add_user') ?>
+        <?php // echo $form->field($model, 'add_user') ?>
 
-    <?php // echo $form->field($model, 'update_at') ?>
+        <?php // echo $form->field($model, 'update_at') ?>
 
-    <?php // echo $form->field($model, 'create_at') ?>
+        <?php // echo $form->field($model, 'create_at') ?>
     </div>
     <div class="form-group">
         <?= Html::submitButton(Yii::t('app', '搜索'), ['class' => 'btn btn-primary']) ?>
-<!--        --><?//= Html::resetButton(Yii::t('app', 'Reset'), ['class' => 'btn btn-default']) ?>
+        <!--        --><? //= Html::resetButton(Yii::t('app', 'Reset'), ['class' => 'btn btn-default']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

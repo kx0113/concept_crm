@@ -180,7 +180,6 @@ class Orders extends \yii\db\ActiveRecord
             $total_profit_price=bcsub($total_profit_price,$orders['work_cost'],2);
             $total_profit_price=bcsub($total_profit_price,$orders['other_cost'],2);
             $total_profit_price=bcsub($total_profit_price,$total_purchase_price,2);
-//            $sale_cost-$freight_cost-$work_cost-$other_cost-$total_purchase_price
 //            利润=销售款项-运费-施工费-其它费用-成本总价
             $arr['stock_logs']=$log_stock_arr;
             #销售利润

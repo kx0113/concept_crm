@@ -72,6 +72,9 @@ $this->params['breadcrumbs'][] = $this->title;
                         return \common\models\User::get_username($model->add_user);
                     },
             ],
+
+            // 'update_at',
+             'create_at',
             [
                 'attribute' => 'token',
                 'value'=>
@@ -79,9 +82,6 @@ $this->params['breadcrumbs'][] = $this->title;
                         return \common\models\Web::GetWebName($model->token);
                     },
             ],
-            // 'update_at',
-             'create_at',
-
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
