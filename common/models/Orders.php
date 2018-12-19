@@ -128,7 +128,7 @@ class Orders extends \yii\db\ActiveRecord
         if(isset($orders['customer_id']) && !empty($orders['customer_id'])){
             $where['customer_id']=$orders['customer_id'];
             $where['orders_id']=$orders['id'];
-            $where['status']=2;
+//            $where['status']=2;
             $get_customer_list=StockLogs::get_customer_list($where);
 //            var_dump(count($get_customer_list));exit;
             //提取stock_id
@@ -157,18 +157,33 @@ class Orders extends \yii\db\ActiveRecord
                 foreach($log_stock_arr as $k1=>$v1){
                     $stock_info=Stock::get_stock_one($k1);
                     $current_number=0;
+                    $return_number=0;
                     foreach($v1['list'] as $k4=>$v4){
                         //计算当前出库产品总出库量
-                        $current_number=bcadd($current_number,$v4['current_number'],0);
+                        if($v4['status']==2){
+                            $current_number=bcadd($current_number,$v4['current_number'],0);
+                        }
+                        if($v4['is_returns']==2){
+                            $return_number=bcadd($return_number,$v4['current_number'],0);
+                        }
                     }
                     foreach($stock_info as $k6=>$v6){
                         $log_stock_arr[$k1][$k6]=$v6;
                     }
-                    $row_purchase_price=bcmul($stock_info['purchase_price'],$current_number,2);
-                    $row_market_price=bcmul($stock_info['market_price'],$current_number,2);
-                    #总出库量
+
+                    #总出库量（包括未归还）
                     $log_stock_arr[$k1]['current_number']=$current_number;
+                    #归还量
+                    $log_stock_arr[$k1]['return_number']=$return_number;
+                    #实际出库数量
+                    $actual_number=bcsub($current_number,$return_number,0);
+                    $log_stock_arr[$k1]['actual_number']=$actual_number;
+
+                    $row_purchase_price=bcmul($stock_info['purchase_price'],$actual_number,2);
+                    $row_market_price=bcmul($stock_info['market_price'],$actual_number,2);
+                    #成本总价
                     $log_stock_arr[$k1]['row_purchase_price']=$row_purchase_price;
+                    #零售总价
                     $log_stock_arr[$k1]['row_market_price']=$row_market_price;
                     $log_stock_arr[$k1]['row_diff_price']=bcsub($row_market_price,$row_purchase_price,2);
                 }

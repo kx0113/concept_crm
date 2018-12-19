@@ -148,8 +148,8 @@ $this->params['breadcrumbs'][] = $this->title;
                                                     ¥<?php echo $orders_info['stock_logs'][$k1]['purchase_price']; ?></td>
                                                 <td colspan="1"><?php echo $orders_info['stock_logs'][$k1]['list_count']; ?></td>
                                                 <td colspan="1"><?php echo $orders_info['stock_logs'][$k1]['current_number']; ?></td>
-                                                <td colspan="1"><?php echo 0; ?></td>
-                                                <td colspan="1"><?php echo $orders_info['stock_logs'][$k1]['current_number']; ?></td>
+                                                <td colspan="1"><?php echo $orders_info['stock_logs'][$k1]['return_number']; ?></td>
+                                                <td colspan="1"><?php echo $orders_info['stock_logs'][$k1]['actual_number']; ?></td>
                                                 <td colspan="1">
                                                     ¥<?php echo $orders_info['stock_logs'][$k1]['row_market_price']; ?></td>
                                                 <td colspan="1">
@@ -161,11 +161,10 @@ $this->params['breadcrumbs'][] = $this->title;
                                                 $customer_id = $orders_info['customer_info']['id'];
                                                 $order_id = $orders_info['info']['id'];
                                                 $stock_id = $orders_info['stock_logs'][$k1]['id'];
-                                                $total_number = $orders_info['stock_logs'][$k1]['current_number'];
                                                 ?>
                                                 <td class="print_option" colspan="1">
-                                                    <a href="#">[出库]</a>
-                                                    <a onclick='StockReturn("<?= $customer_id; ?>","<?= $order_id; ?>","<?= $stock_id; ?>","<?= $total_number; ?>")'>[归还]</a>
+                                                    <a onclick='StockOut("<?= $customer_id; ?>","<?= $order_id; ?>","<?= $stock_id; ?>")'>[出库]</a>
+                                                    <a onclick='StockReturn("<?= $customer_id; ?>","<?= $order_id; ?>","<?= $stock_id; ?>")'>[归还]</a>
                                                 </td>
                                             </tr>
                                         <?php }
@@ -219,18 +218,41 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
         <script>
 
-            function StockReturn(customer_id, order_id, stock_id, total_number) {
+            function StockOut(customer_id, orders_id, stock_id) {
+                var url='index.php?r=stock-logs/outs&stock_id='
+                    +stock_id+"&orders_id="+orders_id+"&customer_id="+customer_id;
+                console.log(url);
                 layer.open({
                     type: 2,
-                    title: 'HAHHA',
-                    closeBtn: 0, //不显示关闭按钮
-                    shade: [0],
+                    title: '快捷出库操作',
+                    closeBtn: 1, //不显示关闭按钮
+                    shade: [0.5],
                     area: ['893px', '600px'],
                     anim: 2,
-                    shadeClose: true,
-                    content: ['index.php?r=stock-logs/returns'], //iframe的url，no代表不显示滚动条
+                    maxmin: true, //开启最大化最小化按钮
+                    shadeClose: false,
+                    content: [url], //iframe的url，no代表不显示滚动条
                     end: function(){ //此处用于演示
-                        layer.alert('msg');
+//                        layer.alert('msg');
+                    }
+                });
+            }
+            function StockReturn(customer_id, orders_id, stock_id) {
+                var url='index.php?r=stock-logs/returns&stock_id='
+                    +stock_id+"&orders_id="+orders_id+"&customer_id="+customer_id;
+                console.log(url);
+                layer.open({
+                    type: 2,
+                    title: '快捷归还操作',
+                    closeBtn: 1, //不显示关闭按钮
+                    shade: [0.5],
+                    area: ['893px', '600px'],
+                    anim: 2,
+                    maxmin: true, //开启最大化最小化按钮
+                    shadeClose: false,
+                    content: [url], //iframe的url，no代表不显示滚动条
+                    end: function(){ //此处用于演示
+//                        layer.alert('msg');
                     }
                 });
             }

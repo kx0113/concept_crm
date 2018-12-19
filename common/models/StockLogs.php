@@ -98,6 +98,7 @@ class StockLogs extends \yii\db\ActiveRecord
             return '出库';
         }
     }
+
     public static function get_customer_list($where){
         $res= StockLogs::find()->where($where)
             ->andWhere(['token'=>Yii::$app->session->get('web_id')])

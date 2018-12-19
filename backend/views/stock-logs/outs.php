@@ -32,20 +32,20 @@ $this->params['breadcrumbs'][] = $this->title;
                                 <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
                                 <div>
                                      <br>
-                                    <?= $this->render('stock_common', []) ?>
-                                    <div style="padding: 0;" class="form-group col-xs-offset-3 col-xs-6">
-                                        <label class="search_title_stock"
-                                               for="exampleInputEmail1">出库数量</label>
-                                        <input type="number" class="search_input_stock form-control"
-                                               id="current_number" placeholder="出库数量">
-                                    </div>
+                                    <?= $this->render('stock_common', [
+                                        'stock_id'=>$stock_id,
+                                        'orders_id'=>$orders_id,
+                                        'customer_id'=>$customer_id,
+                                    ]) ?>
+
                                     <div style="padding: 0;" class="form-group col-xs-offset-3 col-xs-6">
                                         <label class="search_title_stock"
                                                for="customer_id">出库客户</label>
                                         <select onchange="findCustomerOrderList()" class="form-control" name="" id="customer_id">
                                             <option value="">-- 请选择 --</option>
                                             <?php foreach(Customer::getLists() as $k=>$v){ ?>
-                                                <option value="<?php echo $v['id']; ?>"><?php echo $v['name']; ?></option>
+                                                <option <?php if($customer_id==$v['id']){ echo 'selected = "selected"'; } ?>
+                                                    value="<?php echo $v['id']; ?>"><?php echo $v['name']; ?></option>
                                             <?php } ?>
                                         </select>
                                     </div>
@@ -57,7 +57,12 @@ $this->params['breadcrumbs'][] = $this->title;
 
                                         </select>
                                     </div>
-
+                                    <div style="padding: 0;" class="form-group col-xs-offset-3 col-xs-6">
+                                        <label class="search_title_stock"
+                                               for="exampleInputEmail1">出库数量</label>
+                                        <input type="number" class="search_input_stock form-control"
+                                               id="current_number" placeholder="出库数量">
+                                    </div>
                                     <div style="padding: 0;" class="form-group col-xs-offset-3 col-xs-6">
                                         <label class="search_title_stock"
                                                for="purpose_id">出库用途</label>
@@ -91,9 +96,32 @@ $this->params['breadcrumbs'][] = $this->title;
                                 </div>
 
                                 <script>
+                                    if(typeof default_customer_id == "undefined" || default_customer_id == null || default_customer_id == "" || default_customer_id==0){
+                                        $("#customer_id").attr("disabled",true);
+                                        $("#orders_id").attr("disabled",true);
+                                    }else{
+                                        $("#customer_id").attr("disabled",true);
+                                        findCustomerOrderList();
+                                    }
                                     $("#orders_id").attr("disabled",true);
+                                    //产品未选择客户下拉菜单不启用
+                                    $("#pro_name").change(function(){
+                                        $("#customer_id").attr("disabled",true);
+                                        $("#orders_id").attr("disabled",true);
+                                        var stock_id=$("#pro_name").val();
+                                        console.log(stock_id);
+                                        if(typeof stock_id == "undefined" || stock_id == null || stock_id == "" || stock_id==0){
+                                            $("#customer_id").attr("disabled",true);
+                                            $("#orders_id").attr("disabled",true);
+                                            $("#orders_id").html('<option value="">-</option>');
+                                        }else{
+                                            $("#customer_id").attr("disabled",false);
+                                        }
+                                    });
+                                    //通过客户id查询订单信息
                                     function findCustomerOrderList(){
                                         $("#orders_id").attr("disabled",true);
+                                        $("#orders_id").html(' <option value="">-- 请选择 --</option>');
                                         var customer_id=$("#customer_id").val();
                                         var params={};
                                         params.customer_id=customer_id;
@@ -101,16 +129,30 @@ $this->params['breadcrumbs'][] = $this->title;
                                             var obj=res.data;
                                             var html='<option value="">-- 请选择 --</option>';
                                             var objs = $.isEmptyObject(obj);
+                                            var selected;
                                             console.log(objs);
                                             if(objs==false){
                                                 for(var i=0;i<obj.length;i++){
-                                                    html+="<option value='"+obj[i]['id']+"'>"+obj[i]['name']+"</option>";
+                                                    if(typeof default_orders_id == "undefined" || default_orders_id == null || default_orders_id == "" || default_orders_id==0){
+
+                                                    }else{
+                                                        if(default_orders_id==obj[i]['id']){
+                                                            selected=' selected = "selected" ';
+                                                        }
+                                                    }
+
+                                                    html+="<option "+selected+" value='"+obj[i]['id']+"'>"+obj[i]['name']+"</option>";
                                                 }
-                                                $("#orders_id").attr("disabled",false);
+                                                if(typeof default_orders_id == "undefined" || default_orders_id == null || default_orders_id == "" || default_orders_id==0){
+                                                    $("#orders_id").attr("disabled",false);
+                                                }else{
+                                                    $("#orders_id").attr("disabled",true);
+                                                }
                                                 $("#orders_id").html(html);
                                             }
                                         },'json');
                                     }
+                                    //提交
                                     function submit_form() {
                                         var params={};
                                         var stock_id=$("#pro_name").val();

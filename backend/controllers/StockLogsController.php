@@ -138,11 +138,49 @@ class StockLogsController extends BaseController
         return $this->render('inputs', [
         ]);
     }
-    public function actionOuts(){
-        return $this->render('outs', [
-        ]);
-    }
 
+    /**
+     * @desc 通过-产品id-客户id-订单id-查询出库总量
+     */
+    public function actionFindCustomerNumber(){
+        $stock_id = Yii::$app->request->post('stock_id','');
+        $customer_id = Yii::$app->request->post('customer_id','');
+        $orders_id = Yii::$app->request->post('orders_id','');
+        if(empty($stock_id) || $stock_id==0){
+            $this->ReturnJson(0,'stock_id为空');
+        }
+        if(empty($customer_id) || $customer_id==0){
+            $this->ReturnJson(0,'customer_id为空');
+        }
+        if(empty($orders_id) || $orders_id==0){
+            $this->ReturnJson(0,'orders_id为空');
+        }
+        #归还数量
+        $return_number=0;
+        #出库数量
+        $out_number=0;
+        $where['stock_id']=$stock_id;
+        $where['customer_id']=$customer_id;
+        $where['orders_id']=$orders_id;
+//        $where['status']=StockLogs::IS_RETURNS_2;
+        $res=StockLogs::get_customer_list($where);
+        if(!empty($res)){
+            foreach($res as $k=>$v){
+                if($v['status']==2){
+                    $out_number=bcadd($out_number,$v['current_number'],0);
+                }
+                if($v['is_returns']==2){
+                    $return_number=bcadd($return_number,$v['current_number'],0);
+                }
+            }
+        }
+        $out_number=bcsub($out_number,$return_number,0);
+        if($out_number < 0){
+            $out_number=0;
+        }
+        $this->ReturnJson(1,'OK',['out_number'=>$out_number]);
+//        $this->ReturnJson(1,'OK',$res);
+    }
     /**
      * @desc 入库出库操作
      */
@@ -157,8 +195,11 @@ class StockLogsController extends BaseController
         $operation_time = Yii::$app->request->post('operation_time',date('Y-m-d'));
         //数量
         $current_number = Yii::$app->request->post('current_number','');
+        $is_returns = Yii::$app->request->post('is_returns',1);
         //1=入库; 2=出库
         $status = Yii::$app->request->post('status','');
+        //用途
+        $purpose_id = Yii::$app->request->post('purpose_id',0);
         if(empty($stock_id) || $stock_id==0){
             $this->ReturnJson(0,'请选择产品');
         }
@@ -177,39 +218,36 @@ class StockLogsController extends BaseController
         if($status==StockLogs::IS_RETURNS_1){
             $number_action='plus';
         }
-        //归还操作
-        if($status==3){
-            $status=1;
-
-        }
-        //出库操作
-        if($status==StockLogs::IS_RETURNS_2){
+        if($status==StockLogs::IS_RETURNS_2 || $is_returns==2){
             //客户
             $customer_id = Yii::$app->request->post('customer_id',0);
-            //用途
-            $purpose_id = Yii::$app->request->post('purpose_id',0);
             $orders_id = Yii::$app->request->post('orders_id',0);
             if(empty($customer_id)){
                 $this->ReturnJson(0,'请选择客户');
             }
-            if(empty($purpose_id)){
-//                $this->ReturnJson(0,'请选择用途');
-            }
             if(empty($orders_id) || $orders_id==0){
                 $this->ReturnJson(0,'订单不能为空');
             }
-            $number_action='reduce';
+            //出库操作
+            if($status==StockLogs::IS_RETURNS_2){
+                $number_action='reduce';
+            }
+            //归还操作
+            if($is_returns==2){
+                $number_action='plus';
+            }
+        }
+        if(empty($number_action)){
+            $this->ReturnJson(0,'操作错误');
         }
         $transaction = Stock::getDb()->beginTransaction();
         try {
             $model->before_number=Stock::get_total_number($stock_id);
-            if($status==2){
-                $model->customer_id=Yii::$app->request->post('customer_id');
-                $model->purpose_id=Yii::$app->request->post('purpose_id');
-                $model->orders_id=Yii::$app->request->post('orders_id',0);
-            }
             $update_total_number=Stock::update_total_number($stock_id,$current_number,$number_action);
-
+            $model->is_returns=$is_returns;
+            $model->customer_id=Yii::$app->request->post('customer_id',0);
+            $model->purpose_id=empty($purpose_id) ? 0 : $purpose_id;
+            $model->orders_id=Yii::$app->request->post('orders_id',0);
             $model->status=$status;
             $model->remark=$remark;
             $model->operation_time=$operation_time;
@@ -220,6 +258,7 @@ class StockLogsController extends BaseController
             $model->stock_id=$stock_id;
             $model->create_at=date("Y-m-d H:i:s");
             $model->update_at=date("Y-m-d H:i:s");
+
             if($update_total_number===true){
                 $res=$model->save();
                 if($res){
@@ -239,9 +278,33 @@ class StockLogsController extends BaseController
         $this->ReturnJson(0,'操作失败');
     }
 
+    /**
+     * @desc 归还
+     * @return string
+     */
     public function actionReturns(){
+        $stock_id = Yii::$app->request->get('stock_id','');
+        $orders_id = Yii::$app->request->get('orders_id','');
+        $customer_id = Yii::$app->request->get('customer_id','');
         return $this->render('returns', [
-            'stock_id'=>1,
+            'stock_id'=>$stock_id,
+            'orders_id'=>$orders_id,
+            'customer_id'=>$customer_id,
+        ]);
+    }
+
+    /**
+     * @desc 出库
+     * @return string
+     */
+    public function actionOuts(){
+        $stock_id = Yii::$app->request->get('stock_id','');
+        $orders_id = Yii::$app->request->get('orders_id','');
+        $customer_id = Yii::$app->request->get('customer_id','');
+        return $this->render('outs', [
+            'stock_id'=>$stock_id,
+            'orders_id'=>$orders_id,
+            'customer_id'=>$customer_id,
         ]);
     }
 }

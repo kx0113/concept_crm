@@ -75,21 +75,21 @@ class StockController extends BaseController
             ['merge_cells'=>'M7:O8','field'=>'M7','name'=>'创建时间：'.$data['info']['create_at'],],
         ];
         $cell_list=[
-            ['cell'=>'A','name'=>'序号','width'=>'5','height'=>'','font'=>'','bold'=>true],
+            ['cell'=>'A','name'=>'序号','width'=>'8','height'=>'','font'=>'','bold'=>true],
             ['cell'=>'B','name'=>'产品名称','width'=>'15','height'=>'','font'=>'','bold'=>true],
             ['cell'=>'C','name'=>'编号','width'=>'15','height'=>'','font'=>'','bold'=>true],
-            ['cell'=>'D','name'=>'品牌分类','width'=>'8','height'=>'','font'=>'','bold'=>true],
-            ['cell'=>'E','name'=>'规格','width'=>'8','height'=>'','font'=>'','bold'=>true],
+            ['cell'=>'D','name'=>'品牌分类','width'=>'15','height'=>'','font'=>'','bold'=>true],
+            ['cell'=>'E','name'=>'规格','width'=>'12','height'=>'','font'=>'','bold'=>true],
             ['cell'=>'F','name'=>'物品分类','width'=>'15','height'=>'','font'=>'','bold'=>true],
-            ['cell'=>'G','name'=>'单位','width'=>'8','height'=>'','font'=>'','bold'=>true],
-            ['cell'=>'H','name'=>'零售价','width'=>'10','height'=>'','font'=>'','bold'=>true],
-            ['cell'=>'I','name'=>'成本价','width'=>'10','height'=>'','font'=>'','bold'=>true],
-            ['cell'=>'J','name'=>'出库次数','width'=>'10','height'=>'','font'=>'','bold'=>true],
-            ['cell'=>'K','name'=>'实际数量','width'=>'10','height'=>'','font'=>'','bold'=>true],
-            ['cell'=>'L','name'=>'归还数量','width'=>'10','height'=>'','font'=>'','bold'=>true],
-            ['cell'=>'M','name'=>'总用数量','width'=>'10','height'=>'','font'=>'','bold'=>true],
-            ['cell'=>'N','name'=>'零售总价','width'=>'10','height'=>'','font'=>'','bold'=>true],
-            ['cell'=>'O','name'=>'成本总价','width'=>'10','height'=>'','font'=>'','bold'=>true],
+            ['cell'=>'G','name'=>'单位','width'=>'12','height'=>'','font'=>'','bold'=>true],
+            ['cell'=>'H','name'=>'零售价','width'=>'12','height'=>'','font'=>'','bold'=>true],
+            ['cell'=>'I','name'=>'成本价','width'=>'12','height'=>'','font'=>'','bold'=>true],
+            ['cell'=>'J','name'=>'出库次数','width'=>'12','height'=>'','font'=>'','bold'=>true],
+            ['cell'=>'K','name'=>'实际数量','width'=>'12','height'=>'','font'=>'','bold'=>true],
+            ['cell'=>'L','name'=>'归还数量','width'=>'12','height'=>'','font'=>'','bold'=>true],
+            ['cell'=>'M','name'=>'总用数量','width'=>'12','height'=>'','font'=>'','bold'=>true],
+            ['cell'=>'N','name'=>'零售总价','width'=>'12','height'=>'','font'=>'','bold'=>true],
+            ['cell'=>'O','name'=>'成本总价','width'=>'12','height'=>'','font'=>'','bold'=>true],
         ];
 
         #设置高度
@@ -167,8 +167,8 @@ class StockController extends BaseController
                 $objectPHPExcel->getActiveSheet()->setCellValue('I'.($n) ,$v['purchase_price']);
                 $objectPHPExcel->getActiveSheet()->setCellValue('J'.($n) ,$v['list_count']);
                 $objectPHPExcel->getActiveSheet()->setCellValue('K'.($n) ,$v['current_number']);
-                $objectPHPExcel->getActiveSheet()->setCellValue('L'.($n) ,0);
-                $objectPHPExcel->getActiveSheet()->setCellValue('M'.($n) ,$v['current_number']);
+                $objectPHPExcel->getActiveSheet()->setCellValue('L'.($n) ,$v['return_number']);
+                $objectPHPExcel->getActiveSheet()->setCellValue('M'.($n) ,$v['actual_number']);
                 $objectPHPExcel->getActiveSheet()->setCellValue('N'.($n) ,$v['row_market_price']);
                 $objectPHPExcel->getActiveSheet()->setCellValue('O'.($n) ,$v['row_purchase_price']);
                 $n = $n +1;
