@@ -263,6 +263,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                         console.log(params);
 //                                        return false;
                                         $.post('index.php?r=/stock-logs/add-stock-logs',params,function(res){
+//                                            layer.close(layer.index);
                                             alert(res.msg);
                                             location.href="index.php?r=stock/index";
                                         },'json');
