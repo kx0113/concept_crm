@@ -59,40 +59,104 @@ class StockController extends BaseController
         $name = Yii::$app->request->get('name','');
         $objectPHPExcel = new \PHPExcel();
         $data=Orders::orders_view($id);
-//        echo json_encode($data);exit;
-        $objectPHPExcel->setActiveSheetIndex()->setCellValue('A1', '序号');
-        $objectPHPExcel->setActiveSheetIndex()->setCellValue('B1', '产品名称');
-        $objectPHPExcel->setActiveSheetIndex()->setCellValue('C1', '编号');
-        $objectPHPExcel->setActiveSheetIndex()->setCellValue('D1', '品牌分类');
-        $objectPHPExcel->setActiveSheetIndex()->setCellValue('E1', '规格');
-        $objectPHPExcel->setActiveSheetIndex()->setCellValue('F1', '物品分类');
-        $objectPHPExcel->setActiveSheetIndex()->setCellValue('G1', '单位');
-        $objectPHPExcel->setActiveSheetIndex()->setCellValue('H1', '零售价');
-        $objectPHPExcel->setActiveSheetIndex()->setCellValue('I1', '成本价');
-        $objectPHPExcel->setActiveSheetIndex()->setCellValue('J1', '出库次数');
-        $objectPHPExcel->setActiveSheetIndex()->setCellValue('K1', '实际数量');
-        $objectPHPExcel->setActiveSheetIndex()->setCellValue('L1', '归还数量');
-        $objectPHPExcel->setActiveSheetIndex()->setCellValue('M1', '总用数量');
-        $objectPHPExcel->setActiveSheetIndex()->setCellValue('N1', '零售总价');
-        $objectPHPExcel->setActiveSheetIndex()->setCellValue('O1', '成本总价');
-        $n = 2;
-        $key = 1;
 
-//        $objectPHPExcel->getActiveSheet()->mergeCells('A1:O2');
-//        $objectPHPExcel->getActiveSheet()->getStyle('A1')->getAlignment()->
-//        setVertical(\PHPExcel_Style_Alignment::VERTICAL_CENTER);
-//        $objectPHPExcel->getActiveSheet()->getStyle('A1')->getFont()->setSize(20);
-//        $objectPHPExcel->getActiveSheet()->getStyle('A1')->getFont()->setBold(true);
-//        $objectPHPExcel->getActiveSheet()->getStyle('A1')->getAlignment()
-//            ->setHorizontal(\PHPExcel_Style_Alignment::VERTICAL_CENTER);
-//
-//        $objectPHPExcel->getActiveSheet()->getColumnDimension('A')->setWidth(20);
-//        $objectPHPExcel->getActiveSheet()->getStyle('B4')->getBorders()->getTop()->setBorderStyle(\PHPExcel_Style_Border::BORDER_THIN);
-         if(!empty($data['stock_logs'])){
+        $data_total=[
+            ['merge_cells'=>'A3:D4','field'=>'A3','name'=>'客户姓名：'.$data['customer_info']['name'],],
+            ['merge_cells'=>'E3:H4','field'=>'E3','name'=>'联系电话：'.$data['info']['phone'],],
+            ['merge_cells'=>'I3:L4','field'=>'I3','name'=>'项目地址：'.$data['info']['address'],],
+            ['merge_cells'=>'M3:O4','field'=>'M3','name'=>'合同日期：'.date("Y-m-d",strtotime($data['info']['start_time'])),],
+            ['merge_cells'=>'A5:D6','field'=>'A5','name'=>'销售款项：'.$data['info']['sale_cost'],],
+            ['merge_cells'=>'E5:H6','field'=>'E5','name'=>'销售利润：'.$data['stock_sum']['total_profit_price'],],
+            ['merge_cells'=>'I5:L6','field'=>'I5','name'=>'运费：'.$data['info']['freight_cost'],],
+            ['merge_cells'=>'M5:O6','field'=>'M5','name'=>'施工费：'.$data['info']['work_cost'],],
+            ['merge_cells'=>'A7:D8','field'=>'A7','name'=>'成本总价：'.$data['stock_sum']['total_purchase_price'],],
+            ['merge_cells'=>'E7:H8','field'=>'E7','name'=>'零售总价：'.$data['stock_sum']['total_market_price'],],
+            ['merge_cells'=>'I7:L8','field'=>'I7','name'=>'其他费用：'.$data['info']['other_cost'],],
+            ['merge_cells'=>'M7:O8','field'=>'M7','name'=>'创建时间：'.$data['info']['create_at'],],
+        ];
+        $cell_list=[
+            ['cell'=>'A','name'=>'序号','width'=>'5','height'=>'','font'=>'','bold'=>true],
+            ['cell'=>'B','name'=>'产品名称','width'=>'15','height'=>'','font'=>'','bold'=>true],
+            ['cell'=>'C','name'=>'编号','width'=>'15','height'=>'','font'=>'','bold'=>true],
+            ['cell'=>'D','name'=>'品牌分类','width'=>'8','height'=>'','font'=>'','bold'=>true],
+            ['cell'=>'E','name'=>'规格','width'=>'8','height'=>'','font'=>'','bold'=>true],
+            ['cell'=>'F','name'=>'物品分类','width'=>'15','height'=>'','font'=>'','bold'=>true],
+            ['cell'=>'G','name'=>'单位','width'=>'8','height'=>'','font'=>'','bold'=>true],
+            ['cell'=>'H','name'=>'零售价','width'=>'10','height'=>'','font'=>'','bold'=>true],
+            ['cell'=>'I','name'=>'成本价','width'=>'10','height'=>'','font'=>'','bold'=>true],
+            ['cell'=>'J','name'=>'出库次数','width'=>'10','height'=>'','font'=>'','bold'=>true],
+            ['cell'=>'K','name'=>'实际数量','width'=>'10','height'=>'','font'=>'','bold'=>true],
+            ['cell'=>'L','name'=>'归还数量','width'=>'10','height'=>'','font'=>'','bold'=>true],
+            ['cell'=>'M','name'=>'总用数量','width'=>'10','height'=>'','font'=>'','bold'=>true],
+            ['cell'=>'N','name'=>'零售总价','width'=>'10','height'=>'','font'=>'','bold'=>true],
+            ['cell'=>'O','name'=>'成本总价','width'=>'10','height'=>'','font'=>'','bold'=>true],
+        ];
+
+        #设置高度
+//        $objectPHPExcel->getActiveSheet()->getRowDimension('1')->setRowHeight(30);
+        #标题
+        $objectPHPExcel->getActiveSheet()->mergeCells('A1:O2');
+        #设置值
+        $objectPHPExcel->setActiveSheetIndex()->setCellValue('A1', $name);
+        #设置字体
+        $objectPHPExcel->getActiveSheet()->getStyle('A1')->getFont()->setSize(20);
+        #字体加粗
+        $objectPHPExcel->getActiveSheet()->getStyle('A1')->getFont()->setBold(true);
+        #文字居中
+        $objectPHPExcel->getActiveSheet()->getStyle('A1')->getAlignment()
+            ->setHorizontal(\PHPExcel_Style_Alignment::VERTICAL_CENTER);
+
+        foreach ($data_total as $k24=>$v24){
+            $objectPHPExcel->getActiveSheet()->mergeCells($v24['merge_cells']);
+            $objectPHPExcel->setActiveSheetIndex()->setCellValue($v24['field'], $v24['name']);
+            #设置水平居中
+            $objectPHPExcel->getActiveSheet()->getStyle($v24['field'])->getAlignment()
+                ->setHorizontal(\PHPExcel_Style_Alignment::HORIZONTAL_LEFT);
+            #设置垂直居中
+            $objectPHPExcel->getActiveSheet()->getStyle($v24['field'])->getAlignment()
+                ->setVertical(\PHPExcel_Style_Alignment::VERTICAL_CENTER);
+        }
+
+        #设置标题
+        $title_num=9;
+        foreach ($cell_list as $k=>$v){
+            $objectPHPExcel->getActiveSheet()->getStyle($v['cell'].($title_num))->getFill()->setFillType(\PHPExcel_Style_Fill::FILL_SOLID);
+            $objectPHPExcel->getActiveSheet()->getStyle($v['cell'].($title_num))->getFill()->getStartColor()->setARGB('f2a679');
+                #宽度
+                $objectPHPExcel->getActiveSheet()->getColumnDimension($v['cell'])->setWidth($v['width']);
+                #高度
+                $objectPHPExcel->getActiveSheet()->getRowDimension($title_num)->setRowHeight(30);
+                #设置水平居中
+                $objectPHPExcel->getActiveSheet()->getStyle($v['cell'].($title_num))->getAlignment()
+                    ->setHorizontal(\PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+                #设置垂直居中
+                $objectPHPExcel->getActiveSheet()->getStyle($v['cell'].($title_num))->getAlignment()
+                    ->setVertical(\PHPExcel_Style_Alignment::VERTICAL_CENTER);
+                $objectPHPExcel->setActiveSheetIndex()->setCellValue($v['cell'].($title_num), $v['name']);
+
+        }
+        #Excel行数
+        $n = 10;
+        #序号
+        $key = 1;
+        if(!empty($data['stock_logs'])){
             foreach ($data['stock_logs'] as $k=>$v){
+                foreach ($cell_list as $k222=>$v222){
+                    #宽度
+                    $objectPHPExcel->getActiveSheet()->getColumnDimension($v222['cell'])->setWidth($v222['width']);
+                    #高度
+                    $objectPHPExcel->getActiveSheet()->getRowDimension($n)->setRowHeight(30);
+                    #设置水平居中
+                    $objectPHPExcel->getActiveSheet()->getStyle($v222['cell'].($n))->getAlignment()
+                        ->setHorizontal(\PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+                    #设置垂直居中
+                    $objectPHPExcel->getActiveSheet()->getStyle($v222['cell'].($n))->getAlignment()
+                        ->setVertical(\PHPExcel_Style_Alignment::VERTICAL_CENTER);
+                    $objectPHPExcel->setActiveSheetIndex()->setCellValue($v222['cell'].($n), $v222['name']);
+                }
                 $objectPHPExcel->getActiveSheet()->setCellValue('A'.($n) ,$key++);
                 $objectPHPExcel->getActiveSheet()->setCellValue('B'.($n) ,$v['name']);
-                $objectPHPExcel->getActiveSheet()->setCellValue('C'.($n) ,$v['number']);
+                $objectPHPExcel->getActiveSheet()->setCellValue('C'.($n) ,$v['number'],\PHPExcel_Cell_DataType::TYPE_STRING);
                 $objectPHPExcel->getActiveSheet()->setCellValue('D'.($n) ,Types::getName($v['brand']));
                 $objectPHPExcel->getActiveSheet()->setCellValue('E'.($n) ,Types::getName($v['size']));
                 $objectPHPExcel->getActiveSheet()->setCellValue('F'.($n) ,Types::getName($v['goods_type']));
@@ -108,25 +172,19 @@ class StockController extends BaseController
                 $n = $n +1;
             }
         }
-
-        ob_end_clean();
-        ob_start();
-//        header('Content-Type:application/pdf');
-//        header('Content-Disposition:attachment;filename="'.$name.'-'.date("Ymd").'-'.rand(1111,9999).'.pdf"');
-//        header('Cache-Control:max-age=0');
-
-        header('Content-Type : application/vnd.ms-excel');
-        //设置输出文件名及格式
-        header('Content-Disposition:attachment;filename="'.$name.'-'.date("Ymd").'-'.rand(1111,9999).'.xls"');
-        //导出.xls格式的话使用Excel5,若是想导出.xlsx需要使用Excel2007
-//        $objWriter =\PHPExcel_IOFactory::createWriter($objectPHPExcel, 'PDF');
-//        $objWriter->save('a.pdf');
-//exit;
-        $objWriter= \PHPExcel_IOFactory::createWriter($objectPHPExcel,'Excel5');
-        $objWriter->save('php://output');
-        ob_end_flush();
-        //清空数据缓存
-        unset($data);
+        $outputFileName = $name.'-' . date('Ymd').'-'.rand(1111,9999) . '.xls';
+        $xlsWriter = new \PHPExcel_Writer_Excel5($objectPHPExcel);
+        header("Content-Type: application/force-download");
+        header("Content-Type: application/octet-stream");
+        header("Content-Type: application/download");
+        header('Content-Disposition:inline;filename="' . $outputFileName . '"');
+        header("Content-Transfer-Encoding: binary");
+        header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
+        header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
+        header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
+        header("Pragma: no-cache");
+        $xlsWriter->save("php://output");
+        echo file_get_contents($outputFileName);
     }
     public function actionTest23(){
         return $this->test22View('财务统计');
