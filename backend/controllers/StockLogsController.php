@@ -29,16 +29,17 @@ class StockLogsController extends BaseController
             ],
         ];
     }
+
     /**
      * Lists all StockLogs models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $queryParams=Yii::$app->request->queryParams;
-        $stock_id=Yii::$app->request->post('StockLogsSearch[stock_id]','');
-        if(!empty($stock_id)){
-            $queryParams['StockLogsSearch']['stock_id']=$stock_id;
+        $queryParams = Yii::$app->request->queryParams;
+        $stock_id = Yii::$app->request->post('StockLogsSearch[stock_id]', '');
+        if (!empty($stock_id)) {
+            $queryParams['StockLogsSearch']['stock_id'] = $stock_id;
         }
         $searchModel = new StockLogsSearch();
         $dataProvider = $searchModel->search($queryParams);
@@ -90,10 +91,10 @@ class StockLogsController extends BaseController
         $model = $this->findModel($id);
         if (Yii::$app->request->isPost) {
             $model->load(Yii::$app->request->post());
-            $model->add_user=yii::$app->user->identity->id;
-            $model->create_at=date("Y-m-d H:i:s");
-            $model->token=Yii::$app->session->get('web_id');
-            if($model->save()){
+            $model->add_user = yii::$app->user->identity->id;
+            $model->create_at = date("Y-m-d H:i:s");
+            $model->token = Yii::$app->session->get('web_id');
+            if ($model->save()) {
                 return $this->redirect(['view', 'id' => $model->id]);
             }
         }
@@ -134,7 +135,9 @@ class StockLogsController extends BaseController
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
-    public function actionInputs(){
+
+    public function actionInputs()
+    {
         return $this->render('inputs', [
         ]);
     }
@@ -142,45 +145,47 @@ class StockLogsController extends BaseController
     /**
      * @desc 通过-产品id-客户id-订单id-查询出库总量
      */
-    public function actionFindCustomerNumber(){
-        $stock_id = Yii::$app->request->post('stock_id','');
-        $customer_id = Yii::$app->request->post('customer_id','');
-        $orders_id = Yii::$app->request->post('orders_id','');
-        if(empty($stock_id) || $stock_id==0){
-            $this->ReturnJson(0,'stock_id为空');
+    public function actionFindCustomerNumber()
+    {
+        $stock_id = Yii::$app->request->post('stock_id', '');
+        $customer_id = Yii::$app->request->post('customer_id', '');
+        $orders_id = Yii::$app->request->post('orders_id', '');
+        if (empty($stock_id) || $stock_id == 0) {
+            $this->ReturnJson(0, 'stock_id为空');
         }
-        if(empty($customer_id) || $customer_id==0){
-            $this->ReturnJson(0,'customer_id为空');
+        if (empty($customer_id) || $customer_id == 0) {
+            $this->ReturnJson(0, 'customer_id为空');
         }
-        if(empty($orders_id) || $orders_id==0){
-            $this->ReturnJson(0,'orders_id为空');
+        if (empty($orders_id) || $orders_id == 0) {
+            $this->ReturnJson(0, 'orders_id为空');
         }
         #归还数量
-        $return_number=0;
+        $return_number = 0;
         #出库数量
-        $out_number=0;
-        $where['stock_id']=$stock_id;
-        $where['customer_id']=$customer_id;
-        $where['orders_id']=$orders_id;
+        $out_number = 0;
+        $where['stock_id'] = $stock_id;
+        $where['customer_id'] = $customer_id;
+        $where['orders_id'] = $orders_id;
 //        $where['status']=StockLogs::IS_RETURNS_2;
-        $res=StockLogs::get_customer_list($where);
-        if(!empty($res)){
-            foreach($res as $k=>$v){
-                if($v['status']==2){
-                    $out_number=bcadd($out_number,$v['current_number'],0);
+        $res = StockLogs::get_customer_list($where);
+        if (!empty($res)) {
+            foreach ($res as $k => $v) {
+                if ($v['status'] == 2) {
+                    $out_number = bcadd($out_number, $v['current_number'], 0);
                 }
-                if($v['is_returns']==2){
-                    $return_number=bcadd($return_number,$v['current_number'],0);
+                if ($v['is_returns'] == 2) {
+                    $return_number = bcadd($return_number, $v['current_number'], 0);
                 }
             }
         }
-        $out_number=bcsub($out_number,$return_number,0);
-        if($out_number < 0){
-            $out_number=0;
+        $out_number = bcsub($out_number, $return_number, 0);
+        if ($out_number < 0) {
+            $out_number = 0;
         }
-        $this->ReturnJson(1,'OK',['out_number'=>$out_number]);
+        $this->ReturnJson(1, 'OK', ['out_number' => $out_number]);
 //        $this->ReturnJson(1,'OK',$res);
     }
+
     /**
      * @desc 入库出库操作
      */
@@ -282,14 +287,15 @@ class StockLogsController extends BaseController
      * @desc 归还
      * @return string
      */
-    public function actionReturns(){
-        $stock_id = Yii::$app->request->get('stock_id','');
-        $orders_id = Yii::$app->request->get('orders_id','');
-        $customer_id = Yii::$app->request->get('customer_id','');
+    public function actionReturns()
+    {
+        $stock_id = Yii::$app->request->get('stock_id', '');
+        $orders_id = Yii::$app->request->get('orders_id', '');
+        $customer_id = Yii::$app->request->get('customer_id', '');
         return $this->render('returns', [
-            'stock_id'=>$stock_id,
-            'orders_id'=>$orders_id,
-            'customer_id'=>$customer_id,
+            'stock_id' => $stock_id,
+            'orders_id' => $orders_id,
+            'customer_id' => $customer_id,
         ]);
     }
 
@@ -297,27 +303,34 @@ class StockLogsController extends BaseController
      * @desc 出库
      * @return string
      */
-    public function actionOuts(){
-        $stock_id = Yii::$app->request->get('stock_id','');
-        $orders_id = Yii::$app->request->get('orders_id','');
-        $customer_id = Yii::$app->request->get('customer_id','');
+    public function actionOuts()
+    {
+        $stock_id = Yii::$app->request->get('stock_id', '');
+        $orders_id = Yii::$app->request->get('orders_id', '');
+        $customer_id = Yii::$app->request->get('customer_id', '');
         return $this->render('outs', [
-            'stock_id'=>$stock_id,
-            'orders_id'=>$orders_id,
-            'customer_id'=>$customer_id,
+            'stock_id' => $stock_id,
+            'orders_id' => $orders_id,
+            'customer_id' => $customer_id,
         ]);
     }
-    public function actionBatchOuts(){
+
+    public function actionBatchOuts()
+    {
         return $this->render('batch-outs', [
 
         ]);
     }
-    public function actionBatchReturns(){
+
+    public function actionBatchReturns()
+    {
         return $this->render('batch-returns', [
 
         ]);
     }
-    public function actionBatchInputs(){
+
+    public function actionBatchInputs()
+    {
         return $this->render('batch-inputs', [
 
         ]);

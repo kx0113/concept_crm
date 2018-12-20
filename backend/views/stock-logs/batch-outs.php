@@ -45,15 +45,11 @@ use common\models\Customer;
 
         </select>
     </div>
-    <div style="padding: 0;" class="form-group col-xs-4">
-        <label class="search_title_stock"
-               for="operation_time">出库时间</label>
+    <div  class="form-group  col-xs-4">
 
-        <input class="search_input_stock form-control"
-               type="text" value="" data-date-format="yyyy-mm-dd"
-               id="operation_time">
-
+        <button type="button" onclick="submit_form()" class="btn btn-primary">提交</button>
     </div>
+
     <br>
     <style>
         table tr td{text-align: center;}
@@ -61,6 +57,7 @@ use common\models\Customer;
     <table class="table table-bordered">
         <thead>
         <tr>
+            <td><input data-id="1" id="checkboxAll" type="checkbox"></td>
             <td>ID</td>
             <td>产品名称</td>
             <td>产品编号</td>
@@ -72,11 +69,11 @@ use common\models\Customer;
             <td>出库数量</td>
             <td>出库用途</td>
             <td>出库时间</td>
-            <td>操作</td>
         </tr>
         </thead>
         <tbody id="tables_list"></tbody>
     </table>
+
 </div>
 </div>
 </div>
@@ -86,15 +83,87 @@ use common\models\Customer;
 </div>
 </div>
 <script>
-    $('#operation_time').datetimepicker({
-        autoclose: true,
-        format: 'yyyy-mm-dd',
-        todayBtn: true,
-        minView: "month",
-        language: 'zh-CN',
-        pickerPosition: "bottom-left",
-    });
-    $('#operation_time').val(getNowFormatDate());
+
+    function submit_form(){
+        var params={};
+        var customer_id=$("#customer_id").val();
+        var orders_id=$("#orders_id").val();
+        if(customer_id==''){
+            layer.alert('请选择客户');
+            return false;
+        }
+        if(orders_id==''){
+            layer.alert('请选择订单');
+            return false;
+        }
+        params.orders_id = orders_id;
+        params.customer_id = customer_id;
+
+        var arr={};
+        var length_data=$('input[type=checkbox]:checked').length;
+        if(length_data==0){
+            layer.alert('请选择产品');
+            return false;
+        }
+        console.log(length_data);
+        $.each($('input:checkbox:checked'),function(){
+            var i=0;
+            console.log(i+=1)
+            return false;
+            var input_data={};
+            var stock_id = $(this).attr('data-id');
+            var name = $(this).attr('data-name');
+            var number = $(this).attr('data-number');
+            var total_number = $(this).attr('data-total_number');
+            var current_number = $("#current_number_"+stock_id).val();
+            var purpose_id = $("#purpose_id_"+stock_id).val();
+            var operation_time = $("#operation_time_"+stock_id).val();
+            var msg_name="产品名称："+name+"<br>错误提示：";
+            if(current_number==''){
+                layer.alert(msg_name+'请选择数量');
+                return false;
+            }else{
+                if(current_number < 0){
+                    layer.alert(msg_name+'请输入大于0整形数字');
+                    return false;
+                }
+                if(current_number > 10){
+                    layer.alert(msg_name+'一次出库最多10件');
+                    return false;
+                }
+            }
+            if(operation_time==''){
+                layer.alert(msg_name+'请选择时间');
+                return false;
+            }
+            var num=total_number-current_number;
+            if(num >= 0){
+
+            }else{
+                layer.alert(msg_name+'库存不足');
+                return false;
+            }
+            input_data.orders_id = orders_id;
+            input_data.customer_id = customer_id;
+            input_data.current_number=current_number;
+            input_data.operation_time=operation_time;
+            input_data.remark="";
+            input_data.stock_id=stock_id;
+            input_data.purpose_id=purpose_id;
+            input_data.status = 2;
+            arr[stock_id]=input_data;
+        });
+//        for(var k=0;k<arr.length;k++){
+//            console.log(arr[k]);
+//        }
+        console.log(arr);
+        return false;
+        $.post('index.php?r=/stock-logs/add-stock-logs',params,function(res){
+
+        },'json');
+        console.log(arr);
+    }
+
     ajax_load();
     //默认加载所有产品信息
     function ajax_load(){
@@ -110,23 +179,30 @@ use common\models\Customer;
                 var obj=res.data;
                 for(var i=0;i<obj.length;i++){
                     html+="<tr>";
+                    html+='<td width="40"><input name="" id="input_checkbox_'+obj[i].id+'"' +
+                        'data-id="'+obj[i].id+'"' +
+                        'data-name="'+obj[i].name+'"' +
+                        'data-number="'+obj[i].number+'"' +
+                        'data-total_number="'+obj[i].total_number+'"' +
+                        ' type="checkbox">';
                     html+='<td width="40">'+obj[i].id+'</td>';
-                    html+='<td width="100">'+obj[i].name+'</td>';
-                    html+='<td  width="100">'+obj[i].number+'</td>';
-                    html+='<td  width="100">'+obj[i].brand+'</td>';
-                    html+='<td  width="100">'+obj[i].size+'</td>';
-                    html+='<td  width="100">'+obj[i].goods_type+'</td>';
-                    html+='<td  width="100">'+obj[i].company+'</td>';
-                    html+='<td  width="100">'+obj[i].total_number+'</td>';
-                    html+='<td width="150"><input class="form-control" type="number"></td>';
-                    html+='<td  width="150"><select  class="form-control" name="" id="purpose_id">'+
+                    html+='<td width="200">'+obj[i].name+'</td>';
+                    html+='<td width="100">'+obj[i].number+'</td>';
+                    html+='<td width="100">'+obj[i].brand+'</td>';
+                    html+='<td width="100">'+obj[i].size+'</td>';
+                    html+='<td width="100">'+obj[i].goods_type+'</td>';
+                    html+='<td width="100">'+obj[i].company+'</td>';
+                    html+='<td width="100">'+obj[i].total_number+'</td>';
+                    html+='<td width="150"><input class="form-control"' +
+                        'id="current_number_'+obj[i].id+'" type="number"></td>';
+                    html+='<td width="150"><select ' +
+                        ' class="form-control" name="" id="purpose_id_'+obj[i].id+'">'+
                         '<?php foreach(Types::types_list(['keys'=>1009]) as $k=>$v){ ?>'+
                         '<option value="<?php echo $k; ?>"><?php echo $v; ?></option>'+
                         '<?php } ?></select></td>';
-                    html+='<td ><input class="operation_time search_input_stock form-control"'+
+                    html+='<td width="150"><input class="operation_time search_input_stock form-control"'+
                            'type="text" value="" data-date-format="yyyy-mm-dd"'+
-                           'id=""></td>';
-                    html+='<td  width="100">[操作]</td>';
+                           'id="operation_time_'+obj[i].id+'"></td>';
                     html+="</tr>";
 
                 }
@@ -140,11 +216,22 @@ use common\models\Customer;
                     pickerPosition: "bottom-left",
                 });
                 $('.operation_time').val(getNowFormatDate());
-
                 layer.close(index);
             }
         },'json');
     }
+    $("#checkboxAll").click(function(){
+        var id=$(this).attr('data-id');
+        if(id==1){
+            $(this).attr('data-id',2);
+            $("input[type='checkbox']").prop("checked","true");
+        }else{
+            $(this).attr('data-id',1);
+            $("input[type='checkbox']").removeAttr("checked");
+        }
+    })
+
+    $("#orders_id").attr("disabled",true);
     //通过客户id查询订单信息
     function findCustomerOrderList(){
         $("#current_number").attr("disabled",true);

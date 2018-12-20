@@ -164,12 +164,13 @@ $this->params['breadcrumbs'][] = $this->title;
                                         var purpose_id=$("#purpose_id").val();
                                         var operation_time=$("#operation_time").val();
                                         var orders_id=$("#orders_id").val();
+
+                                        params.orders_id = orders_id;
+                                        params.customer_id = customer_id;
                                         params.current_number =current_number;
                                         params.operation_time = operation_time;
                                         params.remark = $("#remark").val();
                                         params.stock_id = stock_id;
-                                        params.orders_id = orders_id;
-                                        params.customer_id = customer_id;
                                         params.purpose_id = purpose_id;
                                         params.status = 2;
 //                                        console.log(pro_total_number);
