@@ -60,7 +60,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                     <div style="padding: 0;" class="form-group col-xs-offset-3 col-xs-6">
                                         <label class="search_title_stock"
                                                for="exampleInputEmail1">出库数量</label>
-                                        <input type="number" class="search_input_stock form-control"
+                                        <input disabled="disabled" type="number" class="search_input_stock form-control"
                                                id="current_number" placeholder="出库数量">
                                     </div>
                                     <div style="padding: 0;" class="form-group col-xs-offset-3 col-xs-6">
@@ -120,6 +120,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                     });
                                     //通过客户id查询订单信息
                                     function findCustomerOrderList(){
+                                        $("#current_number").attr("disabled",true);
                                         $("#orders_id").attr("disabled",true);
                                         $("#orders_id").html(' <option value="">-- 请选择 --</option>');
                                         var customer_id=$("#customer_id").val();
@@ -148,6 +149,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                                 }else{
                                                     $("#orders_id").attr("disabled",true);
                                                 }
+                                                $("#current_number").attr("disabled",false);
                                                 $("#orders_id").html(html);
                                             }
                                         },'json');

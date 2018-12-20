@@ -307,4 +307,19 @@ class StockLogsController extends BaseController
             'customer_id'=>$customer_id,
         ]);
     }
+    public function actionBatchOuts(){
+        return $this->render('batch-outs', [
+
+        ]);
+    }
+    public function actionBatchReturns(){
+        return $this->render('batch-returns', [
+
+        ]);
+    }
+    public function actionBatchInputs(){
+        return $this->render('batch-inputs', [
+
+        ]);
+    }
 }

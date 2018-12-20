@@ -140,6 +140,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                     $("#orders_id").attr("disabled",true);
                                     //通过客户id查询订单信息
                                     function findCustomerOrderList(){
+                                        $("#current_number").attr("disabled",true);
                                         $("#out_number").val('-');
                                         $("#orders_id").html('<option value="">-</option>');
                                         $("#orders_id").attr("disabled",true);
@@ -168,7 +169,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                                 }else{
                                                     $("#orders_id").attr("disabled",true);
                                                 }
-
+                                                $("#current_number").attr("disabled",false);
                                                 $("#orders_id").html(html);
                                             }
                                         },'json');
