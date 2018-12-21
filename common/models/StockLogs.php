@@ -3,7 +3,7 @@
 namespace common\models;
 
 use Yii;
-
+use common\models\Stock;
 /**
  * This is the model class for table "kx_stock_logs".
  *
@@ -99,6 +99,93 @@ class StockLogs extends \yii\db\ActiveRecord
         }
     }
 
+    public static function StockLogOptionHandler($v){
+        $model=new StockLogs();
+        $number_action='';
+        //客户id
+        $customer_id = (isset($v['customer_id']) && !empty($v['customer_id'])) ? $v['customer_id'] : 0;
+        //订单id
+        $orders_id =(isset($v['orders_id']) && !empty($v['orders_id'])) ? $v['orders_id'] : 0;
+//        return $orders_id;
+        //当前操作数量
+        $current_number =(isset($v['current_number']) && !empty($v['current_number'])) ? $v['current_number'] : "";
+        //操作时间（自定义）
+        $operation_time =(isset($v['operation_time']) && !empty($v['operation_time'])) ? $v['operation_time'] : date('Y-m-d');
+        //备注
+        $remark =(isset($v['remark']) && !empty($v['operation_time'])) ? $v['remark'] : "";
+        //stock表主键id
+        $stock_id =(isset($v['stock_id']) && !empty($v['stock_id'])) ? $v['stock_id'] : "";
+        //用途分类
+        $purpose_id =(isset($v['purpose_id']) && !empty($v['purpose_id'])) ? $v['purpose_id'] : 0;
+        //1=入库2=出库
+        $status =(isset($v['status']) && !empty($v['status'])) ? $v['status'] : "";
+        //是否归还1=未归还2=已归还
+        $is_returns =(isset($v['is_returns']) && !empty($v['is_returns'])) ? $v['is_returns'] : 1;
+
+        if(empty($current_number)){
+            return [0,'请选择数量',[]];
+        }else{
+            if($current_number < 0){
+                return [0,'数量不能小于0',[]];
+            }
+        }
+        if(empty($stock_id) || $stock_id==0){
+            return [0,'请选择产品',[]];
+        }
+        if(empty($operation_time)){
+            return [0,'请选择时间',[]];
+        }
+        //入库操作
+        if($status==1 && $is_returns==1){
+            $number_action='plus';
+        }
+        if($status==2 || $is_returns==2){
+            if(empty($customer_id)){
+                return [0,'客户id不能为空',[]];
+            }
+            if(empty($orders_id) || $orders_id==0){
+                return [0,'订单不能为空',[]];
+            }
+            //出库操作
+            if($status==2 && $is_returns==1){
+                $number_action='reduce';
+            }
+            //归还操作
+            if($status==1 && $is_returns==2){
+                $number_action='plus';
+            }
+        }
+        if(empty($number_action)){
+            return [0,'操作参数错误',[]];
+        }
+        $model->before_number=Stock::get_total_number($stock_id);
+        $update_total_number=Stock::update_total_number($stock_id,$current_number,$number_action);
+        $model->is_returns=$is_returns;
+        $model->customer_id=$customer_id;
+        $model->purpose_id=$purpose_id;
+        $model->orders_id=$orders_id;
+        $model->status=$status;
+        $model->remark=$remark;
+        $model->operation_time=$operation_time;
+        $model->current_number=$current_number;
+        $model->total_number=Stock::get_total_number($stock_id);
+        $model->token=Yii::$app->session->get('web_id');
+        $model->add_user=yii::$app->user->identity->id;
+        $model->stock_id=$stock_id;
+        $model->create_at=date("Y-m-d H:i:s");
+        $model->update_at=date("Y-m-d H:i:s");
+        if($update_total_number===true){
+            $res=$model->save();
+            if($res){
+                return [1,Stock::get_stock_name($stock_id).'-操作成功',[]];
+            }else{
+                return [0,Stock::get_stock_name($stock_id).'-操作失败',[]];
+            }
+        }elseif($update_total_number=='insufficient'){
+            return [0,'数量不足',[]];
+        }
+        return [0,'操作失败',[]];
+    }
     public static function get_customer_list($where){
         $res= StockLogs::find()->where($where)
             ->andWhere(['token'=>Yii::$app->session->get('web_id')])

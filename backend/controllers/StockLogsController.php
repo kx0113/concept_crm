@@ -185,11 +185,52 @@ class StockLogsController extends BaseController
         $this->ReturnJson(1, 'OK', ['out_number' => $out_number]);
 //        $this->ReturnJson(1,'OK',$res);
     }
+    /**
+     * @desc 批量入库出库操作
+     */
+    public function actionAddStockLogs(){
+        $outsHandler=[];
+        $list = Yii::$app->request->post('list','');
+        if(is_array($list) && !empty($list) && count($list) >= 1){
+            $transaction = Stock::getDb()->beginTransaction();
+            try {
+                foreach($list as $k=>$v) {
+                    list($code,$msg,$data)=StockLogs::StockLogOptionHandler($v);
+                    $outsHandler[]=['code'=>$code,'msg'=>$msg];
+                }
+//                $this->ReturnJson(1,'操作成功',$outsHandler);
+                $res=$this->batchReturnJudge($outsHandler);
+                if(empty($res)){
+                    $transaction->commit();
+                    $this->ReturnJson(1,'操作成功',$res);
+                }else{
+                    $transaction->rollBack();
+                    $this->ReturnJson(0,'操作失败[1]',$outsHandler);
+                }
 
+            }catch(\Exception $e) {
+                $transaction->rollBack();
+                $this->ReturnJson(0,'操作失败[2]',$outsHandler);
+            }
+        }
+        $this->ReturnJson(0,'操作失败[3]',$outsHandler);
+    }
+    public function batchReturnJudge($data){
+        $false='';
+        if(empty($data)){
+            return false;
+        }
+        foreach($data as $v){
+            if($v['code'] !== 1){
+                $false=false;
+            }
+        }
+        return $false;
+    }
     /**
      * @desc 入库出库操作
      */
-    public function actionAddStockLogs(){
+    public function actionAddStockLogs2(){
 //        echo StockLogs::IS_RETURNS_2;exit;
         $model=new StockLogs();
         //备注

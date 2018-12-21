@@ -65,44 +65,57 @@ $this->params['breadcrumbs'][] = $this->title;
 
                                 <script>
                                     function submit_form() {
-                                        var params={};
+                                        var index = layer.load(1, {
+                                            shade: [0.5,'#666'] //0.1透明度的白色背景
+                                        });
                                         var stock_id=$("#pro_name").val();
                                         var current_number=$("#current_number").val();
                                         var operation_time=$("#operation_time").val();
-                                        params.current_number =current_number;
-                                        params.operation_time = operation_time;
-                                        params.remark = $("#remark").val();
-                                        params.stock_id = stock_id;
-                                        params.status = 1;
-                                        console.log(params);
                                         if(stock_id=='' || stock_id==0){
+                                            layer.close(index);
                                             layer.alert('请选择产品');
                                             return false;
                                         }
                                         if(current_number==''){
+                                            layer.close(index);
                                             layer.alert('请选择数量');
                                             return false;
                                         }else{
                                             if(current_number < 0){
+                                                layer.close(index);
                                                 layer.alert('请输入大于0整形数字');
                                                 return false;
                                             }
                                         }
                                         if(operation_time==''){
+                                            layer.close(index);
                                             layer.alert('请选择时间');
                                             return false;
                                         }
+                                        var params={};
+                                        var arr={};
+                                        var arr2={};
+                                        arr.current_number =current_number;
+                                        arr.operation_time = operation_time;
+                                        arr.remark = $("#remark").val();
+                                        arr.stock_id = stock_id;
+                                        arr.status = 1;
+                                        arr.is_returns = 1;
+                                        arr2[stock_id]=arr;
+                                        params.list = arr2;
+                                        console.log(params);
+//                                        return false;
                                         $.post('index.php?r=/stock-logs/add-stock-logs',params,function(res){
-                                            var index = parent.layer.getFrameIndex(window.name); //获取当前窗体索引
-                                            layer.alert(res.msg+",3s后跳转...");
-                                            setTimeout(function(){
-                                                if(typeof default_stock_id == "undefined" || default_stock_id == null || default_stock_id == "" || default_stock_id==0){
-                                                    location.href="index.php?r=stock/index";
-                                                }else{
-                                                    parent.layer.close(index); //执行关闭
-                                                    parent.location.reload();
-                                                }
-                                            }, 3000);
+                                            layer.close(index);
+                                            layer.confirm(res.msg+'-是否继续入库？', {
+                                                btn: ['是','否'] //按钮
+                                            }, function(index){
+                                                layer.close(index);
+                                                location.reload();
+                                            }, function(index){
+                                                layer.close(index);
+                                                location.href="index.php?r=stock/index";
+                                            });
                                             return false;
                                         },'json');
 

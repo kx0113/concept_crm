@@ -30,6 +30,7 @@ class BaseController extends Controller
             $res['code']=-999999;
             $res['msg']=empty($msg) ? 'ERROR' : $msg;
         }
+        $res['run_time']=date('Y-m-d H:i:s');
         echo json_encode($res);
         exit;
     }

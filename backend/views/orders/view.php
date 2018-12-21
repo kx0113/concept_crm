@@ -184,30 +184,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         </div>
                         <div style="clear: both;"></div>
                         <div style="display: none;">
-                            <div id="stock_return">
-                                <br>
 
-                                    <div style="padding: 0;" class="form-group col-xs-offset-3 col-xs-6">
-                                        <label class="search_title_stock"
-                                               for="exampleInputEmail1">数量</label>
-                                        <input type="email" class="search_input_stock form-control"
-                                               id="current_number" placeholder="数量">
-                                    </div>
-                                    <div style="padding: 0;" class="form-group col-xs-offset-3 col-xs-6">
-                                        <label class="search_title_stock"
-                                               for="operation_time">时间</label>
-
-                                        <input class="operation_time search_input_stock form-control"
-                                               type="text" value="" data-date-format="yyyy-mm-dd"
-                                               id="operation_time">
-                                    </div>
-                                <div style="clear: both"></div>
-                                <div style="padding: 0;" class="form-group col-xs-offset-3 col-xs-6">
-                                    <button type="button"  class="btn btn-primary">提交</button>
-
-                                </div>
-
-                            </div>
                         </div>
                     </div>
                 </div>

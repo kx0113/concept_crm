@@ -205,7 +205,6 @@ $this->params['breadcrumbs'][] = $this->title;
                                     }
                                     //提交
                                     function submit_form() {
-                                        var params={};
                                         var stock_id=$("#pro_name").val();
                                         var pro_total_number=$("#pro_total_number").val();
                                         var current_number=$("#current_number").val();
@@ -214,16 +213,6 @@ $this->params['breadcrumbs'][] = $this->title;
                                         var operation_time=$("#operation_time").val();
                                         var orders_id=$("#orders_id").val();
                                         var out_number= $("#out_number").val();
-                                        params.current_number =current_number;
-                                        params.operation_time = operation_time;
-                                        params.remark = $("#remark").val();
-                                        params.stock_id = stock_id;
-                                        params.orders_id = orders_id;
-                                        params.is_returns = 2;
-                                        params.customer_id = customer_id;
-                                        params.purpose_id = purpose_id;
-                                        params.status = 1;
-//                                        console.log(pro_total_number-current_number);
                                         if(out_number=='' || out_number==0){
                                             layer.alert('出库数量为空(该客户对应订单对应产品未进行出库操作)');
                                             return false;
@@ -241,7 +230,6 @@ $this->params['breadcrumbs'][] = $this->title;
                                                 return false;
                                             }
                                         }
-
                                         if(customer_id==''){
                                             layer.alert('请选择客户');
                                             return false;
@@ -261,6 +249,20 @@ $this->params['breadcrumbs'][] = $this->title;
                                             layer.alert('归还数量不能大于出库数量');
                                             return false;
                                         }
+                                        var params={};
+                                        var arr={};
+                                        var arr2={};
+                                        arr.current_number =current_number;
+                                        arr.operation_time = operation_time;
+                                        arr.remark = $("#remark").val();
+                                        arr.stock_id = stock_id;
+                                        arr.orders_id = orders_id;
+                                        arr.is_returns = 2;
+                                        arr.customer_id = customer_id;
+                                        arr.purpose_id = purpose_id;
+                                        arr.status = 1;
+                                        arr2[stock_id]=arr;
+                                        params.list = arr2;
                                         console.log(params);
 //                                        return false;
                                         $.post('index.php?r=/stock-logs/add-stock-logs',params,function(res){

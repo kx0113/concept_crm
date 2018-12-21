@@ -131,7 +131,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                             var html='<option value="">-- 请选择 --</option>';
                                             var objs = $.isEmptyObject(obj);
                                             var selected;
-                                            console.log(objs);
+//                                            console.log(objs);
                                             if(objs==false){
                                                 for(var i=0;i<obj.length;i++){
                                                     if(typeof default_orders_id == "undefined" || default_orders_id == null || default_orders_id == "" || default_orders_id==0){
@@ -164,17 +164,6 @@ $this->params['breadcrumbs'][] = $this->title;
                                         var purpose_id=$("#purpose_id").val();
                                         var operation_time=$("#operation_time").val();
                                         var orders_id=$("#orders_id").val();
-
-                                        params.orders_id = orders_id;
-                                        params.customer_id = customer_id;
-                                        params.current_number =current_number;
-                                        params.operation_time = operation_time;
-                                        params.remark = $("#remark").val();
-                                        params.stock_id = stock_id;
-                                        params.purpose_id = purpose_id;
-                                        params.status = 2;
-//                                        console.log(pro_total_number);
-//                                        console.log(pro_total_number-current_number);
                                         if(stock_id=='' || stock_id==0){
                                             layer.alert('请选择产品');
                                             return false;
@@ -212,6 +201,20 @@ $this->params['breadcrumbs'][] = $this->title;
                                             layer.alert('库存不足');
                                             return false;
                                         }
+                                        var arr={};
+                                        var arr2={};
+                                        arr.orders_id = orders_id;
+                                        arr.customer_id = customer_id;
+                                        arr.current_number =current_number;
+                                        arr.operation_time = operation_time;
+                                        arr.remark = $("#remark").val();
+                                        arr.stock_id = stock_id;
+                                        arr.purpose_id = purpose_id;
+                                        arr.status = 2;
+                                        arr.is_returns = 1;
+                                        arr2[stock_id]=arr;
+                                        params.list = arr2;
+                                        console.log(params);
 //                                        return false;
                                         $.post('index.php?r=/stock-logs/add-stock-logs',params,function(res){
                                             var index = parent.layer.getFrameIndex(window.name); //获取当前窗体索引

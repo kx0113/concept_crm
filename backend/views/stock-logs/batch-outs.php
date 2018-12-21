@@ -96,20 +96,14 @@ use common\models\Customer;
             layer.alert('请选择订单');
             return false;
         }
-        params.orders_id = orders_id;
-        params.customer_id = customer_id;
-
         var arr={};
         var length_data=$('input[type=checkbox]:checked').length;
         if(length_data==0){
             layer.alert('请选择产品');
             return false;
         }
-        console.log(length_data);
+        var sub_val;
         $.each($('input:checkbox:checked'),function(){
-            var i=0;
-            console.log(i+=1)
-            return false;
             var input_data={};
             var stock_id = $(this).attr('data-id');
             var name = $(this).attr('data-name');
@@ -121,19 +115,23 @@ use common\models\Customer;
             var msg_name="产品名称："+name+"<br>错误提示：";
             if(current_number==''){
                 layer.alert(msg_name+'请选择数量');
+                sub_val=1;
                 return false;
             }else{
                 if(current_number < 0){
                     layer.alert(msg_name+'请输入大于0整形数字');
+                    sub_val=1;
                     return false;
                 }
                 if(current_number > 10){
                     layer.alert(msg_name+'一次出库最多10件');
+                    sub_val=1;
                     return false;
                 }
             }
             if(operation_time==''){
                 layer.alert(msg_name+'请选择时间');
+                sub_val=1;
                 return false;
             }
             var num=total_number-current_number;
@@ -141,6 +139,7 @@ use common\models\Customer;
 
             }else{
                 layer.alert(msg_name+'库存不足');
+                sub_val=1;
                 return false;
             }
             input_data.orders_id = orders_id;
@@ -153,15 +152,25 @@ use common\models\Customer;
             input_data.status = 2;
             arr[stock_id]=input_data;
         });
-//        for(var k=0;k<arr.length;k++){
-//            console.log(arr[k]);
-//        }
-        console.log(arr);
-        return false;
-        $.post('index.php?r=/stock-logs/add-stock-logs',params,function(res){
+        if(sub_val!==1){
+            params.list = arr;
+            console.log(arr);
+            $.post('index.php?r=/stock-logs/add-stock-logs',params,function(res){
+                layer.alert(res.msg+",3s后跳转...");
+                setTimeout(function(){
+                    if(typeof default_stock_id == "undefined" || default_stock_id == null || default_stock_id == "" || default_stock_id==0){
+                        location.reload();
+                    }else{
+                        parent.layer.close(index); //执行关闭
+                        parent.location.reload();
+                    }
+                }, 3000);
+                return false;
+            },'json');
+        }else{
+//            layer.alert('请选择');
+        }
 
-        },'json');
-        console.log(arr);
     }
 
     ajax_load();
