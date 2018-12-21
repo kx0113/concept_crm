@@ -57,7 +57,14 @@ $this->params['breadcrumbs'][] = $this->title;
                         return mb_substr(\common\models\Types::getName($searchModel->account_category), 0, 10, 'utf-8');
                     },
             ],
-            'operation_time',
+            [
+                'attribute' => 'operation_time',
+                'value' =>
+                    function ($model) {
+                        return date('Y-m-d',strtotime($model->operation_time));
+                    },
+            ],
+//            'operation_time',
             'name',
             'account_card',
             'content',

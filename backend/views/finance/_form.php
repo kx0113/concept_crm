@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use common\models\Types;
+use common\models\Finance;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Finance */
@@ -23,10 +24,12 @@ use common\models\Types;
                             <div class="col-xs-6 col-xs-offset-3">
     <?php $form = ActiveForm::begin(); ?>
 
+
 <!--    --><?//= $form->field($model, 'total_number')->textInput(['maxlength' => true]) ?>
 <!--    --><?//= $form->field($model, 'account_type')->textInput() ?>
-        <?= $form->field($model, 'account_type')->dropDownList(Types::types_list(['keys'=>1011])); ?>
-        <?= $form->field($model, 'account_category')->dropDownList(Types::types_list(['keys'=>1012])); ?>
+<!--        --><?//= $form->field($model, 'AccountTypeDropDownList')->dropDownList(Types::types_list(['keys'=>1011])); ?>
+        <?= $form->field($model, 'account_type')->dropDownList(Finance::AccountTypeDropDownList()); ?>
+        <?= $form->field($model, 'account_category')->dropDownList(Finance::AccountCategoryDropDownList()); ?>
 <!--    --><?//= $form->field($model, 'account_category')->textInput() ?>
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
@@ -74,6 +77,12 @@ use common\models\Types;
     </div>
 
     <?php ActiveForm::end(); ?>
-
+                                <script>
+                                <?php if(isset($model->operation_time) && !empty($model->operation_time)){  ?>
+                                $('#finance-operation_time').val("<?php echo date("Y-m-d",strtotime($model->operation_time)); ?>");
+                                <?php }else{ ?>
+                                $('#finance-operation_time').val(getNowFormatDate());
+                                <?php } ?>
+                                </script>
                             </div></div></div></div></div></div></div></div>
 

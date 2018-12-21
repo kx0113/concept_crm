@@ -49,4 +49,5 @@ class FrontLog extends \yii\db\ActiveRecord
             'token'=>'站点名称',
         ];
     }
+
 }

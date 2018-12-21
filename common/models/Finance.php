@@ -43,8 +43,8 @@ class Finance extends \yii\db\ActiveRecord
     {
         return [
             [['name','current_number','account_type','account_category','operation_time','content'], 'required'],
-            [['total_number', 'current_number', 'before_number', 'account_type', 'status', 'account_category', 'add_user', 'token'], 'integer'],
-            [['operation_time', 'update_at', 'create_at'], 'safe'],
+            [[ 'account_type', 'status', 'account_category', 'add_user', 'token'], 'integer'],
+            [['total_number', 'current_number', 'before_number','operation_time', 'update_at', 'create_at'], 'safe'],
             [['name'], 'string', 'max' => 50],
             [['account_card'], 'string', 'max' => 100],
             [['content', 'remark', 'ext1', 'ext2'], 'string', 'max' => 255],
@@ -76,5 +76,55 @@ class Finance extends \yii\db\ActiveRecord
             'update_at' => Yii::t('app', '更新时间'),
             'create_at' => Yii::t('app', '创建时间'),
         ];
+    }
+    public static function AccountCategoryDropDownList(){
+        return [
+            ''=>'-- 请选择 --',
+            '1'=>'对公账户',
+            '2'=>'个人账户',
+        ];
+    }
+    public static function AccountTypeDropDownList(){
+        return [
+            ''=>'-- 请选择 --',
+            '1'=>'入账',
+            '2'=>'出账',
+        ];
+    }
+
+    public static function get_account_category($v){
+        if($v==1){
+            return '对公账户';
+        }
+        if($v==2){
+            return '个人账户';
+        }
+        return '';
+    }
+    public static function get_account_type($v){
+        if($v==1){
+            return '入账';
+        }
+        if($v==2){
+            return '出账';
+        }
+        return '';
+    }
+    public static function get_before_number($account_category){
+        $input_number=0;
+        $res= Finance::find()
+            ->where(['account_type'=>1])
+            ->andWhere(['token'=>Yii::$app->session->get('web_id')])
+            ->andWhere(['account_category'=>$account_category])
+            ->andWhere(['account_type'=>1])
+            ->asArray()->all();
+        if(!empty($res)){
+            foreach($res as $k=>$v){
+                if($v['account_type']==1){
+                    $input_number=bcadd($input_number,$v['current_number'],2);
+                }
+            }
+        }
+        return $input_number;
     }
 }

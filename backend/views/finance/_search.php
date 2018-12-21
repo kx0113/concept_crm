@@ -24,11 +24,11 @@ use yii\widgets\ActiveForm;
 <!--    --><?//= $form->field($model, 'before_number') ?>
             <div class="col-xs-3">
                 <?= $form->field($model, 'account_type')
-                    ->dropDownList(\common\models\Types::types_list(['keys'=>1011])); ?>
+                    ->dropDownList(\common\models\Finance::AccountTypeDropDownList()); ?>
             </div>
             <div class="col-xs-3">
                 <?= $form->field($model, 'account_category')
-                    ->dropDownList(\common\models\Types::types_list(['keys'=>1012])); ?>
+                    ->dropDownList(\common\models\Finance::AccountCategoryDropDownList()); ?>
             </div>
 
 <!--    --><?//= $form->field($model, 'account_type') ?>

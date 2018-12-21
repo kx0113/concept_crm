@@ -66,15 +66,28 @@ class FinanceController extends Controller
 //        if ($model->load(Yii::$app->request->post()) && $model->save()) {
 //            return $this->redirect(['view', 'id' => $model->id]);
 //        }
+
         $model = new Finance();
         if (Yii::$app->request->isPost) {
+            $post=Yii::$app->request->post();
+            $current_number=$post['Finance']['current_number'];
+            $account_type=$post['Finance']['account_type'];
+            $account_category=$post['Finance']['account_category'];
             $model->load(Yii::$app->request->post());
             $model->add_user=yii::$app->user->identity->id;
             $model->update_at=date("Y-m-d H:i:s");
             $model->create_at=date("Y-m-d H:i:s");
+            $model->before_number=(int)Finance::get_before_number($account_category);
+            if($account_type==1){
+                $model->total_number=(int)bcadd(Finance::get_before_number($account_category),$current_number,2);
+            }else{
+                $model->total_number=(int)bcsub(Finance::get_before_number($account_category),$current_number,2);
+            }
             $model->token=Yii::$app->session->get('web_id');
             if($model->save()){
                 return $this->redirect(['view', 'id' => $model->id]);
+            }else{
+                var_dump($model->errors);
             }
         } else {
             return $this->render('create', [
