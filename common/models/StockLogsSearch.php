@@ -42,7 +42,7 @@ class StockLogsSearch extends StockLogs
     public function search($params)
     {
 //        $query = StockLogs::find();
-        $query = StockLogs::find()->where(['token'=>Yii::$app->session->get('web_id')]);
+        $query = StockLogs::find()->where(['token'=>Yii::$app->session->get('web_id')])->orderBy('id desc');
         // add conditions that should always apply here
 
         $dataProvider = new ActiveDataProvider([

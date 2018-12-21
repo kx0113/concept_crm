@@ -62,8 +62,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'account_card',
             'content',
             'remark',
-            'ext1',
-            'ext2',
+//            'ext1',
+//            'ext2',
             [
                 'attribute' => 'add_user',
                 'value'=>

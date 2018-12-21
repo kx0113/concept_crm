@@ -35,9 +35,27 @@ $this->params['breadcrumbs'][] = $this->title;
 //            ['class' => 'yii\grid\SerialColumn'],
 
             'id',
-            'total_number',
-            'current_number',
-            'before_number',
+            [
+                'attribute' => 'before_number',
+                'value' =>
+                    function ($searchModel) {
+                        return '¥'.$searchModel->before_number;
+                    },
+            ],
+            [
+                'attribute' => 'current_number',
+                'value' =>
+                    function ($searchModel) {
+                        return '¥'.$searchModel->current_number;
+                    },
+            ],
+            [
+                'attribute' => 'total_number',
+                'value' =>
+                    function ($searchModel) {
+                        return '¥'.$searchModel->total_number;
+                    },
+            ],
 //            'account_type',
             [
                 'attribute' => 'account_type',

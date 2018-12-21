@@ -87,7 +87,6 @@ $this->params['breadcrumbs'][] = $this->title;
                         return \common\models\User::get_username($model->add_user);
                     },
             ],
-            'operation_time',
             [
                 'attribute' => 'token',
                 'value' =>
@@ -95,7 +94,13 @@ $this->params['breadcrumbs'][] = $this->title;
                         return \common\models\Web::GetWebName($model->token);
                     },
             ],
-            'operation_time',
+            [
+                'attribute' => 'operation_time',
+                'value' =>
+                    function ($model) {
+                        return date('Y-m-d',strtotime($model->operation_time));
+                    },
+            ],
             'update_at',
             'create_at',
         ],

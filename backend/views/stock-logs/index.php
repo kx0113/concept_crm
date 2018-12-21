@@ -51,9 +51,11 @@ $this->params['breadcrumbs'][] = $this->title;
                                                 return mb_substr(\common\models\Orders::get_name($searchModel->orders_id), 0, 10, 'utf-8');
                                             },
                                     ],
-                                    'total_number',
-                                    'current_number',
                                     'before_number',
+                                    'current_number',
+                                    'total_number',
+
+
 //             'customer_id',
                                     [
                                         'attribute' => 'customer_id',
@@ -92,7 +94,15 @@ $this->params['breadcrumbs'][] = $this->title;
                                                 return User::get_username($model->add_user);
                                             },
                                     ],
-                                    'operation_time',
+                                    [
+                                        'attribute' => 'operation_time',
+                                        'value' =>
+                                            function ($model) {
+                                                return date('Y-m-d',strtotime($model->operation_time));
+                                            },
+                                    ],
+//                                    'operation_time',
+                                    'create_at',
                                     [
                                         'attribute' => 'token',
                                         'value' =>

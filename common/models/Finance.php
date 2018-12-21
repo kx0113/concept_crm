@@ -58,9 +58,9 @@ class Finance extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('app', 'ID'),
-            'total_number' => Yii::t('app', '操作后总数'),
-            'current_number' => Yii::t('app', '当前操作数量'),
-            'before_number' => Yii::t('app', '操作前数量'),
+            'total_number' => Yii::t('app', '操作后金额'),
+            'current_number' => Yii::t('app', '当前操作金额'),
+            'before_number' => Yii::t('app', '操作前金额'),
             'account_type' => Yii::t('app', '账务类型'),
             'status' => Yii::t('app', '状态'),
             'account_category' => Yii::t('app', '账户类别'),

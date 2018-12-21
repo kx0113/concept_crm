@@ -57,9 +57,9 @@ use common\models\Types;
 
     <?= $form->field($model, 'remark')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'ext1')->textInput(['maxlength' => true]) ?>
+<!--    --><?//= $form->field($model, 'ext1')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'ext2')->textarea(['rows' => 6]) ?>
+<!--    --><?//= $form->field($model, 'ext2')->textarea(['rows' => 6]) ?>
 
 <!--    --><?//= $form->field($model, 'add_user')->textInput(['maxlength' => true]) ?>
 

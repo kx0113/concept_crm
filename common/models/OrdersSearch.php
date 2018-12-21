@@ -42,7 +42,7 @@ class OrdersSearch extends Orders
      */
     public function search($params)
     {
-        $query = Orders::find()->where(['token'=>Yii::$app->session->get('web_id')]);
+        $query = Orders::find()->where(['token'=>Yii::$app->session->get('web_id')])->orderBy('id desc');
 //        $query = Orders::find();
 
         // add conditions that should always apply here

@@ -41,7 +41,7 @@ class StockSearch extends Stock
      */
     public function search($params)
     {
-        $query = Stock::find()->where(['token'=>Yii::$app->session->get('web_id')]);
+        $query = Stock::find()->where(['token'=>Yii::$app->session->get('web_id')])->orderBy('id desc');
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,

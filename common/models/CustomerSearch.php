@@ -41,7 +41,7 @@ class CustomerSearch extends Customer
      */
     public function search($params)
     {
-        $query = Customer::find()->where(['token'=>Yii::$app->session->get('web_id')]);
+        $query = Customer::find()->where(['token'=>Yii::$app->session->get('web_id')])->orderBy('id desc');
         // add conditions that should always apply here
 
         $dataProvider = new ActiveDataProvider([

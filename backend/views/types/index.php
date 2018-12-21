@@ -53,7 +53,7 @@ $this->params['breadcrumbs'][] = $this->title;
                          }
                     },
             ],
-            'add_time',
+
             [
                 'attribute' => 'add_user',
                 'value'=>
@@ -61,6 +61,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         return \common\models\User::get_username($model->add_user);
                     },
             ],
+            'add_time',
             [
                 'attribute' => 'token',
                 'value'=>
