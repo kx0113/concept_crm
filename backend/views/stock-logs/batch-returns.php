@@ -12,9 +12,9 @@ use common\models\Customer;
 /* @var $this yii\web\View */
 /* @var $model common\models\StockLogs */
 
-
+echo '功能开发中...';
 ?>
-<div class="stock-logs-view">
+<div style="display: none" class="stock-logs-view">
 
     <div class="wrapper wrapper-content">
         <div class="ibox float-e-margins">
