@@ -98,7 +98,33 @@ class StockLogs extends \yii\db\ActiveRecord
             return '出库';
         }
     }
-
+    //通过-产品id-客户id-订单id-查询出库总量
+    public static function FindCustomerNumber($stock_id,$customer_id,$orders_id){
+        #归还数量
+        $return_number = 0;
+        #出库数量
+        $out_number = 0;
+        $where['stock_id'] = $stock_id;
+        $where['customer_id'] = $customer_id;
+        $where['orders_id'] = $orders_id;
+//        $where['status']=StockLogs::IS_RETURNS_2;
+        $res = StockLogs::get_customer_list($where);
+        if (!empty($res)) {
+            foreach ($res as $k => $v) {
+                if ($v['status'] == 2) {
+                    $out_number = bcadd($out_number, $v['current_number'], 0);
+                }
+                if ($v['is_returns'] == 2) {
+                    $return_number = bcadd($return_number, $v['current_number'], 0);
+                }
+            }
+        }
+        $out_number = bcsub($out_number, $return_number, 0);
+        if ($out_number < 0) {
+            $out_number = 0;
+        }
+        return $out_number;
+    }
     public static function StockLogOptionHandler($v){
         $model=new StockLogs();
         $number_action='';

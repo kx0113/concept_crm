@@ -229,11 +229,17 @@ class StockController extends BaseController
         }
         return $this->ReturnJson(1,'OK',Orders::findCustomerOrderList($customer_id));
     }
-    public function actionGetStockInfo(){
-        return $this->ReturnJson(1,'OK',Stock::getLists());
-//        return Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
-//        echo json_encode(['list'=>Stock::getLists()]);exit;
+    public function actionGetStockOutList(){
+        $customer_id = Yii::$app->request->post('customer_id', '');
+        $orders_id = Yii::$app->request->post('orders_id', '');
+        $res=Stock::GetStockOutList($customer_id,$orders_id);
+        return $this->ReturnJson(1,'OK',$res);
     }
+    public function actionGetStockInfo(){
+        $res=Stock::getLists();
+        return $this->ReturnJson(1,'OK',$res);
+    }
+
     /**
      * Lists all Stock models.
      * @return mixed

@@ -5,6 +5,7 @@ namespace common\models;
 use think\log\driver\Socket;
 use Yii;
 use common\models\Types;
+use common\models\StockLogs;
 
 /**
  * This is the model class for table "kx_stock".
@@ -79,6 +80,19 @@ class Stock extends \yii\db\ActiveRecord
             'create_at' => '创建时间',
         ];
     }
+    public static function GetStockOutList($customer_id,$orders_id){
+        $res= Stock::find()->where([])->andWhere(['token'=>Yii::$app->session->get('web_id')])->asArray()->all();
+        if(!empty($res)){
+            foreach($res as $k=>$v){
+                $res[$k]['size']=Types::getName($v['size']);
+                $res[$k]['goods_type']=Types::getName($v['goods_type']);
+                $res[$k]['brand']=Types::getName($v['brand']);
+                $res[$k]['company']=Types::getName($v['company']);
+                $res[$k]['out_number']= StockLogs::FindCustomerNumber($v['id'],$customer_id,$orders_id);
+            }
+        }
+        return $res;
+    }
     public static function getLists($where=[]){
         $res= Stock::find()->where($where)->andWhere(['token'=>Yii::$app->session->get('web_id')])->asArray()->all();
         if(!empty($res)){
@@ -87,7 +101,6 @@ class Stock extends \yii\db\ActiveRecord
                 $res[$k]['goods_type']=Types::getName($v['goods_type']);
                 $res[$k]['brand']=Types::getName($v['brand']);
                 $res[$k]['company']=Types::getName($v['company']);
-//                $res[$k]['total_number']=1000;
             }
         }
         return $res;

@@ -156,6 +156,9 @@ $this->params['breadcrumbs'][] = $this->title;
                                     }
                                     //提交
                                     function submit_form() {
+                                        var index = layer.load(1, {
+                                            shade: [0.5,'#666'] //0.1透明度的白色背景
+                                        });
                                         var params={};
                                         var stock_id=$("#pro_name").val();
                                         var pro_total_number=$("#pro_total_number").val();
@@ -217,16 +220,22 @@ $this->params['breadcrumbs'][] = $this->title;
                                         console.log(params);
 //                                        return false;
                                         $.post('index.php?r=/stock-logs/add-stock-logs',params,function(res){
+                                            layer.close(index);
                                             var index = parent.layer.getFrameIndex(window.name); //获取当前窗体索引
-                                            layer.alert(res.msg+",3s后跳转...");
-                                            setTimeout(function(){
+                                            layer.confirm(res.msg+'-是否继续出库？', {
+                                                btn: ['是','否'] //按钮
+                                            }, function(index){
+                                                layer.close(index);
+                                                location.reload();
+                                            }, function(index){
+                                                layer.close(index);
                                                 if(typeof default_stock_id == "undefined" || default_stock_id == null || default_stock_id == "" || default_stock_id==0){
                                                     location.href="index.php?r=stock/index";
                                                 }else{
                                                     parent.layer.close(index); //执行关闭
                                                     parent.location.reload();
                                                 }
-                                            }, 3000);
+                                            });
                                             return false;
                                         },'json');
 

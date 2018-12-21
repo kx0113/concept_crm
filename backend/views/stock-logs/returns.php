@@ -194,17 +194,14 @@ $this->params['breadcrumbs'][] = $this->title;
                                         console.log(params);
                                         $.post('index.php?r=/stock-logs/find-customer-number',params,function(res){
                                             var objs =res.data.out_number;
-                                            if(objs==0){
-                                                $("#out_number").val('-');
-                                                $("#out_number").attr("disabled",true);
-                                            }else{
-                                                $("#out_number").val(objs);
-                                            }
-                                            console.log(objs);
+                                            $("#out_number").val(objs);
                                         },'json');
                                     }
                                     //提交
                                     function submit_form() {
+                                        var index = layer.load(1, {
+                                            shade: [0.5,'#666'] //0.1透明度的白色背景
+                                        });
                                         var stock_id=$("#pro_name").val();
                                         var pro_total_number=$("#pro_total_number").val();
                                         var current_number=$("#current_number").val();
@@ -213,32 +210,41 @@ $this->params['breadcrumbs'][] = $this->title;
                                         var operation_time=$("#operation_time").val();
                                         var orders_id=$("#orders_id").val();
                                         var out_number= $("#out_number").val();
-                                        if(out_number=='' || out_number==0){
-                                            layer.alert('出库数量为空(该客户对应订单对应产品未进行出库操作)');
-                                            return false;
-                                        }
+
                                         if(stock_id=='' || stock_id==0){
+                                            layer.close(index);
                                             layer.alert('请选择产品');
                                             return false;
                                         }
-                                        if(current_number==''){
-                                            layer.alert('请选择归还数量');
-                                            return false;
-                                        }else{
-                                            if(current_number < 0){
-                                                layer.alert('请输入大于0整形数字');
-                                                return false;
-                                            }
-                                        }
                                         if(customer_id==''){
+                                            layer.close(index);
                                             layer.alert('请选择客户');
                                             return false;
                                         }
                                         if(orders_id==''){
+                                            layer.close(index);
                                             layer.alert('请选择订单');
                                             return false;
                                         }
+                                        if(out_number=='' || out_number==0){
+                                            layer.close(index);
+                                            layer.alert('出库数量为空(该客户对应订单对应产品未进行出库操作)');
+                                            return false;
+                                        }
+                                        if(current_number==''){
+                                            layer.close(index);
+                                            layer.alert('请选择归还数量');
+                                            return false;
+                                        }else{
+                                            if(current_number < 0){
+                                                layer.close(index);
+                                                layer.alert('请输入大于0整形数字');
+                                                return false;
+                                            }
+                                        }
+
                                         if(operation_time==''){
+                                            layer.close(index);
                                             layer.alert('请选择时间');
                                             return false;
                                         }
@@ -246,6 +252,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                         if(num >= 0){
 
                                         }else{
+                                            layer.close(index);
                                             layer.alert('归还数量不能大于出库数量');
                                             return false;
                                         }
@@ -267,15 +274,20 @@ $this->params['breadcrumbs'][] = $this->title;
 //                                        return false;
                                         $.post('index.php?r=/stock-logs/add-stock-logs',params,function(res){
                                             var index = parent.layer.getFrameIndex(window.name); //获取当前窗体索引
-                                            layer.alert(res.msg+",3s后跳转...");
-                                            setTimeout(function(){
+                                            layer.confirm(res.msg+'-是否继续归还？', {
+                                                btn: ['是','否'] //按钮
+                                            }, function(index){
+                                                layer.close(index);
+                                                location.reload();
+                                            }, function(index){
+                                                layer.close(index);
                                                 if(typeof default_stock_id == "undefined" || default_stock_id == null || default_stock_id == "" || default_stock_id==0){
                                                     location.href="index.php?r=stock/index";
                                                 }else{
                                                     parent.layer.close(index); //执行关闭
                                                     parent.location.reload();
                                                 }
-                                            }, 3000);
+                                            });
                                             return false;
                                         },'json');
 

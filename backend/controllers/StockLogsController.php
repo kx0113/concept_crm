@@ -159,29 +159,7 @@ class StockLogsController extends BaseController
         if (empty($orders_id) || $orders_id == 0) {
             $this->ReturnJson(0, 'orders_id为空');
         }
-        #归还数量
-        $return_number = 0;
-        #出库数量
-        $out_number = 0;
-        $where['stock_id'] = $stock_id;
-        $where['customer_id'] = $customer_id;
-        $where['orders_id'] = $orders_id;
-//        $where['status']=StockLogs::IS_RETURNS_2;
-        $res = StockLogs::get_customer_list($where);
-        if (!empty($res)) {
-            foreach ($res as $k => $v) {
-                if ($v['status'] == 2) {
-                    $out_number = bcadd($out_number, $v['current_number'], 0);
-                }
-                if ($v['is_returns'] == 2) {
-                    $return_number = bcadd($return_number, $v['current_number'], 0);
-                }
-            }
-        }
-        $out_number = bcsub($out_number, $return_number, 0);
-        if ($out_number < 0) {
-            $out_number = 0;
-        }
+        $out_number=StockLogs::FindCustomerNumber($stock_id,$customer_id,$orders_id);
         $this->ReturnJson(1, 'OK', ['out_number' => $out_number]);
 //        $this->ReturnJson(1,'OK',$res);
     }
@@ -358,15 +336,23 @@ class StockLogsController extends BaseController
 
     public function actionBatchOuts()
     {
+//        stock-logs/batch-outs&orders_id=600127&customer_id=14
+        $orders_id = Yii::$app->request->get('orders_id', '');
+        $customer_id = Yii::$app->request->get('customer_id', '');
         return $this->render('batch-outs', [
-
+            'orders_id' => $orders_id,
+            'customer_id' => $customer_id,
         ]);
     }
 
     public function actionBatchReturns()
     {
+//        stock-logs/batch-outs&orders_id=600127&customer_id=14
+        $orders_id = Yii::$app->request->get('orders_id', '');
+        $customer_id = Yii::$app->request->get('customer_id', '');
         return $this->render('batch-returns', [
-
+            'orders_id' => $orders_id,
+            'customer_id' => $customer_id,
         ]);
     }
 

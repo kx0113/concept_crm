@@ -12,14 +12,14 @@ use common\models\Customer;
 /* @var $this yii\web\View */
 /* @var $model common\models\StockLogs */
 
-echo '功能开发中...';
+//echo '功能开发中...';
 ?>
-<div style="display: none" class="stock-logs-view">
+<div class="stock-logs-view">
 
     <div class="wrapper wrapper-content">
         <div class="ibox float-e-margins">
             <div class="ibox-content">
-                <p>批量出库</p>
+                <p>批量归还</p>
 
                 <div class="row">
                     <div class="col-sm-12">
@@ -32,22 +32,23 @@ echo '功能开发中...';
                                     <select onchange="findCustomerOrderList()" class="form-control" name="" id="customer_id">
                                         <option value="">-- 请选择 --</option>
                                         <?php foreach(Customer::getLists() as $k=>$v){ ?>
-                                            <option
+                                            <option  <?php if($customer_id==$v['id']){ echo 'selected = "selected"'; } ?>
                                                 value="<?php echo $v['id']; ?>"><?php echo $v['name']; ?></option>
                                         <?php } ?>
                                     </select>
                                 </div>
                                 <div  class="form-group  col-xs-4">
                                     <label class="search_title_stock"
-                                           for="orders_id">出库订单</label>
+                                           for="orders_id">归还订单</label>
                                     <select class="form-control" name="" id="orders_id">
                                         <option value="">-- 请选择 --</option>
 
                                     </select>
                                 </div>
                                 <div  class="form-group  col-xs-4">
-
-                                    <button type="button" onclick="submit_form()" class="btn btn-primary">提交</button>
+                                    <br>
+                                    <button type="button" onclick="submit_order()" class="btn btn-primary">查询</button>
+                                    <button type="button" onclick="submit_form()" class="btn btn-primary">批量提交</button>
                                 </div>
 
                                 <br>
@@ -67,8 +68,9 @@ echo '功能开发中...';
                                         <td>单位分类</td>
                                         <td>库存剩余量</td>
                                         <td>出库数量</td>
-                                        <td>出库用途</td>
-                                        <td>出库时间</td>
+                                        <td>归还数量</td>
+                                        <td>归还原因</td>
+                                        <td>归还时间</td>
                                     </tr>
                                     </thead>
                                     <tbody id="tables_list"></tbody>
@@ -83,8 +85,19 @@ echo '功能开发中...';
     </div>
 </div>
 <script>
-
-    function submit_form(){
+    var default_orders_id="<?php if(isset($orders_id) && !empty($orders_id)){ echo $orders_id; }else{ echo ""; } ?>";
+    var default_customer_id="<?php if(isset($customer_id) && !empty($customer_id)){ echo $customer_id; }else{ echo ""; } ?>";
+    if(typeof default_customer_id == "undefined" || default_customer_id == null || default_customer_id == "" || default_customer_id==0){
+        $("#orders_id").attr("disabled",true);
+    }else{
+        var index = layer.load(1, {
+            shade: [0.5,'#666'] //0.1透明度的白色背景
+        });
+        $("#customer_id").attr("disabled",true);
+        $("#orders_id").attr("disabled",true);
+        findCustomerOrderList();
+    }
+    function submit_order(){
         var params={};
         var customer_id=$("#customer_id").val();
         var orders_id=$("#orders_id").val();
@@ -96,9 +109,30 @@ echo '功能开发中...';
             layer.alert('请选择订单');
             return false;
         }
+        ajax_load(customer_id,orders_id);
+    }
+    function submit_form(){
+        var index = layer.load(1, {
+            shade: [0.5,'#666'] //0.1透明度的白色背景
+        });
+        var params={};
+        var customer_id=$("#customer_id").val();
+        var orders_id=$("#orders_id").val();
+        if(customer_id==''){
+            layer.close(index);
+            layer.alert('请选择客户');
+            return false;
+        }
+        if(orders_id==''){
+            layer.close(index);
+            layer.alert('请选择订单');
+            return false;
+        }
         var arr={};
         var length_data=$('input[type=checkbox]:checked').length;
         if(length_data==0){
+//            submit_order();
+            layer.close(index);
             layer.alert('请选择产品');
             return false;
         }
@@ -119,17 +153,15 @@ echo '功能开发中...';
                 return false;
             }else{
                 if(current_number < 0){
+                    layer.close(index);
                     layer.alert(msg_name+'请输入大于0整形数字');
                     sub_val=1;
                     return false;
                 }
-                if(current_number > 10){
-                    layer.alert(msg_name+'一次出库最多10件');
-                    sub_val=1;
-                    return false;
-                }
+
             }
             if(operation_time==''){
+                layer.close(index);
                 layer.alert(msg_name+'请选择时间');
                 sub_val=1;
                 return false;
@@ -138,33 +170,45 @@ echo '功能开发中...';
             if(num >= 0){
 
             }else{
-                layer.alert(msg_name+'库存不足');
+                layer.close(index);
+                layer.alert(msg_name+'归还数量不能大于出库数量');
                 sub_val=1;
                 return false;
             }
-            input_data.orders_id = orders_id;
-            input_data.customer_id = customer_id;
             input_data.current_number=current_number;
             input_data.operation_time=operation_time;
             input_data.remark="";
             input_data.stock_id=stock_id;
+            input_data.orders_id = orders_id;
+            input_data.is_returns = 2;
+            input_data.customer_id = customer_id;
             input_data.purpose_id=purpose_id;
-            input_data.status = 2;
+            input_data.status = 1;
             arr[stock_id]=input_data;
         });
+//        params.list = arr;
+//        console.log(arr);
+//        return false;
         if(sub_val!==1){
             params.list = arr;
             console.log(arr);
             $.post('index.php?r=/stock-logs/add-stock-logs',params,function(res){
-                layer.alert(res.msg+",3s后跳转...");
-                setTimeout(function(){
-                    if(typeof default_stock_id == "undefined" || default_stock_id == null || default_stock_id == "" || default_stock_id==0){
-                        location.reload();
+                layer.close(index);
+                var index = parent.layer.getFrameIndex(window.name); //获取当前窗体索引
+                layer.confirm(res.msg+'-是否继续归还？', {
+                    btn: ['是','否'] //按钮
+                }, function(index){
+                    layer.close(index);
+                    location.reload();
+                }, function(index){
+                    layer.close(index);
+                    if(typeof default_customer_id == "undefined" || default_customer_id == null || default_customer_id == "" || default_customer_id==0){
+                        location.href="index.php?r=stock/index";
                     }else{
                         parent.layer.close(index); //执行关闭
                         parent.location.reload();
                     }
-                }, 3000);
+                });
                 return false;
             },'json');
         }else{
@@ -173,15 +217,18 @@ echo '功能开发中...';
 
     }
 
-    ajax_load();
+//    ajax_load();
     //默认加载所有产品信息
-    function ajax_load(){
+    function ajax_load(customer_id,orders_id){
         var index = layer.load(1, {
             shade: [0.5,'#666'] //0.1透明度的白色背景
         });
+        var params={};
+        params.orders_id = orders_id;
+        params.customer_id = customer_id;
         $("#tables_list").html("");
         $("#tables_list").attr('disabled',true);
-        $.post('index.php?r=/stock/get-stock-info','',function(res){
+        $.post('index.php?r=/stock/get-stock-out-list',params,function(res){
             console.log(res);
             if(res.code==200){
                 var html;
@@ -192,7 +239,7 @@ echo '功能开发中...';
                         'data-id="'+obj[i].id+'"' +
                         'data-name="'+obj[i].name+'"' +
                         'data-number="'+obj[i].number+'"' +
-                        'data-total_number="'+obj[i].total_number+'"' +
+                        'data-total_number="'+obj[i].out_number+'"' +
                         ' type="checkbox">';
                     html+='<td width="40">'+obj[i].id+'</td>';
                     html+='<td width="200">'+obj[i].name+'</td>';
@@ -202,11 +249,12 @@ echo '功能开发中...';
                     html+='<td width="100">'+obj[i].goods_type+'</td>';
                     html+='<td width="100">'+obj[i].company+'</td>';
                     html+='<td width="100">'+obj[i].total_number+'</td>';
+                    html+='<td width="100">'+obj[i].out_number+'</td>';
                     html+='<td width="150"><input class="form-control"' +
                         'id="current_number_'+obj[i].id+'" type="number"></td>';
                     html+='<td width="150"><select ' +
                         ' class="form-control" name="" id="purpose_id_'+obj[i].id+'">'+
-                        '<?php foreach(Types::types_list(['keys'=>1009]) as $k=>$v){ ?>'+
+                        '<?php foreach(Types::types_list(['keys'=>1014]) as $k=>$v){ ?>'+
                         '<option value="<?php echo $k; ?>"><?php echo $v; ?></option>'+
                         '<?php } ?></select></td>';
                     html+='<td width="150"><input class="operation_time search_input_stock form-control"'+
@@ -267,13 +315,15 @@ echo '功能开发中...';
 
                     html+="<option "+selected+" value='"+obj[i]['id']+"'>"+obj[i]['name']+"</option>";
                 }
+
+                $("#current_number").attr("disabled",false);
+                $("#orders_id").html(html);
                 if(typeof default_orders_id == "undefined" || default_orders_id == null || default_orders_id == "" || default_orders_id==0){
                     $("#orders_id").attr("disabled",false);
                 }else{
                     $("#orders_id").attr("disabled",true);
+                    submit_order();
                 }
-                $("#current_number").attr("disabled",false);
-                $("#orders_id").html(html);
             }
         },'json');
     }

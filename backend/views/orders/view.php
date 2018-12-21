@@ -30,6 +30,10 @@ $this->params['breadcrumbs'][] = $this->title;
 
                         </div>
                     </div>
+                    <?php
+                    $customer_id = $orders_info['customer_info']['id'];
+                    $order_id = $orders_info['info']['id'];
+                    ?>
                     <div class="ibox-content">
                         <div id="tables_content">
                             <div id="tables_content_print">
@@ -158,8 +162,6 @@ $this->params['breadcrumbs'][] = $this->title;
                                                 <?php //echo $orders_info['stock_logs'][$k1]['row_diff_price'];
                                                 ?><!--</td>-->
                                                 <?php
-                                                $customer_id = $orders_info['customer_info']['id'];
-                                                $order_id = $orders_info['info']['id'];
                                                 $stock_id = $orders_info['stock_logs'][$k1]['id'];
                                                 ?>
                                                 <td class="print_option" colspan="1">
@@ -176,10 +178,11 @@ $this->params['breadcrumbs'][] = $this->title;
                         </div>
                         <div style="float: right">
                             <button type="button" onclick="sendEmail()" class="btn btn-warning">发送Email</button>
-                            <button type="button" onclick="batchReturn()" class="btn btn-primary">批量归还</button>
-                            <button type="button" onclick="batchOut()" class="btn btn-success">批量出库</button>
+                            <button type="button" onclick='batchOut("<?= $customer_id; ?>","<?= $order_id; ?>")' class="btn btn-success">批量出库</button>
+                            <button type="button" onclick='batchReturn("<?= $customer_id; ?>","<?= $order_id; ?>")' class="btn btn-primary">批量归还</button>
+
                             <button type="button" onclick="OutExcel()" class="btn btn-info">导出Excel</button>
-                            <button type="button" onclick="OutPdf()" class="btn btn-info">导出pdf</button>
+<!--                            <button type="button" onclick="OutPdf()" class="btn btn-info">导出pdf</button>-->
                             <button type="button" onclick="doPrint()" class="btn btn-danger">打印订单</button>
                         </div>
                         <div style="clear: both;"></div>
@@ -194,7 +197,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
         </div>
         <script>
-
+            //出库操作
             function StockOut(customer_id, orders_id, stock_id) {
                 var url='index.php?r=stock-logs/outs&stock_id='
                     +stock_id+"&orders_id="+orders_id+"&customer_id="+customer_id;
@@ -210,11 +213,11 @@ $this->params['breadcrumbs'][] = $this->title;
                     shadeClose: false,
                     content: [url], //iframe的url，no代表不显示滚动条
                     end: function(){ //此处用于演示
-//                        location.reload();
-//                        layer.alert('msg');
+
                     }
                 });
             }
+            //归还操作
             function StockReturn(customer_id, orders_id, stock_id) {
                 var url='index.php?r=stock-logs/returns&stock_id='
                     +stock_id+"&orders_id="+orders_id+"&customer_id="+customer_id;
@@ -230,34 +233,65 @@ $this->params['breadcrumbs'][] = $this->title;
                     shadeClose: false,
                     content: [url], //iframe的url，no代表不显示滚动条
                     end: function(){ //此处用于演示
-//                        location.reload();
-//                        layer.alert('msg');
+
                     }
                 });
             }
-            function batchOut() {
+            //批量出库
+            function batchOut(customer_id, orders_id) {
+                var url='index.php?r=stock-logs/batch-outs' + "&orders_id="+orders_id+"&customer_id="+customer_id;
                 layer.confirm('确定要批量出库?', {
                     title: '提示',
                     btn: ['确定', '取消'] //按钮
                 }, function (index) {
                     layer.close(index);
-                    layer.alert('批量出库开发中...');
+                    console.log(url);
+                    layer.open({
+                        type: 2,
+                        title: '快捷批量出库操作',
+                        closeBtn: 1, //不显示关闭按钮
+                        shade: [0.5],
+                        area: ['80%', '80%'],
+                        anim: 2,
+                        maxmin: true, //开启最大化最小化按钮
+                        shadeClose: false,
+                        content: [url], //iframe的url，no代表不显示滚动条
+                        end: function(){ //此处用于演示
+                        }
+                    });
+
                 }, function (index) {
                     layer.close(index);
                 });
             }
-            function batchReturn() {
+            //批量归还
+            function batchReturn(customer_id, orders_id) {
+                var url='index.php?r=stock-logs/batch-returns' + "&orders_id="+orders_id+"&customer_id="+customer_id;
                 layer.confirm('确定要批量归还?', {
                     title: '提示',
                     btn: ['确定', '取消'] //按钮
                 }, function (index) {
                     layer.close(index);
-                    layer.alert('批量归还开发中...');
+                    console.log(url);
+                    layer.open({
+                        type: 2,
+                        title: '快捷批量归还操作',
+                        closeBtn: 1, //不显示关闭按钮
+                        shade: [0.5],
+                        area: ['80%', '80%'],
+                        anim: 2,
+                        maxmin: true, //开启最大化最小化按钮
+                        shadeClose: false,
+                        content: [url], //iframe的url，no代表不显示滚动条
+                        end: function(){ //此处用于演示
+                        }
+                    });
                 }, function (index) {
                     layer.close(index);
                 });
 
             }
+            //导出pdf
             function OutPdf() {
                 layer.confirm('确定要导出pdf?', {
                     title: '提示',
@@ -270,6 +304,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 });
 
             }
+            //导出Excel
             function OutExcel() {
                 var url = "index.php?r=stock/out-excel&id=<?php echo $orders_info['info']['id']; ?>&name=<?php echo $orders_info['info']['name']; ?>";
                 layer.confirm('确定要导出Excel?', {
@@ -282,6 +317,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     layer.close(index);
                 });
             }
+            //发送邮件
             function sendEmail() {
                 layer.confirm('确定要发送该订单信息到指定邮箱?', {
                     title: '提示',
@@ -299,7 +335,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     layer.close(index);
                 });
             }
-
+            //打印文件
             function doPrint() {
                 layer.confirm('确定要打印订单?', {
                     title: '提示',

@@ -163,6 +163,7 @@ class Orders extends \yii\db\ActiveRecord
                         if($v4['status']==2){
                             $current_number=bcadd($current_number,$v4['current_number'],0);
                         }
+                        //计算当前出库产品总归还量
                         if($v4['is_returns']==2){
                             $return_number=bcadd($return_number,$v4['current_number'],0);
                         }
@@ -175,7 +176,7 @@ class Orders extends \yii\db\ActiveRecord
                     $log_stock_arr[$k1]['current_number']=$current_number;
                     #归还量
                     $log_stock_arr[$k1]['return_number']=$return_number;
-                    #实际出库数量
+                    #实际出库数量=总出库量-归还量
                     $actual_number=bcsub($current_number,$return_number,0);
                     $log_stock_arr[$k1]['actual_number']=$actual_number;
 

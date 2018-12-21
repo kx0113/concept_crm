@@ -53,9 +53,7 @@ use common\models\Customer;
                                 </table>
 
                             </div>
-                            <div  class="form-group  col-xs-4">
-                                <button type="button" onclick="submit_form()" class="btn btn-primary">提交</button>
-                            </div>
+
                         </div>
                     </div>
                 </div>
